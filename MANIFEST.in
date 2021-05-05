@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include rangsutra *.css
+recursive-include rangsutra *.csv
+recursive-include rangsutra *.html
+recursive-include rangsutra *.ico
+recursive-include rangsutra *.js
+recursive-include rangsutra *.json
+recursive-include rangsutra *.md
+recursive-include rangsutra *.png
+recursive-include rangsutra *.py
+recursive-include rangsutra *.svg
+recursive-include rangsutra *.txt
+recursive-exclude rangsutra *.pyc
