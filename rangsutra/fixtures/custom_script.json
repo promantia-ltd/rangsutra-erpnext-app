@@ -4,11 +4,11 @@
   "doctype": "Custom Script",
   "dt": "POS Invoice",
   "enabled": 1,
-  "modified": "2021-05-10 17:14:52.917965",
+  "modified": "2021-05-10 17:21:08.223331",
   "name": "POS Invoice-Client",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
-  "script": "frappe.ui.form.on('POS Invoice', {\n    before_submit(frm){\n        if(frm.doc.transaction_id!=null && frm.doc.transaction_id!=undefined){\n\t        for(var i=0;i<frm.doc.payments.length;i++){\n\t            if(frm.doc.payments[i].mode_of_payment==\"Online\" && frm.doc.payments[i].mode_of_payment!=undefined && frm.doc.payments[i].base_amount>0){\n\t                frm.doc.payments[i].transaction_id=frm.doc.transaction_id\n\t            }\n\t        }\n\t    }\n\t\tif (frm.doc.payments!=null) {\n\t\t\tfor(var j=0;j<frm.doc.payments.length;j++){\n\t            if(frm.doc.payments[j].mode_of_payment==\"Online\" && frm.doc.payments[j].mode_of_payment!=undefined && frm.doc.payments[j].base_amount>0){\n\t                if(frm.doc.payments[j].transaction_id==null||frm.doc.payments[j].transaction_id==undefined||frm.doc.payments[j].transaction_id==''){\n\t                    frappe.msgprint(__(\"Mode of Payment is Online.So please update the Transaction ID\"));\n\t\t\t            frappe.validated = false;\n\t                }\n\t            }\n\t        }\n\t\t}\n\t}\n})"
+  "script": "frappe.ui.form.on('POS Invoice', {\n    validate(frm){\n        if(frm.doc.transaction_id!=null && frm.doc.transaction_id!=undefined){\n\t        for(var i=0;i<frm.doc.payments.length;i++){\n\t            if(frm.doc.payments[i].mode_of_payment==\"Online\" && frm.doc.payments[i].mode_of_payment!=undefined && frm.doc.payments[i].base_amount>0){\n\t                frm.doc.payments[i].transaction_id=frm.doc.transaction_id\n\t            }\n\t        }\n\t    }\n\t\tif (frm.doc.payments!=null) {\n\t\t\tfor(var j=0;j<frm.doc.payments.length;j++){\n\t            if(frm.doc.payments[j].mode_of_payment==\"Online\" && frm.doc.payments[j].mode_of_payment!=undefined && frm.doc.payments[j].base_amount>0){\n\t                if(frm.doc.payments[j].transaction_id==null||frm.doc.payments[j].transaction_id==undefined||frm.doc.payments[j].transaction_id==''){\n\t                    frappe.msgprint(__(\"Mode of Payment is Online.So please update the Transaction ID\"));\n\t\t\t            frappe.validated = false;\n\t                }\n\t            }\n\t        }\n\t\t}\n\t}\n})"
  }
 ]
