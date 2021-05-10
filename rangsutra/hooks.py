@@ -11,6 +11,37 @@ app_color = "grey"
 app_email = "rangsutra_app@gmail.com"
 app_license = "MIT"
 
+
+
+fixtures = [
+{
+    "dt":"DocType",
+    "filters":[
+        [
+        "name","in",[
+		"Style Details",
+		"Collection Details",
+		"Launch Details"
+        ]
+    ]
+]
+},
+{"dt": "Custom Field",
+		"filters": [
+         [
+             "name", "in", [
+		"Brand-brand_code",
+		"Item-brand_code",
+		"Item-launch_year",
+		"Item-collection_code",
+		"Item-style_number",
+		"Item Group-category_code",
+		"Item Group-sub_category_code"
+		]
+	]
+]
+}
+]
 # Includes in <head>
 # ------------------
 
