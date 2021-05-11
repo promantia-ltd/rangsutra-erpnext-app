@@ -38,7 +38,8 @@ fixtures = [
 		"Item Group-category_code",
 		"Item Group-sub_category_code",
 		"POS Invoice-transaction_id",
-		"Sales Invoice Payment-transaction_id"
+		"Sales Invoice Payment-transaction_id",
+		"Item-updated_item"
 		]
 	]
 ]
@@ -47,7 +48,17 @@ fixtures = [
 		"filters": [
          [
              "name", "in", [
-		"POS Invoice-Client"
+		"POS Invoice-Client",
+		"Item-Client"
+		]
+	]
+]
+},
+{"dt": "Server Script",
+		"filters": [
+         [
+             "name", "in", [
+		"item_codification"
 		]
 	]
 ]
