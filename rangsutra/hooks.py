@@ -44,6 +44,16 @@ fixtures = [
 	]
 ]
 },
+{"dt": "Property Setter",
+		"filters": [
+         [
+             "name", "in", [
+		"Item-brand-mandatory_depends_on",
+		"Item-brand-read_only_depends_on"
+		]
+	]
+]
+},
 {"dt": "Custom Script",
 		"filters": [
          [
