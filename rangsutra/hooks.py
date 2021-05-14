@@ -36,7 +36,43 @@ fixtures = [
 		"Item-collection_code",
 		"Item-style_number",
 		"Item Group-category_code",
-		"Item Group-sub_category_code"
+		"Item Group-sub_category_code",
+		"POS Invoice-transaction_id",
+		"Sales Invoice Payment-transaction_id",
+		"Item-updated_item",
+		"Item-item_details",
+		"Item-column_break_30",
+		"Delivery Note-tracking_id"
+		]
+	]
+]
+},
+{"dt": "Property Setter",
+		"filters": [
+         [
+             "name", "in", [
+		"Item-brand-mandatory_depends_on",
+		"Item-brand-read_only_depends_on"
+		]
+	]
+]
+},
+{"dt": "Custom Script",
+		"filters": [
+         [
+             "name", "in", [
+		"POS Invoice-Client",
+		"Item-Client",
+		"Delivery Note-Client"
+		]
+	]
+]
+},
+{"dt": "Server Script",
+		"filters": [
+         [
+             "name", "in", [
+		"item_codification"
 		]
 	]
 ]
