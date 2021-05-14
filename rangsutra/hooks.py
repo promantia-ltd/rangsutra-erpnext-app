@@ -39,7 +39,10 @@ fixtures = [
 		"Item Group-sub_category_code",
 		"POS Invoice-transaction_id",
 		"Sales Invoice Payment-transaction_id",
-		"Item-updated_item"
+		"Item-updated_item",
+		"Item-item_details",
+		"Item-column_break_30",
+		"Delivery Note-tracking_id"
 		]
 	]
 ]
@@ -59,7 +62,8 @@ fixtures = [
          [
              "name", "in", [
 		"POS Invoice-Client",
-		"Item-Client"
+		"Item-Client",
+		"Delivery Note-Client"
 		]
 	]
 ]
