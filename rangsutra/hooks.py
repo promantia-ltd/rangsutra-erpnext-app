@@ -42,7 +42,8 @@ fixtures = [
 		"Item-updated_item",
 		"Item-item_details",
 		"Item-column_break_30",
-		"Delivery Note-tracking_id"
+		"Delivery Note-tracking_id",
+		"Item Barcode-system_generated_barcode"
 		]
 	]
 ]
