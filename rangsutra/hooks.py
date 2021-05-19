@@ -43,7 +43,8 @@ fixtures = [
 		"Item-item_details",
 		"Item-column_break_30",
 		"Delivery Note-tracking_id",
-		"Item Barcode-system_generated_barcode"
+		"Item Barcode-system_generated_barcode",
+		"Warehouse-warehouse_manager"
 		]
 	]
 ]
@@ -73,7 +74,9 @@ fixtures = [
 		"filters": [
          [
              "name", "in", [
-		"item_codification"
+		"item_codification",
+		"send_email_to_warehouse_manager",
+		"send_mail_for_order_qty"
 		]
 	]
 ]
