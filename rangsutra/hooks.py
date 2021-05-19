@@ -65,7 +65,10 @@ fixtures = [
              "name", "in", [
 		"POS Invoice-Client",
 		"Item-Client",
-		"Delivery Note-Client"
+		"Delivery Note-Client",
+		"Stock Entry-Client",
+		"Stock Reconciliation-Client",
+		"Item Attribute-Client"
 		]
 	]
 ]
@@ -76,7 +79,18 @@ fixtures = [
              "name", "in", [
 		"item_codification",
 		"send_email_to_warehouse_manager",
-		"send_mail_for_order_qty"
+		"send_mail_for_order_qty",
+		"insert_item_barcode"
+		]
+	]
+]
+},
+{"dt": "Print Format",
+		"filters": [
+         [
+             "name", "in", [
+		"Stock Reconciliation Barcode",
+		"Stock Entry Barcode"
 		]
 	]
 ]
