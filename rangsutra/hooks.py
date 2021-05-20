@@ -21,7 +21,15 @@ fixtures = [
         "name","in",[
 		"Style Details",
 		"Collection Details",
-		"Launch Details"
+		"Launch Details",
+		"Craft",
+		"Length",
+		"Sleeve Length",
+		"Cluster",
+		"Wash",
+		"Fit",
+		"Neck",
+		"Fabric"
         ]
     ]
 ]
@@ -44,7 +52,15 @@ fixtures = [
 		"Item-column_break_30",
 		"Delivery Note-tracking_id",
 		"Item Barcode-system_generated_barcode",
-		"Warehouse-warehouse_manager"
+		"Warehouse-warehouse_manager",
+		"Item-length",
+		"Item-sleeve_length",
+		"Item-cluster",
+		"Item-wash",
+		"Item-craft",
+		"Item-fit",
+		"Item-neck",
+		"Item-fabric"
 		]
 	]
 ]
@@ -94,6 +110,10 @@ fixtures = [
 		]
 	]
 ]
+},
+{"dt": "Notification", 
+		"filters": [
+			"is_standard != 1"]
 }
 ]
 # Includes in <head>
