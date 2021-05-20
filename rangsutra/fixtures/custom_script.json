@@ -4,36 +4,36 @@
   "doctype": "Custom Script",
   "dt": "Stock Entry",
   "enabled": 1,
-  "modified": "2021-05-17 10:51:53.083092",
+  "modified": "2021-05-20 13:50:01.516801",
   "name": "Stock Entry-Client",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
-  "script": "frappe.ui.form.on('Stock Entry', {\n\trefresh(frm) {\n\t\t// your code here\n\t},\n\tbefore_submit(frm){\n\t    if(frm.doc.stock_entry_type==\"Material Receipt\"){\n    \t    $.each(frm.doc.items, function(idx,item){\n    \t       frappe.call({\n    \t\t    type:\"POST\",\n    \t\t\targs:{\n    \t\t\t\t'item_code': item.item_code\n    \t\t\t},\n    \t\t\tasync:false,\n    \t\t\turl: \"/api/method/insert_barcode\",\n    \t\t\tcallback: function(r){\n\n    \t\t\t}\n    \t\t})\n    \t  })\n\t    }\n\t}\n})"
+  "script": "frappe.ui.form.on('Stock Entry', {\n\trefresh(frm) {\n\t},\n\tbefore_submit(frm){\n\t    if(frm.doc.stock_entry_type==\"Material Receipt\"){\n    \t    $.each(frm.doc.items, function(idx,item){\n    \t       frappe.call({\n    \t\t    type:\"POST\",\n    \t\t\targs:{\n    \t\t\t\t'item_code': item.item_code\n    \t\t\t},\n    \t\t\tasync:false,\n    \t\t\turl: \"/api/method/insert_barcode\",\n    \t\t\tcallback: function(r){\n\n    \t\t\t}\n    \t\t})\n    \t  })\n\t    }\n\t}\n})"
  },
  {
   "docstatus": 0,
   "doctype": "Custom Script",
   "dt": "Stock Reconciliation",
   "enabled": 1,
-  "modified": "2021-05-17 11:05:32.732792",
+  "modified": "2021-05-20 13:49:16.419093",
   "name": "Stock Reconciliation-Client",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
-  "script": "frappe.ui.form.on('Stock Reconciliation', {\n\trefresh(frm) {\n\t\t// your code here\n\t},\n\tbefore_submit(frm){\n\t    if(frm.doc.purpose==\"Opening Stock\"){\n    \t    $.each(frm.doc.items, function(idx,item){\n    \t       frappe.call({\n    \t\t    type:\"POST\",\n    \t\t\targs:{\n    \t\t\t\t'item_code': item.item_code\n    \t\t\t},\n    \t\t\tasync:false,\n    \t\t\turl: \"/api/method/insert_barcode\",\n    \t\t\tcallback: function(r){\n                    console.log(r)\n    \t\t\t}\n    \t\t})\n    \t  })\n\t    }\n\t}\n})"
+  "script": "frappe.ui.form.on('Stock Reconciliation', {\n\trefresh(frm) {\n\t},\n\tbefore_submit(frm){\n\t    if(frm.doc.purpose==\"Opening Stock\"){\n    \t    $.each(frm.doc.items, function(idx,item){\n    \t       frappe.call({\n    \t\t    type:\"POST\",\n    \t\t\targs:{\n    \t\t\t\t'item_code': item.item_code\n    \t\t\t},\n    \t\t\tasync:false,\n    \t\t\turl: \"/api/method/insert_barcode\",\n    \t\t\tcallback: function(r){\n                    console.log(r)\n    \t\t\t}\n    \t\t})\n    \t  })\n\t    }\n\t}\n})"
  },
  {
   "docstatus": 0,
   "doctype": "Custom Script",
   "dt": "Item Attribute",
   "enabled": 1,
-  "modified": "2021-05-19 14:16:07.264511",
+  "modified": "2021-05-20 13:48:59.854603",
   "name": "Item Attribute-Client",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
-  "script": "frappe.ui.form.on('Item Attribute', {\n\trefresh(frm) {\n\t\t// your code here\n\t},\n\tbefore_save: function(frm,cdt,cdn){\n\t    $.each(frm.doc.item_attribute_values, function(idx,item){\n\t       if(frm.doc.name=='Size'){\n    \t    //var row = locals[cdt][cdn];\n    \t    if(item.abbr.length>=4){\n    \t        frappe.validate=false;\n    \t        frappe.throw(__(\"The abbrevation should be less then 3\"))\n    \t    }\n    \t}\n\t    })\n\t}\n})"
+  "script": "frappe.ui.form.on('Item Attribute', {\n\trefresh(frm) {\n\t},\n\tbefore_save: function(frm,cdt,cdn){\n\t    $.each(frm.doc.item_attribute_values, function(idx,item){\n\t       var name=frm.doc.name;\n\t       var str = name.toLowerCase();\n\t       if(str.includes(\"size\")){\n    \t    if(item.abbr.length>=4){\n    \t        frappe.validate=false;\n    \t        frappe.throw(__(\"The abbrevation should be less then 3\"))\n    \t    }\n    \t}\n\t    })\n\t}\n})"
  },
  {
   "docstatus": 0,
@@ -52,12 +52,12 @@
   "doctype": "Custom Script",
   "dt": "Item",
   "enabled": 1,
-  "modified": "2021-05-19 15:31:12.189801",
+  "modified": "2021-05-20 13:48:46.024764",
   "name": "Item-Client",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
-  "script": "frappe.ui.form.on('Item', {\n    refresh: function(frm){\n        if(frm.doc.variant_of != undefined){\n            frappe.db.get_value(\"Item\",{\"name\":frm.doc.variant_of},[\"brand_code\",\"launch_year\",\"collection_code\",\"style_number\"],(i)=>{\n               if(frm.doc.brand_code == undefined){ frm.set_value(\"brand_code\",i.brand_code); }\n               if(frm.doc.launch_year == undefined){ frm.set_value(\"launch_year\",i.launch_year);}\n               if(frm.doc.collection_code == undefined){ frm.set_value(\"collection_code\",i.collection_code);}\n                if(frm.doc.style_number == undefined){frm.set_value(\"style_number\",i.style_number);}\n            });\n        }\n    },\n\tbefore_save: function(frm){\n\t    if(frm.doc.variant_of == undefined && frm.doc.is_sales_item == 1){\n\t        var brand = frm.doc.brand_code;\n\t        var year = frm.doc.launch_year;\n\t        var collection = frm.doc.collection_code;\n\t        var sub_category;\n\t        var category;\n\t        var style = frm.doc.style_number;\n\t        var res;\n\t        frappe.db.get_value(\"Item Group\",{\"name\":frm.doc.item_group},[\"sub_category_code\",\"parent_item_group\"],(s)=>{\n\t          sub_category=s.sub_category_code;\n\t          frappe.db.get_value(\"Item Group\",{\"name\":s.parent_item_group},\"category_code\",(c)=>{\n\t              category=c.category_code\n\t              if(category == undefined){\n\t             res = brand.concat(year,collection,sub_category,style)\n\t              }else{\n\t             res = brand.concat(year,collection,category,sub_category,style)\n\t              }\n\t              frm.set_value(\"item_code\",res);\n\t              frm.refresh_field(\"item_code\");\n\t          })\n\t        });\n\t    }\n\t    else{}\n\t}\n})\n\nfrappe.ui.form.on('Item Barcode', {\n\trefresh(frm) {\n\t\t// your code here\n\t},\n\tbefore_barcodes_remove: function(frm, cdt, cdn) {\n\t    var row = locals[cdt][cdn];\n\t    if(row.system_generated_barcode==1){\n    \t    frappe.validate = false;\n    \t \tfrappe.throw(__(\"Not able to delete the system generated barcode\"));\n\t    }\n\t}\n})"
+  "script": "frappe.ui.form.on('Item', {\n    refresh: function(frm){\n        if(frm.doc.variant_of != undefined){\n            frappe.db.get_value(\"Item\",{\"name\":frm.doc.variant_of},[\"brand_code\",\"launch_year\",\"collection_code\",\"style_number\"],(i)=>{\n               if(frm.doc.brand_code == undefined){ frm.set_value(\"brand_code\",i.brand_code); }\n               if(frm.doc.launch_year == undefined){ frm.set_value(\"launch_year\",i.launch_year);}\n               if(frm.doc.collection_code == undefined){ frm.set_value(\"collection_code\",i.collection_code);}\n                if(frm.doc.style_number == undefined){frm.set_value(\"style_number\",i.style_number);}\n            });\n        }\n    },\n\tbefore_save: function(frm){\n\t    if(frm.doc.variant_of == undefined && frm.doc.is_sales_item == 1){\n\t        var brand = frm.doc.brand_code;\n\t        var year = frm.doc.launch_year;\n\t        var collection = frm.doc.collection_code;\n\t        var sub_category;\n\t        var category;\n\t        var style = frm.doc.style_number;\n\t        var res;\n\t        frappe.db.get_value(\"Item Group\",{\"name\":frm.doc.item_group},[\"sub_category_code\",\"parent_item_group\"],(s)=>{\n\t          sub_category=s.sub_category_code;\n\t          frappe.db.get_value(\"Item Group\",{\"name\":s.parent_item_group},\"category_code\",(c)=>{\n\t              category=c.category_code\n\t              if(category == undefined){\n\t             res = brand.concat(year,collection,sub_category,style)\n\t              }else{\n\t             res = brand.concat(year,collection,category,sub_category,style)\n\t              }\n\t              frm.set_value(\"item_code\",res);\n\t              frm.refresh_field(\"item_code\");\n\t          })\n\t        });\n\t    }\n\t    else{}\n\t}\n})\n\nfrappe.ui.form.on('Item Barcode', {\n\trefresh(frm) {\n\t},\n\tbefore_barcodes_remove: function(frm, cdt, cdn) {\n\t    var row = locals[cdt][cdn];\n\t    if(row.system_generated_barcode==1){\n    \t    frappe.validate = false;\n    \t \tfrappe.throw(__(\"Not able to delete the system generated barcode\"));\n\t    }\n\t}\n})"
  },
  {
   "docstatus": 0,
