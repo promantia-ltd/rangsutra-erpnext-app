@@ -1,0 +1,60 @@
+[
+ {
+  "add_total_row": 0,
+  "columns": [],
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "filters": [],
+  "is_standard": "No",
+  "javascript": null,
+  "json": null,
+  "letter_head": null,
+  "modified": "2021-05-21 16:20:11.396245",
+  "module": "Selling",
+  "name": "Sales Order Item-wise Stock Report",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select s.name as \"Sales Order:Link/Sales Order:200\",\nsi.item_name as \"Item:Link/Item:200\",\nb.warehouse as \"Warehouse:Link/Warehouse:200\",\nb.actual_qty as \"Qty::100\"\nfrom `tabSales Order`s\nleft join `tabSales Order Item`si\non si.parent=s.name\nleft join `tabBin`b\non si.item_code=b.item_code",
+  "ref_doctype": "Sales Order",
+  "reference_report": null,
+  "report_name": "Sales Order Item-wise Stock Report",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Sales Order Item-wise Stock Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sales User"
+   },
+   {
+    "parent": "Sales Order Item-wise Stock Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sales Manager"
+   },
+   {
+    "parent": "Sales Order Item-wise Stock Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Maintenance User"
+   },
+   {
+    "parent": "Sales Order Item-wise Stock Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Sales Order Item-wise Stock Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   }
+  ]
+ }
+]
