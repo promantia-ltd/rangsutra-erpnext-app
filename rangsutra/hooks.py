@@ -115,7 +115,16 @@ fixtures = [
 {"dt": "Notification", 
 		"filters": [
 			"is_standard != 1"]
-}
+},
+{"dt": "Report",
+		"filters": [
+         [
+             "name", "in", [
+		"Sales Order Item-wise Stock Report"
+		]
+	]
+]
+},
 ]
 # Includes in <head>
 # ------------------
