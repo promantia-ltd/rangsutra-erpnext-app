@@ -106,7 +106,8 @@ fixtures = [
          [
              "name", "in", [
 		"Stock Reconciliation Barcode",
-		"Stock Entry Barcode"
+		"Stock Entry Barcode",
+		"Item Barcode"
 		]
 	]
 ]
