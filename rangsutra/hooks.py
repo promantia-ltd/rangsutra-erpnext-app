@@ -21,7 +21,15 @@ fixtures = [
         "name","in",[
 		"Style Details",
 		"Collection Details",
-		"Launch Details"
+		"Launch Details",
+		"Craft",
+		"Length",
+		"Sleeve Length",
+		"Cluster",
+		"Wash",
+		"Fit",
+		"Neck",
+		"Fabric"
         ]
     ]
 ]
@@ -42,7 +50,17 @@ fixtures = [
 		"Item-updated_item",
 		"Item-item_details",
 		"Item-column_break_30",
-		"Delivery Note-tracking_id"
+		"Delivery Note-tracking_id",
+		"Item Barcode-system_generated_barcode",
+		"Warehouse-warehouse_manager",
+		"Item-length",
+		"Item-sleeve_length",
+		"Item-cluster",
+		"Item-wash",
+		"Item-craft",
+		"Item-fit",
+		"Item-neck",
+		"Item-fabric"
 		]
 	]
 ]
@@ -63,7 +81,10 @@ fixtures = [
              "name", "in", [
 		"POS Invoice-Client",
 		"Item-Client",
-		"Delivery Note-Client"
+		"Delivery Note-Client",
+		"Stock Entry-Client",
+		"Stock Reconciliation-Client",
+		"Item Attribute-Client"
 		]
 	]
 ]
@@ -72,11 +93,38 @@ fixtures = [
 		"filters": [
          [
              "name", "in", [
-		"item_codification"
+		"item_codification",
+		"send_email_to_warehouse_manager",
+		"send_mail_for_order_qty",
+		"insert_item_barcode"
 		]
 	]
 ]
-}
+},
+{"dt": "Print Format",
+		"filters": [
+         [
+             "name", "in", [
+		"Stock Reconciliation Barcode",
+		"Stock Entry Barcode",
+		"Item Barcode"
+		]
+	]
+]
+},
+{"dt": "Notification", 
+		"filters": [
+			"is_standard != 1"]
+},
+{"dt": "Report",
+		"filters": [
+         [
+             "name", "in", [
+		"Sales Order Item-wise Stock Report"
+		]
+	]
+]
+},
 ]
 # Includes in <head>
 # ------------------
