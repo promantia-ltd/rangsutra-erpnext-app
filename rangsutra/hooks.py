@@ -62,7 +62,9 @@ fixtures = [
 		"Item-neck",
 		"Item-fabric",
 		"Sales Invoice Payment-payment_source",
-		"POS Invoice-payment_source"
+		"POS Invoice-payment_source",
+		"Sales Invoice-delivery_note",
+		"Sales Invoice-destination"
 		]
 	]
 ]
