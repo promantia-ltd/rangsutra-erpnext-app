@@ -88,7 +88,8 @@ fixtures = [
 		"Delivery Note-Client",
 		"Stock Entry-Client",
 		"Stock Reconciliation-Client",
-		"Item Attribute-Client"
+		"Item Attribute-Client",
+		"Sales Invoice-Client"
 		]
 	]
 ]
@@ -111,7 +112,8 @@ fixtures = [
              "name", "in", [
 		"Stock Reconciliation Barcode",
 		"Stock Entry Barcode",
-		"Item Barcode"
+		"Item Barcode",
+		"Rangsutra Sales Invoice Print Format"
 		]
 	]
 ]
