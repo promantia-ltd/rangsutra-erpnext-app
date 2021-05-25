@@ -122,15 +122,10 @@ fixtures = [
 		"filters": [
 			"is_standard != 1"]
 },
-{"dt": "Report",
+{"dt": "Report", 
 		"filters": [
-         [
-             "name", "in", [
-		"Sales Order Item-wise Stock Report"
-		]
-	]
-]
-},
+			"is_standard != 1"]
+}
 ]
 # Includes in <head>
 # ------------------
