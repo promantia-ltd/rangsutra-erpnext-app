@@ -40,12 +40,12 @@
   "doctype": "Custom Script",
   "dt": "Item Attribute",
   "enabled": 1,
-  "modified": "2021-05-25 13:13:35.599904",
+  "modified": "2021-05-25 13:56:10.159882",
   "name": "Item Attribute-Client",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
-  "script": "frappe.ui.form.on('Item Attribute', {\n\trefresh(frm) {\n\t    var df1 = frappe.meta.get_docfield(\"Item Attribute Value\",\"abbr\", cur_frm.doc.name);\n            df1.set_only_once = 1;\n\t},\n\tbefore_save: function(frm,cdt,cdn){\n\t    $.each(frm.doc.item_attribute_values, function(idx,item){\n\t       var name=frm.doc.name;\n\t       var str = name.toLowerCase();\n\t       if(str.includes(\"size\")){\n    \t    if(item.abbr.length>=4){\n    \t        frappe.validate=false;\n    \t        frappe.throw(__(\"The abbreviation length should be less than 3 characters. The maximum field length has been exceeded, please update.\"))\n    \t    }\n    \t}\n\t    })\n\t}\n})"
+  "script": "frappe.ui.form.on('Item Attribute', {\n\trefresh(frm) {\n\t    var abbr_field = frappe.meta.get_docfield(\"Item Attribute Value\",\"abbr\", cur_frm.doc.name);\n            abbr_field.set_only_once = 1;\n\t},\n\tbefore_save: function(frm,cdt,cdn){\n\t    $.each(frm.doc.item_attribute_values, function(idx,item){\n\t       var name=frm.doc.name;\n\t       var str = name.toLowerCase();\n\t       if(str.includes(\"size\")){\n    \t    if(item.abbr.length>=4){\n    \t        frappe.validate=false;\n    \t        frappe.throw(__(\"The abbreviation length should be less than 3 characters. The maximum field length has been exceeded, please update.\"))\n    \t    }\n    \t}\n\t    })\n\t}\n})"
  },
  {
   "docstatus": 0,
