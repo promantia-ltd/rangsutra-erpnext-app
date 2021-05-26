@@ -64,7 +64,9 @@ fixtures = [
 		"Sales Invoice Payment-payment_source",
 		"POS Invoice-payment_source",
 		"Sales Invoice-delivery_note",
-		"Sales Invoice-destination"
+		"Sales Invoice-destination",
+		"Sales Invoice-financial_year",
+		"Sales Invoice-dispatch_document_no"
 		]
 	]
 ]
@@ -74,7 +76,8 @@ fixtures = [
          [
              "name", "in", [
 		"Item-brand-mandatory_depends_on",
-		"Item-brand-read_only_depends_on"
+		"Item-brand-read_only_depends_on",
+		"Sales Invoice-naming_series-options"
 		]
 	]
 ]
