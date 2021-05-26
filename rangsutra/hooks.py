@@ -66,7 +66,8 @@ fixtures = [
 		"Sales Invoice-delivery_note",
 		"Sales Invoice-destination",
 		"Sales Invoice-financial_year",
-		"Sales Invoice-dispatch_document_no"
+		"Sales Invoice-dispatch_document_no",
+		"Item-print_label_quantity"
 		]
 	]
 ]
