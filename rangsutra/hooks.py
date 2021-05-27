@@ -129,6 +129,23 @@ fixtures = [
 {"dt": "Report", 
 		"filters": [
 			"is_standard != 1"]
+},
+{"dt": "Role", 
+		"filters":[
+        [
+        "name","in",["Operations Manager - Retail",
+			"Retail Merchandiser",
+			"Retail Design & Business Manager",
+			"Inventory & Retail Accounts Manager",
+			"Stock Controller and Logistics In-Charge",
+			"Store + RS Online Manager",
+			"Marketing & Communications Executive",
+			"Design Executive",
+			"Digital Marketing and E-commerce Consultant",
+			"Technical Support and Troubleshooting"
+	]
+	]
+	]
 }
 ]
 # Includes in <head>
