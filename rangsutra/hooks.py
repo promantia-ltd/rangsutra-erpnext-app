@@ -67,7 +67,10 @@ fixtures = [
 		"Sales Invoice-destination",
 		"Sales Invoice-financial_year",
 		"Sales Invoice-dispatch_document_no",
-		"Item-print_label_quantity"
+		"Item-print_label_quantity",
+		"Packing Slip-box_no",
+		"Packing Slip Item-box_no",
+		"Packing Slip Item-box_measurement"
 		]
 	]
 ]
@@ -78,7 +81,9 @@ fixtures = [
              "name", "in", [
 		"Item-brand-mandatory_depends_on",
 		"Item-brand-read_only_depends_on",
-		"Sales Invoice-naming_series-options"
+		"Sales Invoice-naming_series-options",
+		"Packing Slip-to_case_no-hidden",
+		"Packing Slip-from_case_no-hidden"
 		]
 	]
 ]
@@ -93,7 +98,8 @@ fixtures = [
 		"Stock Entry-Client",
 		"Stock Reconciliation-Client",
 		"Item Attribute-Client",
-		"Sales Invoice-Client"
+		"Sales Invoice-Client",
+		"Packing Slip-Client"
 		]
 	]
 ]
@@ -117,7 +123,8 @@ fixtures = [
 		"Stock Reconciliation Barcode",
 		"Stock Entry Barcode",
 		"Item Barcode",
-		"Rangsutra Sales Invoice Print Format"
+		"Rangsutra Sales Invoice Print Format",
+		"Rangsutra Packing Slip"
 		]
 	]
 ]
