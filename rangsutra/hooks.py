@@ -81,7 +81,8 @@ fixtures = [
 		"Item-brand-read_only_depends_on",
 		"Sales Invoice-naming_series-options",
 		"Packing Slip-to_case_no-hidden",
-		"Packing Slip-from_case_no-hidden"
+		"Packing Slip-from_case_no-hidden",
+		"Packing Slip Item-item_name-fetch_from"
 		]
 	]
 ]
