@@ -68,9 +68,7 @@ fixtures = [
 		"Sales Invoice-financial_year",
 		"Sales Invoice-dispatch_document_no",
 		"Item-print_label_quantity",
-		"Packing Slip-box_no",
-		"Packing Slip Item-box_no",
-		"Packing Slip Item-box_measurement"
+		"Packing Slip-box_no"
 		]
 	]
 ]
@@ -133,9 +131,15 @@ fixtures = [
 		"filters": [
 			"is_standard != 1"]
 },
-{"dt": "Report", 
+{"dt": "Report",
 		"filters": [
-			"is_standard != 1"]
+         [
+             "name", "in", [
+		"Sales Order Item-wise Stock Report",
+		"New Collections Sell Through Report"
+		]
+	]
+]
 },
 {"dt": "Role", 
 		"filters":[
