@@ -68,7 +68,8 @@ fixtures = [
 		"Sales Invoice-financial_year",
 		"Sales Invoice-dispatch_document_no",
 		"Item-print_label_quantity",
-		"Packing Slip-box_no"
+		"Packing Slip-box_no",
+		"Item-print_name"
 		]
 	]
 ]
