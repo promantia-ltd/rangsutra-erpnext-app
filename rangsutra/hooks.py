@@ -60,7 +60,16 @@ fixtures = [
 		"Item-craft",
 		"Item-fit",
 		"Item-neck",
-		"Item-fabric"
+		"Item-fabric",
+		"Sales Invoice Payment-payment_source",
+		"POS Invoice-payment_source",
+		"Sales Invoice-delivery_note",
+		"Sales Invoice-destination",
+		"Sales Invoice-financial_year",
+		"Sales Invoice-dispatch_document_no",
+		"Item-print_label_quantity",
+		"Packing Slip-box_no",
+		"Item-print_name"
 		]
 	]
 ]
@@ -70,7 +79,11 @@ fixtures = [
          [
              "name", "in", [
 		"Item-brand-mandatory_depends_on",
-		"Item-brand-read_only_depends_on"
+		"Item-brand-read_only_depends_on",
+		"Sales Invoice-naming_series-options",
+		"Packing Slip-to_case_no-hidden",
+		"Packing Slip-from_case_no-hidden",
+		"Packing Slip Item-item_name-fetch_from"
 		]
 	]
 ]
@@ -84,7 +97,9 @@ fixtures = [
 		"Delivery Note-Client",
 		"Stock Entry-Client",
 		"Stock Reconciliation-Client",
-		"Item Attribute-Client"
+		"Item Attribute-Client",
+		"Sales Invoice-Client",
+		"Packing Slip-Client"
 		]
 	]
 ]
@@ -107,7 +122,9 @@ fixtures = [
              "name", "in", [
 		"Stock Reconciliation Barcode",
 		"Stock Entry Barcode",
-		"Item Barcode"
+		"Item Barcode",
+		"Rangsutra Sales Invoice Print Format",
+		"Rangsutra Packing Slip"
 		]
 	]
 ]
@@ -120,11 +137,29 @@ fixtures = [
 		"filters": [
          [
              "name", "in", [
-		"Sales Order Item-wise Stock Report"
+		"Sales Order Item-wise Stock Report",
+		"New Collections Sell Through Report"
 		]
 	]
 ]
 },
+{"dt": "Role", 
+		"filters":[
+        [
+        "name","in",["Operations Manager - Retail",
+			"Retail Merchandiser",
+			"Retail Design & Business Manager",
+			"Inventory & Retail Accounts Manager",
+			"Stock Controller and Logistics In-Charge",
+			"Store + RS Online Manager",
+			"Marketing & Communications Executive",
+			"Design Executive",
+			"Digital Marketing and E-commerce Consultant",
+			"Technical Support and Troubleshooting"
+	]
+	]
+	]
+}
 ]
 # Includes in <head>
 # ------------------

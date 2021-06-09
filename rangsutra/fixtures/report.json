@@ -11,14 +11,90 @@
   "javascript": null,
   "json": null,
   "letter_head": null,
-  "modified": "2021-05-21 16:20:11.396245",
+  "modified": "2021-06-03 11:03:32.638937",
+  "module": "Stock",
+  "name": "New Collections Sell Through Report",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "SELECT \n  CONCAT(\n    \"<img height=\", 50, \" src=\", i.image, \n    \">\"\n  ) as \"Image::150\",  \n  i.description as \"Description::250\", \n  ld.launch_year_name as \"Launch Year::100\", \n  (\n    SELECT \n      SUM(slep.actual_qty) \n    FROM \n      `tabItem` ti \n      LEFT JOIN `tabStock Ledger Entry` slep ON slep.item_code = ti.item_code \n    WHERE \n      ti.variant_of = i.item_code \n      AND slep.actual_qty > 0\n  ) as \"Total Qty::100\", \n  (\n    SELECT \n      ABS(\n        SUM(slen.actual_qty)\n      ) \n    FROM \n      `tabItem` tin \n      LEFT JOIN `tabStock Ledger Entry` slen ON slen.item_code = tin.item_code \n    WHERE \n      tin.variant_of = i.item_code \n      AND slen.actual_qty < 0\n  ) as \"Sales from till date::130\", \n  (\n    (\n      SELECT \n        ABS(\n          (\n            SUM(tslen.actual_qty)/ SUM(tslep.actual_qty)\n          )* 100\n        ) \n      FROM \n        `tabItem` tti \n        LEFT JOIN `tabStock Ledger Entry` tslep ON tslep.item_code = tti.item_code \n        LEFT JOIN `tabStock Ledger Entry` tslen ON tslen.item_code = tti.item_code \n      WHERE \n        tti.variant_of = i.item_code \n        AND tslep.actual_qty > 0 \n        AND tslen.actual_qty < 0\n    )\n  ) as \"Sell Thru Perc::100\", \n  (\n    SELECT \n      ipa.price_list_rate \n    from \n      `tabItem` ip \n      LEFT JOIN `tabItem Price` ipa ON ip.item_code = ipa.item_code \n      AND ipa.selling = 1 \n    WHERE \n      ip.variant_of = i.item_code \n    LIMIT \n      1\n  ) as \"MRP::100\" \nFROM \n  `tabItem` i \n  LEFT JOIN `tabLaunch Details` ld ON i.launch_year = ld.name \n  LEFT JOIN `tabItem Price` ip ON ip.item_code = i.item_code \n  AND ip.selling = 1 \nWHERE \n  i.variant_of IS NULL \n  AND i.has_variants = 1 \nUNION \nSELECT \n  CONCAT(\n    \"<img height=\", 50, \" src=\", i.image, \n    \">\"\n  ) as \"Image::150\", \n  i.description as \"Description::250\", \n  ld.launch_year_name as \"Launch Year::100\", \n  (\n    SELECT \n      SUM(slep.actual_qty) \n    FROM \n      `tabStock Ledger Entry` slep \n    WHERE \n      slep.item_code = i.item_code \n      AND slep.actual_qty > 0\n  ) as \"Total Qty::100\", \n  (\n    SELECT \n      ABS(\n        SUM(slen.actual_qty)\n      ) \n    FROM \n      `tabStock Ledger Entry` slen \n    WHERE \n      slen.item_code = i.item_code \n      AND slen.actual_qty < 0\n  ) as \"Sales from till date::130\", \n  (\n    SELECT \n      ABS(\n        (\n          SUM(tslen.actual_qty)/ SUM(tslep.actual_qty)\n        )* 100\n      ) \n    from \n      `tabStock Ledger Entry` tslep, \n      `tabStock Ledger Entry` tslen \n    WHERE \n      tslep.item_code = i.item_code \n      AND tslep.actual_qty > 0 \n      AND tslen.item_code = i.item_code \n      AND tslen.actual_qty < 0\n  ) as \"Sell Thru Perc::100\", \n  ip.price_list_rate as \"MRP::100\" \nFROM \n  `tabItem` i \n  LEFT JOIN `tabLaunch Details` ld ON i.launch_year = ld.name \n  LEFT JOIN `tabItem Price` ip ON ip.item_code = i.item_code \n  AND ip.selling = 1 \nWHERE \n  i.variant_of IS NULL \n  AND i.has_variants = 0\n",
+  "ref_doctype": "Item",
+  "reference_report": null,
+  "report_name": "New Collections Sell Through Report",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "New Collections Sell Through Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Item Manager"
+   },
+   {
+    "parent": "New Collections Sell Through Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "New Collections Sell Through Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "New Collections Sell Through Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sales User"
+   },
+   {
+    "parent": "New Collections Sell Through Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "New Collections Sell Through Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Maintenance User"
+   },
+   {
+    "parent": "New Collections Sell Through Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "New Collections Sell Through Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing User"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "columns": [],
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "filters": [],
+  "is_standard": "No",
+  "javascript": null,
+  "json": null,
+  "letter_head": null,
+  "modified": "2021-05-27 15:28:49.598000",
   "module": "Selling",
   "name": "Sales Order Item-wise Stock Report",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
   "prepared_report": 0,
-  "query": "select s.name as \"Sales Order:Link/Sales Order:200\",\nsi.item_name as \"Item:Link/Item:200\",\nb.warehouse as \"Warehouse:Link/Warehouse:200\",\nb.actual_qty as \"Qty::100\"\nfrom `tabSales Order`s\nleft join `tabSales Order Item`si\non si.parent=s.name\nleft join `tabBin`b\non si.item_code=b.item_code",
+  "query": "select s.name as \"Sales Order:Link/Sales Order\",\nsi.item_name as \"Item:Link/Item\",\nw.name as \"Warehouse:Link/Warehouse\",\nIFNULL(b.actual_qty,0) as \"Qty\"\nfrom `tabSales Order`s\nleft join `tabWarehouse`w\non w.name!=\"\"\nleft join `tabSales Order Item`si\non si.parent=s.name\nleft join `tabBin` b\non b.item_code=si.item_code and w.name=b.warehouse\norder by s.name",
   "ref_doctype": "Sales Order",
   "reference_report": null,
   "report_name": "Sales Order Item-wise Stock Report",

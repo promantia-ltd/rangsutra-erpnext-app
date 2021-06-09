@@ -1710,7 +1710,7 @@
   "fields": [
    {
     "allow_bulk_edit": 0,
-    "allow_in_quick_entry": 0,
+    "allow_in_quick_entry": 1,
     "allow_on_submit": 0,
     "bold": 0,
     "collapsible": 0,
@@ -1765,7 +1765,7 @@
    },
    {
     "allow_bulk_edit": 0,
-    "allow_in_quick_entry": 0,
+    "allow_in_quick_entry": 1,
     "allow_on_submit": 0,
     "bold": 0,
     "collapsible": 0,
@@ -1786,7 +1786,7 @@
     "ignore_xss_filter": 0,
     "in_filter": 0,
     "in_global_search": 0,
-    "in_list_view": 0,
+    "in_list_view": 1,
     "in_preview": 0,
     "in_standard_filter": 0,
     "label": "Launch Year Name",
@@ -1833,7 +1833,7 @@
   "links": [],
   "max_attachments": 0,
   "menu_index": null,
-  "modified": "2021-05-10 13:07:46.640328",
+  "modified": "2021-06-08 11:07:31.921557",
   "module": "Stock",
   "name": "Launch Details",
   "name_case": "",
@@ -1869,7 +1869,7 @@
    }
   ],
   "print_outline": null,
-  "quick_entry": 0,
+  "quick_entry": 1,
   "read_only": 0,
   "restrict_to_domain": null,
   "route": null,
@@ -1920,7 +1920,7 @@
   "fields": [
    {
     "allow_bulk_edit": 0,
-    "allow_in_quick_entry": 0,
+    "allow_in_quick_entry": 1,
     "allow_on_submit": 0,
     "bold": 0,
     "collapsible": 0,
@@ -1975,7 +1975,7 @@
    },
    {
     "allow_bulk_edit": 0,
-    "allow_in_quick_entry": 0,
+    "allow_in_quick_entry": 1,
     "allow_on_submit": 0,
     "bold": 0,
     "collapsible": 0,
@@ -1996,7 +1996,7 @@
     "ignore_xss_filter": 0,
     "in_filter": 0,
     "in_global_search": 0,
-    "in_list_view": 0,
+    "in_list_view": 1,
     "in_preview": 0,
     "in_standard_filter": 0,
     "label": "Collection Name",
@@ -2043,7 +2043,7 @@
   "links": [],
   "max_attachments": 0,
   "menu_index": null,
-  "modified": "2021-05-10 13:07:32.692733",
+  "modified": "2021-06-08 11:07:02.377792",
   "module": "Stock",
   "name": "Collection Details",
   "name_case": "",
@@ -2079,7 +2079,7 @@
    }
   ],
   "print_outline": null,
-  "quick_entry": 0,
+  "quick_entry": 1,
   "read_only": 0,
   "restrict_to_domain": null,
   "route": null,
@@ -2130,7 +2130,7 @@
   "fields": [
    {
     "allow_bulk_edit": 0,
-    "allow_in_quick_entry": 0,
+    "allow_in_quick_entry": 1,
     "allow_on_submit": 0,
     "bold": 0,
     "collapsible": 0,
@@ -2185,7 +2185,7 @@
    },
    {
     "allow_bulk_edit": 0,
-    "allow_in_quick_entry": 0,
+    "allow_in_quick_entry": 1,
     "allow_on_submit": 0,
     "bold": 0,
     "collapsible": 0,
@@ -2206,7 +2206,7 @@
     "ignore_xss_filter": 0,
     "in_filter": 0,
     "in_global_search": 0,
-    "in_list_view": 0,
+    "in_list_view": 1,
     "in_preview": 0,
     "in_standard_filter": 0,
     "label": "Style Name",
@@ -2253,7 +2253,7 @@
   "links": [],
   "max_attachments": 0,
   "menu_index": null,
-  "modified": "2021-05-10 13:07:14.934740",
+  "modified": "2021-06-08 11:06:35.454691",
   "module": "Stock",
   "name": "Style Details",
   "name_case": "",
@@ -2289,7 +2289,7 @@
    }
   ],
   "print_outline": null,
-  "quick_entry": 0,
+  "quick_entry": 1,
   "read_only": 0,
   "restrict_to_domain": null,
   "route": null,
