@@ -21,7 +21,15 @@ fixtures = [
         "name","in",[
 		"Style Details",
 		"Collection Details",
-		"Launch Details"
+		"Launch Details",
+		"Craft",
+		"Length",
+		"Sleeve Length",
+		"Cluster",
+		"Wash",
+		"Fit",
+		"Neck",
+		"Fabric"
         ]
     ]
 ]
@@ -36,10 +44,121 @@ fixtures = [
 		"Item-collection_code",
 		"Item-style_number",
 		"Item Group-category_code",
-		"Item Group-sub_category_code"
+		"Item Group-sub_category_code",
+		"POS Invoice-transaction_id",
+		"Sales Invoice Payment-transaction_id",
+		"Item-updated_item",
+		"Item-item_details",
+		"Item-column_break_30",
+		"Delivery Note-tracking_id",
+		"Item Barcode-system_generated_barcode",
+		"Warehouse-warehouse_manager",
+		"Item-length",
+		"Item-sleeve_length",
+		"Item-cluster",
+		"Item-wash",
+		"Item-craft",
+		"Item-fit",
+		"Item-neck",
+		"Item-fabric",
+		"Sales Invoice Payment-payment_source",
+		"POS Invoice-payment_source",
+		"Sales Invoice-delivery_note",
+		"Sales Invoice-destination",
+		"Sales Invoice-financial_year",
+		"Sales Invoice-dispatch_document_no",
+		"Item-print_label_quantity",
+		"Packing Slip-box_no",
+		"Item-print_name"
 		]
 	]
 ]
+},
+{"dt": "Property Setter",
+		"filters": [
+         [
+             "name", "in", [
+		"Item-brand-mandatory_depends_on",
+		"Item-brand-read_only_depends_on",
+		"Sales Invoice-naming_series-options",
+		"Packing Slip-to_case_no-hidden",
+		"Packing Slip-from_case_no-hidden",
+		"Packing Slip Item-item_name-fetch_from"
+		]
+	]
+]
+},
+{"dt": "Custom Script",
+		"filters": [
+         [
+             "name", "in", [
+		"POS Invoice-Client",
+		"Item-Client",
+		"Delivery Note-Client",
+		"Stock Entry-Client",
+		"Stock Reconciliation-Client",
+		"Item Attribute-Client",
+		"Sales Invoice-Client",
+		"Packing Slip-Client"
+		]
+	]
+]
+},
+{"dt": "Server Script",
+		"filters": [
+         [
+             "name", "in", [
+		"item_codification",
+		"send_email_to_warehouse_manager",
+		"send_mail_for_order_qty",
+		"insert_item_barcode"
+		]
+	]
+]
+},
+{"dt": "Print Format",
+		"filters": [
+         [
+             "name", "in", [
+		"Stock Reconciliation Barcode",
+		"Stock Entry Barcode",
+		"Item Barcode",
+		"Rangsutra Sales Invoice Print Format",
+		"Rangsutra Packing Slip"
+		]
+	]
+]
+},
+{"dt": "Notification", 
+		"filters": [
+			"is_standard != 1"]
+},
+{"dt": "Report",
+		"filters": [
+         [
+             "name", "in", [
+		"Sales Order Item-wise Stock Report",
+		"New Collections Sell Through Report"
+		]
+	]
+]
+},
+{"dt": "Role", 
+		"filters":[
+        [
+        "name","in",["Operations Manager - Retail",
+			"Retail Merchandiser",
+			"Retail Design & Business Manager",
+			"Inventory & Retail Accounts Manager",
+			"Stock Controller and Logistics In-Charge",
+			"Store + RS Online Manager",
+			"Marketing & Communications Executive",
+			"Design Executive",
+			"Digital Marketing and E-commerce Consultant",
+			"Technical Support and Troubleshooting"
+	]
+	]
+	]
 }
 ]
 # Includes in <head>
