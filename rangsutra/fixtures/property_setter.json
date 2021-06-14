@@ -91,7 +91,7 @@
   "doctype": "Property Setter",
   "doctype_or_field": "DocField",
   "field_name": "naming_series",
-  "modified": "2021-05-25 16:59:14.632130",
+  "modified": "2021-06-14 13:07:44.555994",
   "name": "Sales Invoice-naming_series-options",
   "parent": null,
   "parentfield": null,
@@ -99,6 +99,6 @@
   "property": "options",
   "property_type": "Text",
   "row_name": null,
-  "value": "HO/.financial_year./.####\nACC-SINV-.YYYY.-\nACC-SINV-RET-.YYYY.-"
+  "value": "SINV-.#####\nHO/.financial_year./.####\nACC-SINV-.YYYY.-\nACC-SINV-RET-.YYYY.-"
  }
 ]
