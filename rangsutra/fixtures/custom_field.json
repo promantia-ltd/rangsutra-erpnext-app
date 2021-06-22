@@ -193,7 +193,7 @@
   "name": "Sales Invoice Payment-payment_source",
   "no_copy": 0,
   "non_negative": 0,
-  "options": null,
+  "options": "\nPaytm\nGoogle Pay\nPhone Pay\nDebit Card\nNet Banking\nAmazon Pay\nCredit Card",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
