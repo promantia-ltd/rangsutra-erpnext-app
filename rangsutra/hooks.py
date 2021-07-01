@@ -95,8 +95,6 @@ fixtures = [
 		"POS Invoice-Client",
 		"Item-Client",
 		"Delivery Note-Client",
-		"Stock Entry-Client",
-		"Stock Reconciliation-Client",
 		"Item Attribute-Client",
 		"Sales Invoice-Client",
 		"Packing Slip-Client"
@@ -111,7 +109,9 @@ fixtures = [
 		"item_codification",
 		"send_email_to_warehouse_manager",
 		"send_mail_for_order_qty",
-		"insert_item_barcode"
+		"insert_item_barcode",
+		"Stock Reconciliation Before Submit",
+		"Stock Entry Before Submit"
 		]
 	]
 ]
@@ -124,7 +124,8 @@ fixtures = [
 		"Stock Entry Barcode",
 		"Item Barcode",
 		"Rangsutra Sales Invoice Print Format",
-		"Rangsutra Packing Slip"
+		"Rangsutra Packing Slip",
+		"Rangsutra POS Invoice Print Format"
 		]
 	]
 ]
