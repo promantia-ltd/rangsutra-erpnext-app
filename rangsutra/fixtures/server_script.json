@@ -62,5 +62,37 @@
   "reference_doctype": "Sales Order",
   "script": "warehouse_list=[]\nfor item in doc.items:\n    if item.warehouse not in warehouse_list:\n        warehouse_list.append(item.warehouse)\n        \n        \nfor warehouse in warehouse_list:\n        warehouse_manager_user=frappe.db.get_value('Warehouse',{'name':warehouse},'warehouse_manager')\n        if warehouse_manager_user:\n            email_address=frappe.db.get_value('User',{'name':warehouse_manager_user},'email')\n            first_name=frappe.db.get_value('User',{'name':warehouse_manager_user},'first_name')\n            my_attachments = [frappe.attach_print(doc.doctype, doc.name, file_name=doc.name)]\n            frappe.sendmail(recipients=email_address,\n                \t\tsubject=\"Sales Order -\"+doc.name+\" Confirmation notice\",\n                \t\tmessage= \"Dear \"+first_name+\",\"+\"<br>\"+\"<br>\"+\n                \t\t\" This message is to let you know that the following items have been ordered by the customer <b>\"+doc.customer+\"</b>.The details of the order have been enclosed within this mail for your reference.Order Number: <b>\"+doc.name+\"</b>.\"+\n                \t\t\"<br>\"+\"<br>\"+\n                \"Thanks and Regards,\"+\"<br>\"+\"<b>\"+\n                doc.company+\"</b>\",\n                reference_doctype=doc.doctype,\n            \treference_name=doc.name,\n            \tattachments=my_attachments)",
   "script_type": "DocType Event"
+ },
+ {
+  "allow_guest": 0,
+  "api_method": null,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "Before Submit",
+  "modified": "2021-07-01 11:06:18.779594",
+  "name": "Stock Reconciliation Before Submit",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "reference_doctype": "Stock Reconciliation",
+  "script": "if doc.purpose==\"Opening Stock\":\n    for items in frappe.db.get_list(\"Stock Reconciliation Item\",filters={\"parenttype\":\"Stock Reconciliation\",\"parent\":doc.name},fields={\"item_code\"}):\n        docval=frappe.db.get_value(\"Item Barcode\",{\"parent\":items.item_code,\"parenttype\":\"Item\",\"barcode\":items.item_code},\"barcode\")\n        if not docval:\n            item_doc = frappe.get_doc('Item',items.item_code )\n            item_doc.append('barcodes', {\n            'barcode': items.item_code,\n            'system_generated_barcode': 1\n            })\n            item_doc.save()",
+  "script_type": "DocType Event"
+ },
+ {
+  "allow_guest": 0,
+  "api_method": null,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "Before Submit",
+  "modified": "2021-07-01 11:23:05.479730",
+  "name": "Stock Entry Before Submit",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "reference_doctype": "Stock Entry",
+  "script": "if doc.stock_entry_type==\"Material Receipt\":\n    for items in frappe.db.get_list(\"Stock Entry Detail\",filters={\"parenttype\":\"Stock Entry\",\"parent\":doc.name},fields={\"item_code\"}):\n        docval=frappe.db.get_value(\"Item Barcode\",{\"parent\":items.item_code,\"parenttype\":\"Item\",\"barcode\":items.item_code},\"barcode\")\n        if not docval:\n            item_doc = frappe.get_doc('Item',items.item_code )\n            item_doc.append('barcodes', {\n            'barcode': items.item_code,\n            'system_generated_barcode': 1\n            })\n            item_doc.save()",
+  "script_type": "DocType Event"
  }
 ]
