@@ -2,7 +2,7 @@
  {
   "attach_print": 0,
   "channel": "SMS",
-  "condition": null,
+  "condition": "doc.contact_mobile != 'undefined'",
   "date_changed": null,
   "days_in_advance": 0,
   "docstatus": 0,
@@ -13,7 +13,7 @@
   "is_standard": 0,
   "message": "Dear <b>{{doc.customer_name}}</b>,<br>\nYou have successfully purchased the apparels worth {{doc.get_formatted('grand_total')}} .Thankyou for shopping with Rangsutra.<br><br>\nThanks,<br>\n{{doc.company}} Retail Team.",
   "method": null,
-  "modified": "2021-05-18 16:21:59.383053",
+  "modified": "2021-07-08 14:30:32.790616",
   "module": null,
   "name": "POS Invoice Submitted",
   "parent": null,
