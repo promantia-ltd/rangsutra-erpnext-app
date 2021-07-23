@@ -69,7 +69,11 @@ fixtures = [
 		"Sales Invoice-dispatch_document_no",
 		"Item-print_label_quantity",
 		"Packing Slip-box_no",
-		"Item-print_name"
+		"Item-print_name",
+		"Sales Order-financial_year",
+		"POS Invoice-financial_year",
+		"Stock Entry-financial_year",
+		"Stock Reconciliation-financial_year"
 		]
 	]
 ]
@@ -83,7 +87,11 @@ fixtures = [
 		"Sales Invoice-naming_series-options",
 		"Packing Slip-to_case_no-hidden",
 		"Packing Slip-from_case_no-hidden",
-		"Packing Slip Item-item_name-fetch_from"
+		"Packing Slip Item-item_name-fetch_from",
+		"Sales Order-naming_series-options",
+		"POS Invoice-naming_series-options",
+		"Stock Entry-naming_series-options",
+		"Stock Reconciliation-naming_series-options"
 		]
 	]
 ]
@@ -97,7 +105,10 @@ fixtures = [
 		"Delivery Note-Client",
 		"Item Attribute-Client",
 		"Sales Invoice-Client",
-		"Packing Slip-Client"
+		"Packing Slip-Client",
+		"Sales Order-Client",
+		"Stock Entry-Client",
+		"Stock Reconciliation-Client"
 		]
 	]
 ]

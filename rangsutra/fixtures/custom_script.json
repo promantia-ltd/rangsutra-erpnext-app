@@ -2,6 +2,18 @@
  {
   "docstatus": 0,
   "doctype": "Custom Script",
+  "dt": "Sales Order",
+  "enabled": 1,
+  "modified": "2021-07-23 14:26:54.386757",
+  "name": "Sales Order-Client",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "script": "frappe.ui.form.on('Sales Order', {\n\trefresh(frm) {\n\t    if(frm.doc.__islocal){\n    \t\tfrappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frm.doc.transaction_date],\"year_end_date\":[\">=\",frm.doc.transaction_date]},\"name\",(y)=>{\n    \t\t        frm.set_value(\"financial_year\",y.name)\n    \t\t})\n\t\t}\n\t}\n})"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Custom Script",
   "dt": "Packing Slip",
   "enabled": 1,
   "modified": "2021-06-02 16:16:25.546800",
@@ -16,12 +28,24 @@
   "doctype": "Custom Script",
   "dt": "Sales Invoice",
   "enabled": 1,
-  "modified": "2021-07-01 11:31:38.281467",
+  "modified": "2021-07-23 14:27:06.047608",
   "name": "Sales Invoice-Client",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
-  "script": "frappe.ui.form.on('Sales Invoice', {\n\trefresh(frm) {\n\t    if(frm.doc.delivery_note == undefined)\n\t\t$.each(frm.doc.items,function(idx, item){\n            if(item.delivery_note != undefined){\n                frm.set_value(\"delivery_note\",item.delivery_note)\n            }\n\t\t});\n\t\tif(frm.doc.financial_year == undefined && frm.doc.docstatus != 1 && frm.doc.docstatus != 2){\n    \t\tfrappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frm.doc.posting_date],\"year_end_date\":[\">=\",frm.doc.posting_date]},\"name\",(y)=>{\n    \t\t        frm.set_value(\"financial_year\",y.name)\n    \t\t})\n\t\t}\n\t}\n})"
+  "script": "frappe.ui.form.on('Sales Invoice', {\n\trefresh(frm) {\n\t   if(frm.doc.__islocal){\n    \t\tfrappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frm.doc.posting_date],\"year_end_date\":[\">=\",frm.doc.posting_date]},\"name\",(y)=>{\n    \t\t        frm.set_value(\"financial_year\",y.name)\n    \t\t})\n\t\t}\n\t    if(frm.doc.delivery_note == undefined)\n\t\t$.each(frm.doc.items,function(idx, item){\n            if(item.delivery_note != undefined){\n                frm.set_value(\"delivery_note\",item.delivery_note)\n            }\n\t\t});\n\t}\n})"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Custom Script",
+  "dt": "Stock Entry",
+  "enabled": 1,
+  "modified": "2021-07-23 12:58:01.925595",
+  "name": "Stock Entry-Client",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "script": "frappe.ui.form.on('Stock Entry', {\n\trefresh(frm) {\n\t    if(frm.doc.__islocal){\n    \t\tfrappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frm.doc.posting_date],\"year_end_date\":[\">=\",frm.doc.posting_date]},\"name\",(y)=>{\n    \t\t        frm.set_value(\"financial_year\",y.name)\n    \t\t})\n\t\t}\t    \n\t}\n})"
  },
  {
   "docstatus": 0,
@@ -40,12 +64,12 @@
   "doctype": "Custom Script",
   "dt": "Delivery Note",
   "enabled": 1,
-  "modified": "2021-05-18 11:03:23.089153",
+  "modified": "2021-07-23 14:18:54.272816",
   "name": "Delivery Note-Client",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
-  "script": "frappe.ui.form.on('Delivery Note', {\nrefresh: function(frm) {\nset_css(frm);\n}\n});\n\nvar set_css = function (frm) {\n    $('input[data-fieldname=\"tracking_id\"]').css(\"color\",\"blue\")\n}\n"
+  "script": "frappe.ui.form.on('Delivery Note', {\nrefresh: function(frm) {\n    if(frm.doc.__islocal){\n\t\tfrappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frm.doc.posting_date],\"year_end_date\":[\">=\",frm.doc.posting_date]},\"name\",(y)=>{\n\t\t        frm.set_value(\"financial_year\",y.name)\n\t\t})\n\t}\nset_css(frm);\n}\n});\n\nvar set_css = function (frm) {\n    $('input[data-fieldname=\"tracking_id\"]').css(\"color\",\"blue\")\n}\n"
  },
  {
   "docstatus": 0,
@@ -64,11 +88,23 @@
   "doctype": "Custom Script",
   "dt": "POS Invoice",
   "enabled": 1,
-  "modified": "2021-06-11 14:11:35.129134",
+  "modified": "2021-07-23 12:57:01.941594",
   "name": "POS Invoice-Client",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
-  "script": "frappe.ui.form.on('POS Invoice', {\n    validate(frm){\n        if(frm.doc.transaction_id!=null && frm.doc.transaction_id!=undefined){\n\t        for(var i=0;i<frm.doc.payments.length;i++){\n\t            if(frm.doc.payments[i].mode_of_payment==\"Online\" && frm.doc.payments[i].mode_of_payment!=undefined && frm.doc.payments[i].base_amount>0){\n\t                frm.doc.payments[i].transaction_id=frm.doc.transaction_id\n\t            }\n\t            if(frm.doc.is_return==1){\n\t                if(frm.doc.payments[i].mode_of_payment==\"Online\" && frm.doc.payments[i].mode_of_payment!=undefined && frm.doc.payments[i].base_amount<0){\n\t                    frm.doc.payments[i].transaction_id=frm.doc.transaction_id\n\t                   } \n\t                }\n\t        }\n\t    }\n\t    if(frm.doc.payment_source!=null && frm.doc.payment_source!=undefined){\n\t        for(var k=0;k<frm.doc.payments.length;k++){\n\t            if(frm.doc.payments[k].mode_of_payment==\"Online\" && frm.doc.payments[k].mode_of_payment!=undefined && frm.doc.payments[k].base_amount>0){\n\t                frm.doc.payments[k].payment_source=frm.doc.payment_source\n\t            }\n\t            if(frm.doc.is_return==1){\n\t                if(frm.doc.payments[k].mode_of_payment==\"Online\" && frm.doc.payments[k].mode_of_payment!=undefined && frm.doc.payments[k].base_amount<0){\n\t                    frm.doc.payments[k].payment_source=frm.doc.payment_source\n\t                }\n\t            }\n\t        }\n\t    }\n\t\tif (frm.doc.payments!=null) {\n\t\t\tfor(var j=0;j<frm.doc.payments.length;j++){\n\t            if(frm.doc.payments[j].mode_of_payment==\"Online\" && frm.doc.payments[j].mode_of_payment!=undefined && frm.doc.payments[j].base_amount>0){\n\t                if(frm.doc.payments[j].transaction_id==null||frm.doc.payments[j].transaction_id==undefined||frm.doc.payments[j].transaction_id==''){\n\t                    frappe.msgprint(__(\"Unable to submit the invoice due to unavailability of Transaction Id. Please provide the transaction Id to submit the invoice\"));\n\t\t\t            frappe.validated = false;\n\t                }\n\t            }\n\t        }\n\t\t}\n\t}\n})"
+  "script": "frappe.ui.form.on('POS Invoice', {\n    refresh(frm) {\n\t    if(frm.doc.__islocal){\n    \t\tfrappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frm.doc.posting_date],\"year_end_date\":[\">=\",frm.doc.posting_date]},\"name\",(y)=>{\n    \t\t        frm.set_value(\"financial_year\",y.name)\n    \t\t})\n\t\t}\n\t},\n    validate(frm){\n        if(frm.doc.transaction_id!=null && frm.doc.transaction_id!=undefined){\n\t        for(var i=0;i<frm.doc.payments.length;i++){\n\t            if(frm.doc.payments[i].mode_of_payment==\"Online\" && frm.doc.payments[i].mode_of_payment!=undefined && frm.doc.payments[i].base_amount>0){\n\t                frm.doc.payments[i].transaction_id=frm.doc.transaction_id\n\t            }\n\t            if(frm.doc.is_return==1){\n\t                if(frm.doc.payments[i].mode_of_payment==\"Online\" && frm.doc.payments[i].mode_of_payment!=undefined && frm.doc.payments[i].base_amount<0){\n\t                    frm.doc.payments[i].transaction_id=frm.doc.transaction_id\n\t                   } \n\t                }\n\t        }\n\t    }\n\t    if(frm.doc.payment_source!=null && frm.doc.payment_source!=undefined){\n\t        for(var k=0;k<frm.doc.payments.length;k++){\n\t            if(frm.doc.payments[k].mode_of_payment==\"Online\" && frm.doc.payments[k].mode_of_payment!=undefined && frm.doc.payments[k].base_amount>0){\n\t                frm.doc.payments[k].payment_source=frm.doc.payment_source\n\t            }\n\t            if(frm.doc.is_return==1){\n\t                if(frm.doc.payments[k].mode_of_payment==\"Online\" && frm.doc.payments[k].mode_of_payment!=undefined && frm.doc.payments[k].base_amount<0){\n\t                    frm.doc.payments[k].payment_source=frm.doc.payment_source\n\t                }\n\t            }\n\t        }\n\t    }\n\t\tif (frm.doc.payments!=null) {\n\t\t\tfor(var j=0;j<frm.doc.payments.length;j++){\n\t            if(frm.doc.payments[j].mode_of_payment==\"Online\" && frm.doc.payments[j].mode_of_payment!=undefined && frm.doc.payments[j].base_amount>0){\n\t                if(frm.doc.payments[j].transaction_id==null||frm.doc.payments[j].transaction_id==undefined||frm.doc.payments[j].transaction_id==''){\n\t                    frappe.msgprint(__(\"Unable to submit the invoice due to unavailability of Transaction Id. Please provide the transaction Id to submit the invoice\"));\n\t\t\t            frappe.validated = false;\n\t                }\n\t            }\n\t        }\n\t\t}\n\t}\n})"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Custom Script",
+  "dt": "Stock Reconciliation",
+  "enabled": 1,
+  "modified": "2021-07-23 13:28:34.065816",
+  "name": "Stock Reconciliation-Client",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "script": "frappe.ui.form.on('Stock Reconciliation', {\n\trefresh(frm) {\n\t    if(frm.doc.__islocal){\n    \t\tfrappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frm.doc.posting_date],\"year_end_date\":[\">=\",frm.doc.posting_date]},\"name\",(y)=>{\n    \t\t        frm.set_value(\"financial_year\",y.name)\n    \t\t})\n\t\t}\t    \n\t}\n})"
  }
 ]
