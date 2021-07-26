@@ -69,7 +69,21 @@ fixtures = [
 		"Sales Invoice-dispatch_document_no",
 		"Item-print_label_quantity",
 		"Packing Slip-box_no",
-		"Item-print_name"
+		"Item-print_name",
+		"Sales Order-financial_year",
+		"POS Invoice-financial_year",
+		"Stock Entry-financial_year",
+		"Stock Reconciliation-financial_year",
+		"Material Request-financial_year",
+		"Delivery Note-financial_year",
+		"Packing Slip-financial_year",
+		"Pick List-financial_year",
+		"Purchase Order-financial_year",
+		"Purchase Invoice-financial_year",
+		"Purchase Receipt-financial_year",
+		"Payment Order-financial_year",
+		"Payment Entry-financial_year",
+		"Payment Request-financial_year"
 		]
 	]
 ]
@@ -83,7 +97,22 @@ fixtures = [
 		"Sales Invoice-naming_series-options",
 		"Packing Slip-to_case_no-hidden",
 		"Packing Slip-from_case_no-hidden",
-		"Packing Slip Item-item_name-fetch_from"
+		"Packing Slip Item-item_name-fetch_from",
+		"Sales Order-naming_series-options",
+		"POS Invoice-naming_series-options",
+		"Stock Reconciliation-naming_series-options",
+		"Stock Entry-naming_series-options",
+		"Material Request-naming_series-options",
+		"Delivery Note-naming_series-options",
+		"Packing Slip-naming_series-options",
+		"Pick List-naming_series-options",
+		"Purchase Order-naming_series-options",
+		"Purchase Invoice-naming_series-options",
+		"Purchase Receipt-naming_series-options",
+		"Payment Order-naming_series-default",
+		"Payment Order-naming_series-options",
+		"Payment Entry-naming_series-options",
+		"Payment Request-naming_series-options"
 		]
 	]
 ]
@@ -97,7 +126,18 @@ fixtures = [
 		"Delivery Note-Client",
 		"Item Attribute-Client",
 		"Sales Invoice-Client",
-		"Packing Slip-Client"
+		"Packing Slip-Client",
+		"Sales Order-Client",
+		"Stock Entry-Client",
+		"Stock Reconciliation-Client"
+		"Material Request-Client",
+		"Pick List-Client",
+		"Purchase Order-Client",
+		"Purchase Invoice-Client",
+		"Purchase Receipt-Client",
+		"Payment Order-Client",
+		"Payment Entry-Client",
+		"Payment Request-Client"
 		]
 	]
 ]
