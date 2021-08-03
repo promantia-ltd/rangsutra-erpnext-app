@@ -13,7 +13,7 @@ app_license = "MIT"
 
 
 
-fixtures = [
+fixtures = ["Server Script",
 {
     "dt":"DocType",
     "filters":[
@@ -138,20 +138,6 @@ fixtures = [
 		"Payment Order-Client",
 		"Payment Entry-Client",
 		"Payment Request-Client"
-		]
-	]
-]
-},
-{"dt": "Server Script",
-		"filters": [
-         [
-             "name", "in", [
-		"item_codification",
-		"send_email_to_warehouse_manager",
-		"send_mail_for_order_qty",
-		"insert_item_barcode",
-		"Stock Reconciliation Before Submit",
-		"Stock Entry Before Submit"
 		]
 	]
 ]
