@@ -112,7 +112,9 @@ fixtures = ["Server Script",
 		"Payment Order-naming_series-default",
 		"Payment Order-naming_series-options",
 		"Payment Entry-naming_series-options",
-		"Payment Request-naming_series-options"
+		"Payment Request-naming_series-options",
+		"Sales Invoice-naming_series-default",
+		"Payment Entry-naming_series-default"
 		]
 	]
 ]
@@ -151,7 +153,8 @@ fixtures = ["Server Script",
 		"Item Barcode",
 		"Rangsutra Sales Invoice Print Format",
 		"Rangsutra Packing Slip",
-		"Rangsutra POS Invoice Print Format"
+		"Rangsutra POS Invoice Print Format",
+		"Rangsutra Delivery Note Print Format"
 		]
 	]
 ]
@@ -182,7 +185,8 @@ fixtures = ["Server Script",
 			"Marketing & Communications Executive",
 			"Design Executive",
 			"Digital Marketing and E-commerce Consultant",
-			"Technical Support and Troubleshooting"
+			"Technical Support and Troubleshooting",
+			"ERP User"
 	]
 	]
 	]

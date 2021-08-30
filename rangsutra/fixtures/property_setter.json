@@ -355,5 +355,39 @@
   "property_type": "Text",
   "row_name": null,
   "value": "PYR/.financial_year./BK.####\nPYR/.financial_year./BM.####\nPYR/.financial_year./VN.####\nPYR/.financial_year./DL.####"
+ },
+ {
+  "default_value": null,
+  "doc_type": "Sales Invoice",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "naming_series",
+  "modified": "2021-08-12 15:00:40.775372",
+  "name": "Sales Invoice-naming_series-default",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "property": "default",
+  "property_type": "Text",
+  "row_name": null,
+  "value": "SI/.financial_year./DL.####"
+ },
+ {
+  "default_value": null,
+  "doc_type": "Payment Entry",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "naming_series",
+  "modified": "2021-08-30 07:49:49.809521",
+  "name": "Payment Entry-naming_series-default",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "property": "default",
+  "property_type": "Text",
+  "row_name": null,
+  "value": "PYE/.financial_year./DL.####"
  }
 ]
