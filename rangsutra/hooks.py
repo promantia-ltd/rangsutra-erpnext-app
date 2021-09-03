@@ -83,7 +83,9 @@ fixtures = ["Server Script",
 		"Purchase Receipt-financial_year",
 		"Payment Order-financial_year",
 		"Payment Entry-financial_year",
-		"Payment Request-financial_year"
+		"Payment Request-financial_year",
+		"Delivery Note-dispatch_document_no",
+		"Delivery Note-destination"
 		]
 	]
 ]
@@ -114,7 +116,11 @@ fixtures = ["Server Script",
 		"Payment Entry-naming_series-options",
 		"Payment Request-naming_series-options",
 		"Sales Invoice-naming_series-default",
-		"Payment Entry-naming_series-default"
+		"Payment Entry-naming_series-default",
+		"Sales Invoice-main-default_print_format",
+		"Purchase Receipt-main-default_print_format",
+		"Purchase Order-main-default_print_format",
+		"Delivery Note-main-default_print_format"
 		]
 	]
 ]
