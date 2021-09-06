@@ -163,7 +163,8 @@ fixtures = ["Server Script",
 		"Rangsutra Delivery Note Print Format",
 		"Rangsutra Purchase Order Print Format",
 		"Rangsutra Purchase Receipt Print Format",
-		"Rangsutra Goods Return Challan Print Format"
+		"Rangsutra Goods Return Challan Print Format",
+		"Rangsutra Debit Note Print Format"
 		]
 	]
 ]
