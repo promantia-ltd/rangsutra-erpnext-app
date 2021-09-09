@@ -85,7 +85,23 @@ fixtures = ["Server Script",
 		"Payment Entry-financial_year",
 		"Payment Request-financial_year",
 		"Delivery Note-dispatch_document_no",
-		"Delivery Note-destination"
+		"Delivery Note-destination",
+		"Sales Invoice-export_details",
+		"Sales Invoice-iec",
+		"Sales Invoice-lut",
+		"Sales Invoice-supplier_no",
+		"Sales Invoice-place_of_receipt",
+		"Sales Invoice-vessel_voyage_no",
+		"Sales Invoice-port_of_loading",
+		"Sales Invoice-port_of_discharge",
+		"Sales Invoice-column_break_184",
+		"Sales Invoice-fca",
+		"Sales Invoice-destination_code",
+		"Sales Invoice-gross_weight",
+		"Sales Invoice-total_cbm",
+		"Sales Invoice-district_code",
+		"Sales Invoice-pta_fta_code",
+		"Sales Invoice-consignment_no"
 		]
 	]
 ]
@@ -165,7 +181,8 @@ fixtures = ["Server Script",
 		"Rangsutra Purchase Receipt Print Format",
 		"Rangsutra Goods Return Challan Print Format",
 		"Rangsutra Debit Note Print Format",
-		"Rangsutra Credit Note Print Format"
+		"Rangsutra Credit Note Print Format",
+		"Rangsutra B2B Export Sales Invoice Print Format"
 		]
 	]
 ]
