@@ -101,7 +101,8 @@ fixtures = ["Server Script",
 		"Sales Invoice-total_cbm",
 		"Sales Invoice-district_code",
 		"Sales Invoice-pta_fta_code",
-		"Sales Invoice-consignment_no"
+		"Sales Invoice-consignment_no",
+		"Item-intermediate_product"
 		]
 	]
 ]
@@ -141,27 +142,30 @@ fixtures = ["Server Script",
 	]
 ]
 },
-{"dt": "Custom Script",
+{"dt": "Client Script",
 		"filters": [
          [
              "name", "in", [
-		"POS Invoice-Client",
-		"Item-Client",
-		"Delivery Note-Client",
-		"Item Attribute-Client",
-		"Sales Invoice-Client",
-		"Packing Slip-Client",
-		"Sales Order-Client",
-		"Stock Entry-Client",
-		"Stock Reconciliation-Client"
-		"Material Request-Client",
-		"Pick List-Client",
-		"Purchase Order-Client",
-		"Purchase Invoice-Client",
-		"Purchase Receipt-Client",
-		"Payment Order-Client",
-		"Payment Entry-Client",
-		"Payment Request-Client"
+		"POS Invoice-Form",
+		"Item-Form",
+		"Delivery Note-Form",
+		"Item Attribute-Form",
+		"Sales Invoice-Form",
+		"Packing Slip-Form",
+		"Sales Order-Form",
+		"Stock Entry-Form",
+		"Stock Reconciliation-Form"
+		"Material Request-Form",
+		"Pick List-Form",
+		"Purchase Order-Form",
+		"Purchase Invoice-Form",
+		"Purchase Receipt-Form",
+		"Payment Order-Form",
+		"Payment Entry-Form",
+		"Payment Request-Form",
+		"Collection Details-List",
+		"Style Details-List",
+		"Launch Details-List"
 		]
 	]
 ]
