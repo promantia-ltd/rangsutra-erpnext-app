@@ -13,7 +13,7 @@ app_license = "MIT"
 
 
 
-fixtures = ["Server Script",
+fixtures = ["Server Script","Item Variant Settings",
 {
     "dt":"DocType",
     "filters":[
@@ -29,7 +29,11 @@ fixtures = ["Server Script",
 		"Wash",
 		"Fit",
 		"Neck",
-		"Fabric"
+		"Fabric",
+		"Material Details",
+		"Type Details",
+		"Count Details",
+		"Process Details"
         ]
     ]
 ]
@@ -102,7 +106,14 @@ fixtures = ["Server Script",
 		"Sales Invoice-district_code",
 		"Sales Invoice-pta_fta_code",
 		"Sales Invoice-consignment_no",
-		"Item-intermediate_product"
+		"Item-intermediate_product",
+		"Item-raw_materials_details",
+		"Item-material",
+		"Item-composition",
+		"Item-type",
+		"Item-column_break_48",
+		"Item-count",
+		"Item-process"
 		]
 	]
 ]
