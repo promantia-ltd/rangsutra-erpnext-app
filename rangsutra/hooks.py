@@ -113,7 +113,8 @@ fixtures = ["Server Script","Item Variant Settings",
 		"Item-type",
 		"Item-column_break_48",
 		"Item-count",
-		"Item-process"
+		"Item-process",
+		"Item-fabric_or_yarn"
 		]
 	]
 ]

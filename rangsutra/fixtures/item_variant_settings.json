@@ -466,9 +466,15 @@
     "parent": "Item Variant Settings",
     "parentfield": "fields",
     "parenttype": "Item Variant Settings"
+   },
+   {
+    "field_name": "fabric_or_yarn",
+    "parent": "Item Variant Settings",
+    "parentfield": "fields",
+    "parenttype": "Item Variant Settings"
    }
   ],
-  "modified": "2021-09-16 18:24:13.705443",
+  "modified": "2021-09-28 12:30:29.437709",
   "name": "Item Variant Settings",
   "parent": null,
   "parentfield": null,
