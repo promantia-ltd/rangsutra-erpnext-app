@@ -30,10 +30,10 @@ fixtures = ["Server Script","Item Variant Settings",
 		"Fit",
 		"Neck",
 		"Fabric",
-		"Material Details",
-		"Type Details",
-		"Count Details",
-		"Process Details"
+		"Material",
+		"Material Type",
+		"Material Count",
+		"Material Process"
         ]
     ]
 ]
