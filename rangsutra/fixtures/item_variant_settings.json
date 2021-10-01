@@ -472,9 +472,39 @@
     "parent": "Item Variant Settings",
     "parentfield": "fields",
     "parenttype": "Item Variant Settings"
+   },
+   {
+    "field_name": "is_finished_product",
+    "parent": "Item Variant Settings",
+    "parentfield": "fields",
+    "parenttype": "Item Variant Settings"
+   },
+   {
+    "field_name": "brand_code",
+    "parent": "Item Variant Settings",
+    "parentfield": "fields",
+    "parenttype": "Item Variant Settings"
+   },
+   {
+    "field_name": "collection_code",
+    "parent": "Item Variant Settings",
+    "parentfield": "fields",
+    "parenttype": "Item Variant Settings"
+   },
+   {
+    "field_name": "launch_year",
+    "parent": "Item Variant Settings",
+    "parentfield": "fields",
+    "parenttype": "Item Variant Settings"
+   },
+   {
+    "field_name": "style_number",
+    "parent": "Item Variant Settings",
+    "parentfield": "fields",
+    "parenttype": "Item Variant Settings"
    }
   ],
-  "modified": "2021-09-28 12:30:29.437709",
+  "modified": "2021-10-01 14:50:38.806154",
   "name": "Item Variant Settings",
   "parent": null,
   "parentfield": null,

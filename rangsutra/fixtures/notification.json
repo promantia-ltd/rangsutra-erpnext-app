@@ -45,7 +45,7 @@
  {
   "attach_print": 0,
   "channel": "Email",
-  "condition": "",
+  "condition": "doc.is_return != 1",
   "date_changed": null,
   "days_in_advance": 0,
   "docstatus": 0,
@@ -54,9 +54,9 @@
   "enabled": 1,
   "event": "Submit",
   "is_standard": 0,
-  "message": "Dear <b>{{doc.customer_name}}</b>,<br>\nYou have successfully purchased the apparels worth {{doc.get_formatted('grand_total')}} .Thankyou for shopping with Rangsutra.<br><br>\nThanks,<br>\n{{doc.company}} Retail Team.",
+  "message": "<em>Dear<em> <b><em>{{doc.customer_name}}<em></b>,<br>\n<br>\n<em>Thank you for your trust and support.<em><br>\n<br>\n<em>You have successfully purchased items worth<em> <em>{{doc.get_formatted('grand_total')}}<em>.<br>\n<br>\n<em>If you have any queries about your order, please reach out to us at customercare@rangsutra.com or +91-9773689673.<em><br> \n<em>We will respond at the earliest.<em><br>\n<br>\n<em>We hope to see you again!<em><br>\n<br>\n<em>Warm Regards,<em><br>\n<em>Team {{doc.company}}.<em>",
   "method": null,
-  "modified": "2021-08-12 17:52:56.729542",
+  "modified": "2021-10-01 15:45:46.166765",
   "module": null,
   "name": "POS email notification to customer",
   "parent": null,
@@ -82,7 +82,7 @@
   "sender_email": null,
   "set_property_after_alert": null,
   "slack_webhook_url": null,
-  "subject": "Thanks for shopping in Rangsutra.",
+  "subject": "Thank you for shopping with Rangsutra Crafts",
   "value_changed": null
  },
  {

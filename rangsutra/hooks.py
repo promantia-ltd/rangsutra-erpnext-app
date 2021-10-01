@@ -114,7 +114,9 @@ fixtures = ["Server Script","Item Variant Settings",
 		"Item-column_break_48",
 		"Item-count",
 		"Item-process",
-		"Item-fabric_or_yarn"
+		"Item-fabric_or_yarn",
+		"Payment Entry-utr_number",
+		"Item-is_finished_product"
 		]
 	]
 ]
