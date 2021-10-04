@@ -200,7 +200,9 @@ fixtures = ["Server Script","Item Variant Settings",
 		"Rangsutra Goods Return Challan Print Format",
 		"Rangsutra Debit Note Print Format",
 		"Rangsutra Credit Note Print Format",
-		"Rangsutra B2B Export Sales Invoice Print Format"
+		"Rangsutra B2B Export Sales Invoice Print Format",
+		"Rangsutra Delivery Note Return Print Format",
+		"Rangsutra Credit Note B2B Export Print Format"
 		]
 	]
 ]
