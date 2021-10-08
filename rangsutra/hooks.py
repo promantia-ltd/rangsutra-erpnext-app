@@ -116,7 +116,8 @@ fixtures = ["Server Script","Item Variant Settings",
 		"Item-process",
 		"Item-fabric_or_yarn",
 		"Payment Entry-utr_number",
-		"Item-is_finished_product"
+		"Item-is_finished_product",
+		"Purchase Receipt-purchase_order"
 		]
 	]
 ]
@@ -238,6 +239,14 @@ fixtures = ["Server Script","Item Variant Settings",
 	]
 	]
 	]
+},
+{"dt": "Email Template",
+		"filters":[
+		[
+		"name","in",["Purchase Receipt Template","Material Request Template"
+		]
+		]
+		]
 }
 ]
 # Includes in <head>
