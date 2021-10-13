@@ -2,6 +2,19 @@
  {
   "docstatus": 0,
   "doctype": "Email Template",
+  "modified": "2021-10-07 18:06:17.337793",
+  "name": "Stock_entry_template",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "response": "<div class=\"ql-editor read-mode\"><p><br></p></div>",
+  "response_html": "Dear {{purchase_manager}},\n<p>The following Items, received against {{grn}}, have arrived for Quality Inspection.</p>\n\n<table border=2 >\n    <tr align=\"center\">\n        <th>Sr. NO</th>\n        <th>Item Code</th>\n        <th>Item</th>\n        <th>Qty</th>\n        <th>UOM</th>\n    </tr>\n    {% for item in items %}\n            <tr align=\"center\">\n                <td>{{ item.idx }}</td>\n                <td>{{ item.item_code }}</td>\n                <td>{{ item.item_name }}</td>\n                <td>{{ item.qty }}</td>\n                <td>{{ item.uom }}</td>\n            </tr>\n    {% endfor %}\n</table>\n",
+  "subject": "Items arrived for Quality Inspection.",
+  "use_html": 1
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Email Template",
   "modified": "2021-10-08 12:20:05.714763",
   "name": "Purchase Receipt Template",
   "parent": null,

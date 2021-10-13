@@ -13,7 +13,7 @@ app_license = "MIT"
 
 
 
-fixtures = ["Server Script","Item Variant Settings",
+fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State","Workflow Action Master",
 {
     "dt":"DocType",
     "filters":[
@@ -243,7 +243,7 @@ fixtures = ["Server Script","Item Variant Settings",
 {"dt": "Email Template",
 		"filters":[
 		[
-		"name","in",["Purchase Receipt Template","Material Request Template"
+		"name","in",["Purchase Receipt Template","Material Request Template","Stock_entry_template"
 		]
 		]
 		]
