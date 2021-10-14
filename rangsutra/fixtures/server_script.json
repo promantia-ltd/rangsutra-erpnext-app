@@ -7,7 +7,7 @@
   "doctype": "Server Script",
   "doctype_event": "After Save",
   "event_frequency": "All",
-  "modified": "2021-10-07 19:03:21.430424",
+  "modified": "2021-10-14 14:30:58.343538",
   "name": "send_email_to_purchase_manager_from_stock_entry",
   "parent": null,
   "parentfield": null,
@@ -24,7 +24,7 @@
   "doctype": "Server Script",
   "doctype_event": "After Submit",
   "event_frequency": "All",
-  "modified": "2021-10-08 17:27:21.305055",
+  "modified": "2021-10-14 14:27:59.402271",
   "name": "send_email_to_warehouse_manager_for_purchase_receipt",
   "parent": null,
   "parentfield": null,
@@ -398,13 +398,13 @@
   "doctype": "Server Script",
   "doctype_event": "After Submit",
   "event_frequency": "All",
-  "modified": "2021-10-08 17:27:00.749841",
+  "modified": "2021-10-14 14:26:31.741868",
   "name": "send_email_to_purchase_manager_on_submit_of_material_request",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
   "reference_doctype": "Material Request",
-  "script": "if doc.material_request_type==\"Material Transfer\":\n    email_template = frappe.get_doc('Email Template','Material Request Template')\n    purchase_manager_list=frappe.db.sql(\"\"\"select u.name,u.full_name as user_name\n\t\t\tfrom `tabUser` u,`tabHas Role` r where\n\t\t\tu.name=r.parent and u.enabled = 1 and r.role=\"Purchase Manager\" \"\"\",as_dict=True)\n    submitted_by=frappe.db.get_value(\"User\",{\"name\":frappe.session.user},\"full_name\")\n    if purchase_manager_list:\n        for row in  purchase_manager_list:\n            frappe.sendmail(recipients=row.name,\n            subject=\"Purchase Receipt is Submitted Successfully\",\n            message=frappe.render_template(email_template.response_html, {'items':doc.items,'name':doc.name,'user_name':row.user_name,'submitted_by':submitted_by}),\n                    reference_doctype=doc.doctype,\n                    reference_name=doc.name)",
+  "script": "def send_email_to_all_purchase_manager(doc,email_template):\n    purchase_manager_list=frappe.db.sql(\"\"\"select u.name,u.full_name as user_name\n    \t\tfrom `tabUser` u,`tabHas Role` r where\n    \t\tu.name=r.parent and u.enabled = 1 and r.role=\"Purchase Manager\" \"\"\",as_dict=True)\n    submitted_by=frappe.db.get_value(\"User\",{\"name\":frappe.session.user},\"full_name\")\n    if purchase_manager_list:\n        for row in  purchase_manager_list:\n            frappe.sendmail(recipients=row.name,\n            subject=\"Material Request is Submitted Successfully\",\n            message=frappe.render_template(email_template.response_html, {'items':doc.items,'name':doc.name,'user_name':row.user_name,'submitted_by':submitted_by}),\n                    reference_doctype=doc.doctype,\n                    reference_name=doc.name)\n                    \n\nif doc.material_request_type==\"Material Transfer\":\n    email_template = frappe.get_doc('Email Template','Material Request Template')\n    field_name=frappe.db.sql(\"\"\"SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS where TABLE_NAME=%s  and COLUMN_NAME=%s;\"\"\",('tabMaterial Request','branch'),as_list=True)\n    if not field_name:\n        send_email_to_all_purchase_manager(doc,email_template)\n    else:\n        if doc.branch!=None:\n            purchase_manager_list=frappe.db.sql(\"\"\"select u.name,u.full_name as user_name from  `tabHas Role` r\n        \t\t\tRIGHT JOIN `tabUser` u\n        \t\t\ton u.name=r.parent\n        \t\t \tLEFT JOIN `tabBranch Details` b on\n        \t\t\tu.name=b.parent where b.branch= %(branch)s and r.role=\"Purchase Manager\" and u.enabled = 1 \"\"\",{'branch':doc.branch},as_dict=True)\n            submitted_by=frappe.db.get_value(\"User\",{\"name\":frappe.session.user},\"full_name\")\n            if purchase_manager_list:\n                for row in  purchase_manager_list:\n                    frappe.sendmail(recipients=row.name,\n                    subject=\"Material Request is Submitted Successfully\",\n                    message=frappe.render_template(email_template.response_html, {'items':doc.items,'name':doc.name,'user_name':row.user_name,'submitted_by':submitted_by}),\n                            reference_doctype=doc.doctype,\n                            reference_name=doc.name)\n        \n        else:\n            send_email_to_all_purchase_manager(doc,email_template)\n",
   "script_type": "DocType Event"
  }
 ]
