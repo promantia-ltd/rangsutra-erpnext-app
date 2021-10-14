@@ -15,26 +15,26 @@
  {
   "docstatus": 0,
   "doctype": "Email Template",
-  "modified": "2021-10-08 12:20:05.714763",
+  "modified": "2021-10-13 13:28:10.630674",
   "name": "Purchase Receipt Template",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
   "response": null,
-  "response_html": "\nDear {{user_name}},<br>\n\nPurchase Receipt {{name}} has been submitted by {{submitted_by}} for the items received against the Purchase Order{{purchase_order}} .<br>\n\nThe received items are as follows:\n\n<table border= 1px solid black;>\n\n<tr align=\"center\">\n\n<th>SI.NO</th>\n\n<th>Item Code</th>\n\n<th>Item</th>\n\n<th>Qty</th>\n\n<th>UOM</th>\n\n</tr>\n\n{% for item in items %}\n\n<tr align=\"center\">\n\n<td>{{ item.idx }}</td>\n\n<td>{{ item.item_code }}</td>\n\n<td>{{ item.item_name }}</td>\n\n<td>{{ item.qty }}</td>\n\n<td>{{ item.uom }}</td>\n\n</tr>\n\n{% endfor %}\n\n</table>",
+  "response_html": "\nDear {{user_name}},<br>\n\nPurchase Receipt {{name}} has been submitted by {{submitted_by}} for the items received against the Purchase Order {{purchase_order}} .<br>\n\nThe received items are as follows:\n\n<table width=100% border= 1px solid black;>\n\n<tr align=\"center\">\n\n<th>SNO</th>\n\n<th>Item Code</th>\n\n<th>Item</th>\n\n<th>Qty</th>\n\n<th>UOM</th>\n\n</tr>\n\n{% for item in items %}\n\n<tr align=\"center\">\n\n<td>{{ item.idx }}</td>\n\n<td>{{ item.item_code }}</td>\n\n<td>{{ item.item_name }}</td>\n\n<td>{{ item.qty }}</td>\n\n<td>{{ item.uom }}</td>\n\n</tr>\n\n{% endfor %}\n\n</table>",
   "subject": "Purchase Receipt Submitted Successfully",
   "use_html": 1
  },
  {
   "docstatus": 0,
   "doctype": "Email Template",
-  "modified": "2021-10-08 13:36:46.815509",
+  "modified": "2021-10-14 14:34:07.128514",
   "name": "Material Request Template",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
   "response": null,
-  "response_html": "\nDear {{user_name}},<br>\n    \nMaterial Request {{name}} has been raised by  {{submitted_by}} for following items:\n\n\n<table border= 1px solid black;>\n\n<tr align=\"center\">\n\n<th>SI.NO</th>\n\n<th>Item Code</th>\n\n<th>Item</th>\n\n<th>Qty</th>\n\n<th>UOM</th>\n\n</tr>\n\n{% for item in items %}\n\n<tr align=\"center\">\n\n<td>{{ item.idx }}</td>\n\n<td>{{ item.item_code }}</td>\n\n<td>{{ item.item_name }}</td>\n\n<td>{{ item.qty }}</td>\n\n<td>{{ item.uom }}</td>\n\n</tr>\n\n{% endfor %}\n\n</table>",
+  "response_html": "\nDear {{user_name}},<br>\n    \nMaterial Request {{name}} has been raised by  {{submitted_by}} for following items:\n\n\n<table width=100% border= 1px solid black;>\n\n<tr align=\"center\">\n\n<th>SNO.</th>\n\n<th>Item Code</th>\n\n<th>Item</th>\n\n<th>Required By</th>\n\n<th>Qty</th>\n\n<th>Target Warehouse</th>\n\n<th>UOM</th>\n\n</tr>\n\n{% for item in items %}\n\n<tr align=\"center\">\n\n<td>{{ item.idx }}</td>\n\n<td>{{ item.item_code }}</td>\n\n<td>{{ item.item_name }}</td>\n\n<td>{{item.schedule_date}}</td>\n\n<td>{{ item.qty }}</td>\n\n<td>{{item.warehouse}}</td>\n\n<td>{{ item.uom }}</td>\n\n</tr>\n\n{% endfor %}\n\n</table>",
   "subject": "Material Request is Submitted Successfully",
   "use_html": 1
  }
