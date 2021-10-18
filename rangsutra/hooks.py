@@ -117,7 +117,22 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Item-fabric_or_yarn",
 		"Payment Entry-utr_number",
 		"Item-is_finished_product",
-		"Purchase Receipt-purchase_order"
+		"Purchase Receipt-purchase_order",
+		"Purchase Order-branch_abbr",
+		"Purchase Invoice-branch_abbr",
+		"Purchase Receipt-branch_abbr",
+		"Sales Order-branch_abbr",
+		"Sales Invoice-branch_abbr",
+		"Delivery Note-branch_abbr",
+		"Stock Reconciliation-branch_abbr",
+		"POS Invoice-branch_abbr",
+		"Material Request-branch_abbr",
+		"Packing Slip-branch_abbr",
+		"Pick List-branch_abbr",
+		"Stock Entry-branch_abbr",
+		"Payment Entry-branch_abbr",
+		"Payment Request-branch_abbr",
+		"Payment Order-branch_abbr"
 		]
 	]
 ]
