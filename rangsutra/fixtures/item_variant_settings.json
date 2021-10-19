@@ -502,9 +502,15 @@
     "parent": "Item Variant Settings",
     "parentfield": "fields",
     "parenttype": "Item Variant Settings"
+   },
+   {
+    "field_name": "no_of_yarns",
+    "parent": "Item Variant Settings",
+    "parentfield": "fields",
+    "parenttype": "Item Variant Settings"
    }
   ],
-  "modified": "2021-10-01 14:50:38.806154",
+  "modified": "2021-10-18 15:50:42.458711",
   "name": "Item Variant Settings",
   "parent": null,
   "parentfield": null,
