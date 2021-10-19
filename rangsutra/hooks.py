@@ -258,7 +258,7 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 {"dt": "Email Template",
 		"filters":[
 		[
-		"name","in",["Purchase Receipt Template","Material Request Template","Stock_entry_template"
+		"name","in",["Purchase Receipt Template","Material Request Template","Stock_entry_template","Blanket Order Template"
 		]
 		]
 		]
