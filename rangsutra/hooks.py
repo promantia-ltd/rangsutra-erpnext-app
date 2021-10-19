@@ -132,7 +132,9 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Stock Entry-branch_abbr",
 		"Payment Entry-branch_abbr",
 		"Payment Request-branch_abbr",
-		"Payment Order-branch_abbr"
+		"Payment Order-branch_abbr",
+		"Quality Inspection-accepted_qty",
+		"Quality Inspection-rejected_qty"
 		]
 	]
 ]
