@@ -423,5 +423,22 @@
   "reference_doctype": "Blanket Order",
   "script": "def send_email_to_all_sales_manager(doc,email_template):\n    sales_manager_list=frappe.db.sql(\"\"\"select u.name,u.full_name as user_name\n    \t\tfrom `tabUser` u,`tabHas Role` r where\n    \t\tu.name=r.parent and u.enabled = 1 and r.role=\"Sales Manager\" \"\"\",as_dict=True)\n    submitted_by=frappe.db.get_value(\"User\",{\"name\":frappe.session.user},\"full_name\")\n    if sales_manager_list:\n        for row in  sales_manager_list:\n            frappe.sendmail(recipients=row.name,\n            subject=email_template.subject,\n            message=frappe.render_template(email_template.response_html, {'items':doc.items,'name':doc.name,'user_name':row.user_name,'submitted_by':submitted_by, 'customer_name':doc.customer}),\n                    reference_doctype=doc.doctype,\n                    reference_name=doc.name)\n                    \nemail_template = frappe.get_doc('Email Template','Blanket Order Template')\n\nfield_name=frappe.db.sql(\"\"\"SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS where TABLE_NAME=%s  and COLUMN_NAME=%s;\"\"\",('tabBlanket Order','branch'),as_list=True)\nif not field_name:\n    send_email_to_all_sales_manager(doc,email_template)\nelse:\n    if doc.branch!=None:\n        sales_manager_list=frappe.db.sql(\"\"\"select u.name,u.full_name as user_name from  `tabHas Role` r\n    \t\t\tRIGHT JOIN `tabUser` u\n    \t\t\ton u.name=r.parent\n    \t\t \tLEFT JOIN `tabBranch Details` b on\n    \t\t\tu.name=b.parent where b.branch= %(branch)s and r.role=\"Sales Manager\" and u.enabled = 1 \"\"\",{'branch':doc.branch},as_dict=True)\n        submitted_by=frappe.db.get_value(\"User\",{\"name\":frappe.session.user},\"full_name\")\n        if sales_manager_list:\n            for row in  sales_manager_list:\n                frappe.sendmail(recipients=row.name,\n                subject=email_template.subject,\n                message=frappe.render_template(email_template.response_html, {'items':doc.items,'name':doc.name,'user_name':row.user_name,'submitted_by':submitted_by, 'customer_name':doc.customer}),\n                    reference_doctype=doc.doctype,\n                    reference_name=doc.name)\n    \n    else:\n        send_email_to_all_sales_manager(doc,email_template)\n",
   "script_type": "DocType Event"
+ },
+ {
+  "allow_guest": 0,
+  "api_method": "get_sales_invoice",
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "Before Insert",
+  "event_frequency": "All",
+  "modified": "2021-10-22 13:31:45.273163",
+  "name": "Get Sales Invoice for Packing Slip",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "reference_doctype": null,
+  "script": "delivery_note=frappe.form_dict.get(\"delivery_note\")\ns_order= frappe.db.get_value(\"Delivery Note Item\",{\"parent\":delivery_note},\"against_sales_order\")\nsi_list=frappe.db.sql(\"\"\"select distinct parent from `tabSales Invoice Item` where sales_order=%(s_order)s or delivery_note = %(delivery_note)s\"\"\",{'s_order':s_order,'delivery_note':delivery_note},as_dict=True)\nfrappe.response['message']=si_list\n",
+  "script_type": "API"
  }
 ]
