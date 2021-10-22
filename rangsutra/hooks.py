@@ -134,7 +134,13 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Payment Request-branch_abbr",
 		"Payment Order-branch_abbr",
 		"Quality Inspection-accepted_qty",
-		"Quality Inspection-rejected_qty"
+		"Quality Inspection-rejected_qty",
+		"Item-no_of_yarns",
+		"Packing Slip Item-box_measurement",
+		"Packing Slip Item-gross_weight",
+		"Sales Invoice Item-package_no",
+		"Sales Invoice Item-dbk_no",
+		"Packing Slip-sales_invoice"
 		]
 	]
 ]
@@ -220,7 +226,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Rangsutra Credit Note Print Format",
 		"Rangsutra B2B Export Sales Invoice Print Format",
 		"Rangsutra Delivery Note Return Print Format",
-		"Rangsutra Credit Note B2B Export Print Format"
+		"Rangsutra Credit Note B2B Export Print Format",
+		"Rangsutra Packing Slip Print Format"
 		]
 	]
 ]
