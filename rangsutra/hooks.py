@@ -140,7 +140,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Packing Slip Item-gross_weight",
 		"Sales Invoice Item-package_no",
 		"Sales Invoice Item-dbk_no",
-		"Packing Slip-sales_invoice"
+		"Packing Slip-sales_invoice",
+		"Purchase Receipt-supplier_delivery_date"
 		]
 	]
 ]
@@ -259,7 +260,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 			"Design Executive",
 			"Digital Marketing and E-commerce Consultant",
 			"Technical Support and Troubleshooting",
-			"ERP User"
+			"ERP User",
+			"Quality User"
 	]
 	]
 	]
