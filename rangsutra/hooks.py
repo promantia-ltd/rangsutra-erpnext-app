@@ -32,8 +32,9 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Fabric",
 		"Material",
 		"Material Type",
-		"Material Count",
-		"Material Process"
+		"Warp Count",
+		"Material Process",
+		"Weft Count"
         ]
     ]
 ]
@@ -141,7 +142,22 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Sales Invoice Item-package_no",
 		"Sales Invoice Item-dbk_no",
 		"Packing Slip-sales_invoice",
-		"Purchase Receipt-supplier_delivery_date"
+		"Purchase Receipt-supplier_delivery_date",
+		"Item-weft_count",
+		"Stock Entry-transporter_info",
+		"Stock Entry-transporter",
+		"Stock Entry-gst_transporter_id",
+		"Stock Entry-driver",
+		"Stock Entry-transport_receipt_no",
+		"Stock Entry-vehicle_no",
+		"Stock Entry-distance",
+		"Stock Entry-column_break_79",
+		"Stock Entry-transporter_name",
+		"Stock Entry-mode_of_transport",
+		"Stock Entry-destination",
+		"Stock Entry-driver_name",
+		"Stock Entry-transport_receipt_date",
+		"Stock Entry-gst_vehicle_type"
 		]
 	]
 ]
@@ -204,7 +220,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Payment Request-Form",
 		"Collection Details-List",
 		"Style Details-List",
-		"Launch Details-List"
+		"Launch Details-List",
+		"Collection Details-Form"
 		]
 	]
 ]

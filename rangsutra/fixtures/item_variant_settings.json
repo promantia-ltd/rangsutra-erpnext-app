@@ -504,13 +504,13 @@
     "parenttype": "Item Variant Settings"
    },
    {
-    "field_name": "no_of_yarns",
+    "field_name": "weft_count",
     "parent": "Item Variant Settings",
     "parentfield": "fields",
     "parenttype": "Item Variant Settings"
    }
   ],
-  "modified": "2021-10-18 15:50:42.458711",
+  "modified": "2021-10-26 13:07:09.823211",
   "name": "Item Variant Settings",
   "parent": null,
   "parentfield": null,
