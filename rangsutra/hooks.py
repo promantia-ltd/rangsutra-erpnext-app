@@ -157,7 +157,12 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Stock Entry-destination",
 		"Stock Entry-driver_name",
 		"Stock Entry-transport_receipt_date",
-		"Stock Entry-gst_vehicle_type"
+		"Stock Entry-gst_vehicle_type",
+		"Stock Entry-section_break_46",
+		"Stock Entry-taxes",
+		"Item-is_sample_product",
+		"Stock Entry-total",
+		"Stock Entry-net_total"
 		]
 	]
 ]
@@ -245,7 +250,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Rangsutra B2B Export Sales Invoice Print Format",
 		"Rangsutra Delivery Note Return Print Format",
 		"Rangsutra Credit Note B2B Export Print Format",
-		"Rangsutra Packing Slip Print Format"
+		"Rangsutra Packing Slip Print Format",
+		"Rangsutra Stock Entry Print Format"
 		]
 	]
 ]
