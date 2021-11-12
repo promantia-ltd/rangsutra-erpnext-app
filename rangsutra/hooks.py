@@ -157,7 +157,14 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Stock Entry-destination",
 		"Stock Entry-driver_name",
 		"Stock Entry-transport_receipt_date",
-		"Stock Entry-gst_vehicle_type"
+		"Stock Entry-gst_vehicle_type",
+		"Stock Entry-section_break_46",
+		"Stock Entry-taxes",
+		"Item-is_sample_product",
+		"Stock Entry-total",
+		"Stock Entry-net_total",
+		"Item-is_other_raw_material",
+		"Material Request-blanket_order"
 		]
 	]
 ]
@@ -245,7 +252,9 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Rangsutra B2B Export Sales Invoice Print Format",
 		"Rangsutra Delivery Note Return Print Format",
 		"Rangsutra Credit Note B2B Export Print Format",
-		"Rangsutra Packing Slip Print Format"
+		"Rangsutra Packing Slip Print Format",
+		"Rangsutra Stock Entry Print Format",
+		"Project Sales Invoice Print Format"
 		]
 	]
 ]
@@ -286,7 +295,7 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 {"dt": "Email Template",
 		"filters":[
 		[
-		"name","in",["Purchase Receipt Template","Material Request Template","Stock_entry_template","Blanket Order Template"
+		"name","in",["Purchase Receipt Template","Material Request Template","Stock_entry_template","Blanket Order Template","In house QC Template","Email to Manufacturing Manager"
 		]
 		]
 		]

@@ -508,9 +508,15 @@
     "parent": "Item Variant Settings",
     "parentfield": "fields",
     "parenttype": "Item Variant Settings"
+   },
+   {
+    "field_name": "is_sample_product",
+    "parent": "Item Variant Settings",
+    "parentfield": "fields",
+    "parenttype": "Item Variant Settings"
    }
   ],
-  "modified": "2021-10-26 13:07:09.823211",
+  "modified": "2021-11-08 12:45:23.749381",
   "name": "Item Variant Settings",
   "parent": null,
   "parentfield": null,
