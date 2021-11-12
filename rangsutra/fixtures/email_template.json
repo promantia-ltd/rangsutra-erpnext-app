@@ -37,5 +37,31 @@
   "response_html": "Dear {{user_name}},<br>\nA new Blanket Order {{name}} has been submitted by {{submitted_by}} for customer {{customer_name}}, of total quantity {%set qt = [0]%}\n{%set amt = [0]%}\n{%for row in items%}\n{% set _ = qt.append( qt.pop() + row.qty) %}\n{% set _ = amt.append( amt.pop() + row.rate*row.qty) %}\n{%endfor%}\n{{qt[0]}} pcs worth INR {{amt[0]}}. <br>\nThe ordered Items are:\n<table width=100% border= 1px solid black;>\n\n<tr align=\"center\">\n\n<th>SNO</th>\n\n<th>Item Code</th>\n\n<th>Item</th>\n\n<th>Qty</th>\n\n<th>Rate</th>\n\n</tr>\n\n{% for item in items %}\n\n<tr align=\"center\">\n\n<td>{{ item.idx }}</td>\n\n<td>{{ item.item_code }}</td>\n\n<td>{{ item.item_name }}</td>\n\n<td>{{ item.qty }}</td>\n\n<td>{{ item.rate }}</td>\n\n</tr>\n\n{% endfor %}\n\n</table>",
   "subject": "Blanket Order has been submitted.",
   "use_html": 1
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Email Template",
+  "modified": "2021-11-09 13:36:24.557972",
+  "name": "In house QC Template",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "response": null,
+  "response_html": "Dear {{quality_manager}},\n<p>The following Items against {{work_order}}, have arrived for Quality Inspection.</p>\n\n<table width=100% border= 1px solid black;>\n    <tr align=\"center\">\n        <th>Sr. NO</th>\n        <th>Item Code</th>\n        <th>Item</th>\n        <th>Qty</th>\n        <th>UOM</th>\n    </tr>\n    {% for item in items %}\n        {% if item.t_warehouse != None%}\n            <tr align=\"center\">\n                <td>{{ item.idx }}</td>\n                <td>{{ item.item_code }}</td>\n                <td>{{ item.item_name }}</td>\n                <td>{{ item.qty }}</td>\n                <td>{{ item.uom }}</td>\n            </tr>\n        {%endif%}\n    {% endfor %}\n</table>\n",
+  "subject": "Items have arrived for Quality Inspection after Work Order.",
+  "use_html": 1
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Email Template",
+  "modified": "2021-11-12 11:40:59.480688",
+  "name": "Email to Manufacturing Manager",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "response": null,
+  "response_html": "Dear Sir/Ma'am,<br>\n<p>We request you to please login and approve the request <a href=\"{{ frappe.utils.get_url_to_form(doc.doctype, doc.name) }}\">{{ doc.name}} </a>. Thank you for your support.</p>\n<br>\nThanks,<br>\n{{frappe.db.get_value(\"User\",{\"name\":frappe.session.user},\"full_name\")}}",
+  "subject": "Material Request waiting for approval.",
+  "use_html": 1
  }
 ]

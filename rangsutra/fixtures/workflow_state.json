@@ -70,5 +70,17 @@
   "parenttype": null,
   "style": "",
   "workflow_state_name": "Cancelled"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2021-11-11 11:34:45.272001",
+  "name": "Submitted",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "style": "",
+  "workflow_state_name": "Submitted"
  }
 ]
