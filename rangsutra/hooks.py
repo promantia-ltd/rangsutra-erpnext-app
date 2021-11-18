@@ -164,7 +164,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Stock Entry-total",
 		"Stock Entry-net_total",
 		"Item-is_other_raw_material",
-		"Material Request-blanket_order"
+		"Material Request-blanket_order",
+		"Material Request Item-blanket_order"
 		]
 	]
 ]
@@ -268,7 +269,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
          [
              "name", "in", [
 		"Sales Order Item-wise Stock Report",
-		"New Collections Sell Through Report"
+		"New Collections Sell Through Report",
+		"WIP Report"
 		]
 	]
 ]
@@ -301,6 +303,7 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		]
 }
 ]
+
 # Includes in <head>
 # ------------------
 
