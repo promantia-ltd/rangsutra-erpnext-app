@@ -13,7 +13,7 @@ app_license = "MIT"
 
 
 
-fixtures = [
+fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State","Workflow Action Master",
 {
     "dt":"DocType",
     "filters":[
@@ -29,7 +29,12 @@ fixtures = [
 		"Wash",
 		"Fit",
 		"Neck",
-		"Fabric"
+		"Fabric",
+		"Material",
+		"Material Type",
+		"Warp Count",
+		"Material Process",
+		"Weft Count"
         ]
     ]
 ]
@@ -69,7 +74,98 @@ fixtures = [
 		"Sales Invoice-dispatch_document_no",
 		"Item-print_label_quantity",
 		"Packing Slip-box_no",
-		"Item-print_name"
+		"Item-print_name",
+		"Sales Order-financial_year",
+		"POS Invoice-financial_year",
+		"Stock Entry-financial_year",
+		"Stock Reconciliation-financial_year",
+		"Material Request-financial_year",
+		"Delivery Note-financial_year",
+		"Packing Slip-financial_year",
+		"Pick List-financial_year",
+		"Purchase Order-financial_year",
+		"Purchase Invoice-financial_year",
+		"Purchase Receipt-financial_year",
+		"Payment Order-financial_year",
+		"Payment Entry-financial_year",
+		"Payment Request-financial_year",
+		"Delivery Note-dispatch_document_no",
+		"Delivery Note-destination",
+		"Sales Invoice-export_details",
+		"Sales Invoice-iec",
+		"Sales Invoice-lut",
+		"Sales Invoice-supplier_no",
+		"Sales Invoice-place_of_receipt",
+		"Sales Invoice-vessel_voyage_no",
+		"Sales Invoice-port_of_loading",
+		"Sales Invoice-port_of_discharge",
+		"Sales Invoice-column_break_184",
+		"Sales Invoice-fca",
+		"Sales Invoice-destination_code",
+		"Sales Invoice-gross_weight",
+		"Sales Invoice-total_cbm",
+		"Sales Invoice-district_code",
+		"Sales Invoice-pta_fta_code",
+		"Sales Invoice-consignment_no",
+		"Item-intermediate_product",
+		"Item-raw_materials_details",
+		"Item-material",
+		"Item-composition",
+		"Item-type",
+		"Item-column_break_48",
+		"Item-count",
+		"Item-process",
+		"Item-fabric_or_yarn",
+		"Payment Entry-utr_number",
+		"Item-is_finished_product",
+		"Purchase Receipt-purchase_order",
+		"Purchase Order-branch_abbr",
+		"Purchase Invoice-branch_abbr",
+		"Purchase Receipt-branch_abbr",
+		"Sales Order-branch_abbr",
+		"Sales Invoice-branch_abbr",
+		"Delivery Note-branch_abbr",
+		"Stock Reconciliation-branch_abbr",
+		"POS Invoice-branch_abbr",
+		"Material Request-branch_abbr",
+		"Packing Slip-branch_abbr",
+		"Pick List-branch_abbr",
+		"Stock Entry-branch_abbr",
+		"Payment Entry-branch_abbr",
+		"Payment Request-branch_abbr",
+		"Payment Order-branch_abbr",
+		"Quality Inspection-accepted_qty",
+		"Quality Inspection-rejected_qty",
+		"Item-no_of_yarns",
+		"Packing Slip Item-box_measurement",
+		"Packing Slip Item-gross_weight",
+		"Sales Invoice Item-package_no",
+		"Sales Invoice Item-dbk_no",
+		"Packing Slip-sales_invoice",
+		"Purchase Receipt-supplier_delivery_date",
+		"Item-weft_count",
+		"Stock Entry-transporter_info",
+		"Stock Entry-transporter",
+		"Stock Entry-gst_transporter_id",
+		"Stock Entry-driver",
+		"Stock Entry-transport_receipt_no",
+		"Stock Entry-vehicle_no",
+		"Stock Entry-distance",
+		"Stock Entry-column_break_79",
+		"Stock Entry-transporter_name",
+		"Stock Entry-mode_of_transport",
+		"Stock Entry-destination",
+		"Stock Entry-driver_name",
+		"Stock Entry-transport_receipt_date",
+		"Stock Entry-gst_vehicle_type",
+		"Stock Entry-section_break_46",
+		"Stock Entry-taxes",
+		"Item-is_sample_product",
+		"Stock Entry-total",
+		"Stock Entry-net_total",
+		"Item-is_other_raw_material",
+		"Material Request-blanket_order",
+		"Material Request Item-blanket_order"
 		]
 	]
 ]
@@ -83,35 +179,57 @@ fixtures = [
 		"Sales Invoice-naming_series-options",
 		"Packing Slip-to_case_no-hidden",
 		"Packing Slip-from_case_no-hidden",
-		"Packing Slip Item-item_name-fetch_from"
+		"Packing Slip Item-item_name-fetch_from",
+		"Sales Order-naming_series-options",
+		"POS Invoice-naming_series-options",
+		"Stock Reconciliation-naming_series-options",
+		"Stock Entry-naming_series-options",
+		"Material Request-naming_series-options",
+		"Delivery Note-naming_series-options",
+		"Packing Slip-naming_series-options",
+		"Pick List-naming_series-options",
+		"Purchase Order-naming_series-options",
+		"Purchase Invoice-naming_series-options",
+		"Purchase Receipt-naming_series-options",
+		"Payment Order-naming_series-default",
+		"Payment Order-naming_series-options",
+		"Payment Entry-naming_series-options",
+		"Payment Request-naming_series-options",
+		"Sales Invoice-naming_series-default",
+		"Payment Entry-naming_series-default",
+		"Sales Invoice-main-default_print_format",
+		"Purchase Receipt-main-default_print_format",
+		"Purchase Order-main-default_print_format",
+		"Delivery Note-main-default_print_format"
 		]
 	]
 ]
 },
-{"dt": "Custom Script",
+{"dt": "Client Script",
 		"filters": [
          [
              "name", "in", [
-		"POS Invoice-Client",
-		"Item-Client",
-		"Delivery Note-Client",
-		"Stock Entry-Client",
-		"Stock Reconciliation-Client",
-		"Item Attribute-Client",
-		"Sales Invoice-Client",
-		"Packing Slip-Client"
-		]
-	]
-]
-},
-{"dt": "Server Script",
-		"filters": [
-         [
-             "name", "in", [
-		"item_codification",
-		"send_email_to_warehouse_manager",
-		"send_mail_for_order_qty",
-		"insert_item_barcode"
+		"POS Invoice-Form",
+		"Item-Form",
+		"Delivery Note-Form",
+		"Item Attribute-Form",
+		"Sales Invoice-Form",
+		"Packing Slip-Form",
+		"Sales Order-Form",
+		"Stock Entry-Form",
+		"Stock Reconciliation-Form"
+		"Material Request-Form",
+		"Pick List-Form",
+		"Purchase Order-Form",
+		"Purchase Invoice-Form",
+		"Purchase Receipt-Form",
+		"Payment Order-Form",
+		"Payment Entry-Form",
+		"Payment Request-Form",
+		"Collection Details-List",
+		"Style Details-List",
+		"Launch Details-List",
+		"Collection Details-Form"
 		]
 	]
 ]
@@ -124,7 +242,20 @@ fixtures = [
 		"Stock Entry Barcode",
 		"Item Barcode",
 		"Rangsutra Sales Invoice Print Format",
-		"Rangsutra Packing Slip"
+		"Rangsutra Packing Slip",
+		"Rangsutra POS Invoice Print Format",
+		"Rangsutra Delivery Note Print Format",
+		"Rangsutra Purchase Order Print Format",
+		"Rangsutra Purchase Receipt Print Format",
+		"Rangsutra Goods Return Challan Print Format",
+		"Rangsutra Debit Note Print Format",
+		"Rangsutra Credit Note Print Format",
+		"Rangsutra B2B Export Sales Invoice Print Format",
+		"Rangsutra Delivery Note Return Print Format",
+		"Rangsutra Credit Note B2B Export Print Format",
+		"Rangsutra Packing Slip Print Format",
+		"Rangsutra Stock Entry Print Format",
+		"Project Sales Invoice Print Format"
 		]
 	]
 ]
@@ -138,7 +269,8 @@ fixtures = [
          [
              "name", "in", [
 		"Sales Order Item-wise Stock Report",
-		"New Collections Sell Through Report"
+		"New Collections Sell Through Report",
+		"WIP Report"
 		]
 	]
 ]
@@ -155,12 +287,23 @@ fixtures = [
 			"Marketing & Communications Executive",
 			"Design Executive",
 			"Digital Marketing and E-commerce Consultant",
-			"Technical Support and Troubleshooting"
+			"Technical Support and Troubleshooting",
+			"ERP User",
+			"Quality User"
 	]
 	]
 	]
+},
+{"dt": "Email Template",
+		"filters":[
+		[
+		"name","in",["Purchase Receipt Template","Material Request Template","Stock_entry_template","Blanket Order Template","In house QC Template","Email to Manufacturing Manager"
+		]
+		]
+		]
 }
 ]
+
 # Includes in <head>
 # ------------------
 
