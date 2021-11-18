@@ -54,13 +54,13 @@
  {
   "docstatus": 0,
   "doctype": "Email Template",
-  "modified": "2021-11-12 11:40:59.480688",
+  "modified": "2021-11-18 12:00:23.507090",
   "name": "Email to Manufacturing Manager",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
   "response": null,
-  "response_html": "Dear Sir/Ma'am,<br>\n<p>We request you to please login and approve the request <a href=\"{{ frappe.utils.get_url_to_form(doc.doctype, doc.name) }}\">{{ doc.name}} </a>. Thank you for your support.</p>\n<br>\nThanks,<br>\n{{frappe.db.get_value(\"User\",{\"name\":frappe.session.user},\"full_name\")}}",
+  "response_html": "Dear Sir/Ma'am,<br>\n<p>We request you to approve the Material Request <a href=\"{{ frappe.utils.get_url_to_form(doc.doctype, doc.name) }}\">{{ doc.name}} </a> to proceed with manufacturing of Blanket Order{{doc.blanket_order}}.</p>\n<br>\nThanks,<br>\n{{frappe.db.get_value(\"User\",{\"name\":frappe.session.user},\"full_name\")}}",
   "subject": "Material Request waiting for approval.",
   "use_html": 1
  }
