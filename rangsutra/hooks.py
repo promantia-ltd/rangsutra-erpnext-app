@@ -269,8 +269,7 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
          [
              "name", "in", [
 		"Sales Order Item-wise Stock Report",
-		"New Collections Sell Through Report",
-		"WIP Report"
+		"New Collections Sell Through Report"
 		]
 	]
 ]
