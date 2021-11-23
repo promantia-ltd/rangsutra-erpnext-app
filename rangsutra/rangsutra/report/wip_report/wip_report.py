@@ -91,8 +91,8 @@ def get_data(filters,conditions):
 		woo.workstation ,
 		wo.material_transferred_for_manufacturing as "issue_qty",
 		wo.produced_qty as "receive_qty",
-		"" as "reject_qty",
-		null as "returned_qty"
+		(SELECT sum(se.fg_completed_qty) from `tabStock Entry` se where se.work_order = wo.name and se.stock_entry_type = 'Manufacturing Reject') as "reject_qty",
+		(SELECT sum(se.fg_completed_qty) from `tabStock Entry` se where se.work_order = wo.name and se.stock_entry_type = 'Manufacturing Return') as "returned_qty"
 		from `tabProduction Plan` pp 
 		inner join `tabProduction Plan Sales Order` ppso
 		on pp.name = ppso.parent
@@ -139,8 +139,8 @@ def get_data(filters,conditions):
 		mwoo.workstation ,
 		mwo.material_transferred_for_manufacturing as "issue_qty",
 		mwo.produced_qty as "receive_qty",
-		"" as "reject_qty",
-		null as "returned_qty"
+		(SELECT sum(mse.fg_completed_qty) from `tabStock Entry` mse where mse.work_order = mwo.name and mse.stock_entry_type = 'Manufacturing Reject') as "reject_qty",
+		(SELECT sum(mse.fg_completed_qty) from `tabStock Entry` mse where mse.work_order = mwo.name and mse.stock_entry_type = 'Manufacturing Return') as "returned_qty"
 		FROM `tabProduction Plan` mpp 
 		inner join `tabProduction Plan Material Request` ppmr
 		on mpp.name = ppmr.parent 
