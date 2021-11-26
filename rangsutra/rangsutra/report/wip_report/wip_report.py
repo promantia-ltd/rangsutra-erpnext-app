@@ -114,12 +114,12 @@ def get_data(filters,conditions):
 		(SELECT bo.operation from `tabBOM Operation` bo WHERE bo.parent = poi.bom) as "process",
 		(SELECT po.supplier from `tabPurchase Order` po where po.name = poi.parent) as "workstation",
 		(SELECT sum(pois.supplied_qty) from `tabPurchase Order Item Supplied`
-		 pois inner join `tabItem` it on it.item_code = pois.main_item_code
+		 pois inner join `tabItem` it on it.item_code = pois.rm_item_code
 		 where pois.parent = poi.parent and poi.item_code = pois.main_item_code and (it.fabric_or_yarn = 1 or it.intermediate_product = 1))  as "issue_qty",
 		poi.received_qty as "receive_qty",
-		pri.rejected_qty as "reject_qty",
+		(Select sum(pri.rejected_qty) from `tabPurchase Receipt Item` pri where poi.parent = pri.purchase_order and poi.item_code = pri.item_code) as "reject_qty",
 		(SELECT sum(pois.returned_qty) from `tabPurchase Order Item Supplied` pois
-		 inner join `tabItem` it on it.item_code = pois.main_item_code 
+		 inner join `tabItem` it on it.item_code = pois.rm_item_code 
 		 where pois.parent = poi.parent and poi.item_code = pois.main_item_code and (it.fabric_or_yarn = 1 or it.intermediate_product = 1)) as "returned_qty"
 		from `tabProduction Plan` tpp 
 		inner join `tabProduction Plan Sales Order` tppso
@@ -128,8 +128,6 @@ def get_data(filters,conditions):
 		on tppso.sales_order = tsoi.parent
 		inner join `tabPurchase Order Item` poi
 		on poi.production_plan = tpp.name
-		left join `tabPurchase Receipt Item` pri
-		on poi.parent = pri.purchase_order and poi.item_code = pri.item_code 
 		where tpp.docstatus =1
 		UNION 
 		SELECT 
@@ -165,12 +163,12 @@ def get_data(filters,conditions):
 		(SELECT mbo.operation from `tabBOM Operation` mbo WHERE mbo.parent = mpoi.bom) as "process",
 		(SELECT mpo.supplier from `tabPurchase Order` mpo where mpo.name = mpoi.parent) as "workstation",
 		(SELECT sum(tpois.supplied_qty) from `tabPurchase Order Item Supplied` tpois
-		 inner join `tabItem` it on it.item_code = tpois.main_item_code 
+		 inner join `tabItem` it on it.item_code = tpois.rm_item_code 
 		 where tpois.parent = mpoi.parent and mpoi.item_code = tpois.main_item_code and (it.fabric_or_yarn = 1 or it.intermediate_product = 1)) as "issue_qty",
 		mpoi.received_qty as "receive_qty",
-		mpri.rejected_qty as "reject_qty",
+		(Select sum( mpri.rejected_qty) from `tabPurchase Receipt Item` mpri where mpoi.parent = mpri.purchase_order and mpoi.item_code = mpri.item_code ) as "reject_qty",
 		(SELECT sum(tpois.returned_qty) from `tabPurchase Order Item Supplied` tpois
-		 inner join `tabItem` it on it.item_code = tpois.main_item_code 
+		 inner join `tabItem` it on it.item_code = tpois.rm_item_code 
 		 where tpois.parent = mpoi.parent and mpoi.item_code = tpois.main_item_code and (it.fabric_or_yarn = 1 or it.intermediate_product = 1)) as "returned_qty"
 		from `tabProduction Plan` mtpp 
 		inner join `tabProduction Plan Material Request` tppmr
@@ -179,8 +177,6 @@ def get_data(filters,conditions):
 		on tppmr.material_request = tmri.parent 
 		inner join `tabPurchase Order Item` mpoi
 		on mpoi.production_plan = mtpp.name 
-		left join `tabPurchase Receipt Item` mpri
-		on mpoi.parent = mpri.purchase_order and mpoi.item_code = mpri.item_code
 		WHERE mtpp.docstatus =1
 		) as t1 where t1.blanket_order is not null {conditions}""".format(conditions=conditions)
 	orders=frappe.db.sql(query, as_dict=True)
