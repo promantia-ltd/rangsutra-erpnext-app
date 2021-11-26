@@ -5,14 +5,6 @@
 frappe.query_reports["WIP Report"] = {
 	"filters": [
 		{
-			"fieldname":"company",
-			"label": __("Company"),
-			"fieldtype": "Link",
-			"options": "Company",
-			"reqd": 1,
-			"default": frappe.defaults.get_user_default("Company")
-		},
-		{
 			"fieldname":"blanket_order",
 			"label": __("Blanket Order"),
 			"fieldtype": "Link",
