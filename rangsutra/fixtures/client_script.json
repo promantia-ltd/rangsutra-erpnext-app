@@ -82,12 +82,12 @@
   "doctype": "Client Script",
   "dt": "Sales Order",
   "enabled": 1,
-  "modified": "2021-07-26 09:29:24.160483",
+  "modified": "2021-11-26 12:28:35.910663",
   "name": "Sales Order-Form",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
-  "script": "frappe.ui.form.on('Sales Order', {\n\trefresh(frm) {\n\t    if(frm.doc.__islocal){\n    \t\tfrappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frm.doc.transaction_date],\"year_end_date\":[\">=\",frm.doc.transaction_date]},\"year\",(y)=>{\n    \t\t        frm.set_value(\"financial_year\",y.year)\n    \t\t})\n\t\t}\n\t}\n\t\n})",
+  "script": "frappe.ui.form.on('Sales Order', {\n\trefresh(frm) {\n\t    if(frm.doc.__islocal){\n    \t\tfrappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frm.doc.transaction_date],\"year_end_date\":[\">=\",frm.doc.transaction_date]},\"year\",(y)=>{\n    \t\t        frm.set_value(\"financial_year\",y.year)\n    \t\t})\n\t\t}\n\t}\n})",
   "view": "Form"
  },
  {
