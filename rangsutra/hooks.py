@@ -165,7 +165,9 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Stock Entry-net_total",
 		"Item-is_other_raw_material",
 		"Material Request-blanket_order",
-		"Material Request Item-blanket_order"
+		"Material Request Item-blanket_order",
+		"Quality Inspection-supplier",
+		"Item-dbk_no"
 		]
 	]
 ]
@@ -255,7 +257,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Rangsutra Credit Note B2B Export Print Format",
 		"Rangsutra Packing Slip Print Format",
 		"Rangsutra Stock Entry Print Format",
-		"Project Sales Invoice Print Format"
+		"Project Sales Invoice Print Format",
+		"Rangsutra Shopify Sales Invoice Print Format"
 		]
 	]
 ]
