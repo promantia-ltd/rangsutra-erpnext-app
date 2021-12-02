@@ -202,7 +202,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Sales Invoice-main-default_print_format",
 		"Purchase Receipt-main-default_print_format",
 		"Purchase Order-main-default_print_format",
-		"Delivery Note-main-default_print_format"
+		"Delivery Note-main-default_print_format",
+		"Packing Slip Item-item_name-options"
 		]
 	]
 ]
