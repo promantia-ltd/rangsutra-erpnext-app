@@ -6545,7 +6545,7 @@
   "in_list_view": 0,
   "in_preview": 0,
   "in_standard_filter": 0,
-  "insert_after": "failure_description",
+  "insert_after": "against_income_account",
   "label": "Destination",
   "length": 0,
   "mandatory_depends_on": null,
