@@ -2,6 +2,19 @@
  {
   "docstatus": 0,
   "doctype": "Client Script",
+  "dt": "Quality Inspection",
+  "enabled": 1,
+  "modified": "2021-11-30 16:08:59.370154",
+  "name": "Quality Inspection-Form",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "script": "frappe.ui.form.on('Quality Inspection', {\n\treference_name(frm) {\n\t    if(frm.doc.reference_type == \"Purchase Receipt\" && frm.doc.reference_name != null){\n\t        frappe.db.get_value(\"Purchase Receipt\",{\"name\":frm.doc.reference_name},\"supplier\",(s)=>{\n    \t\t        frm.set_value(\"supplier\",s.supplier)\n    \t\t        frm.refresh_field(\"supplier\");\n    \t\t})\n\t    }\n\t}\n})",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
   "dt": "Item Attribute",
   "enabled": 1,
   "modified": "2021-07-26 08:34:31.713298",
