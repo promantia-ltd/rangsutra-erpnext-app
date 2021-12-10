@@ -167,7 +167,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Material Request-blanket_order",
 		"Material Request Item-blanket_order",
 		"Quality Inspection-supplier",
-		"Item-dbk_no"
+		"Item-dbk_no",
+		"Sales Invoice-sqc"
 		]
 	]
 ]
@@ -232,7 +233,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Collection Details-List",
 		"Style Details-List",
 		"Launch Details-List",
-		"Collection Details-Form"
+		"Collection Details-Form",
+		"Quality Inspection-Form"
 		]
 	]
 ]
@@ -300,7 +302,7 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 {"dt": "Email Template",
 		"filters":[
 		[
-		"name","in",["Purchase Receipt Template","Material Request Template","Stock_entry_template","Blanket Order Template","In house QC Template","Email to Manufacturing Manager"
+		"name","in",["Purchase Receipt Template","Material Request Template","Purchase_receipt_QC_template","Blanket Order Template","In house QC Template","Email to Manufacturing Manager"
 		]
 		]
 		]
