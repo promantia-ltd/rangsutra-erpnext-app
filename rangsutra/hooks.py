@@ -308,6 +308,11 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		]
 }
 ]
+override_doctype_dashboards = {
+	"Purchase Order": "rangsutra.rangsutra.doctype.purchase_order.purchase_order_dashboard.get_dashboard_data",
+	"Work Order": "rangsutra.rangsutra.doctype.work_order.work_order_dashboard.get_dashboard_data"
+}
+
 
 # Includes in <head>
 # ------------------
