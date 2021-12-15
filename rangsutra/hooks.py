@@ -168,7 +168,14 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Material Request Item-blanket_order",
 		"Quality Inspection-supplier",
 		"Item-dbk_no",
-		"Sales Invoice-sqc"
+		"Sales Invoice-sqc",
+		"Blanket Order-financial_year",
+		"Quality Inspection-financial_year",
+		"Quality Inspection-branch_abbr",
+		"Production Plan-financial_year",
+		"Landed Cost Voucher-financial_year",
+		"Landed Cost Voucher-branch_abbr",
+		"Job Card-branch_abbr"
 		]
 	]
 ]
@@ -204,7 +211,13 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Purchase Receipt-main-default_print_format",
 		"Purchase Order-main-default_print_format",
 		"Delivery Note-main-default_print_format",
-		"Packing Slip Item-item_name-options"
+		"Packing Slip Item-item_name-options",
+		"Blanket Order-naming_series-options",
+		"Quality Inspection-naming_series-options",
+		"Production Plan-naming_series-options",
+		"Landed Cost Voucher-naming_series-options",
+		"Job Card-naming_series-options",
+		"Job Card-naming_series-default"
 		]
 	]
 ]
@@ -246,7 +259,7 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Stock Reconciliation Barcode",
 		"Stock Entry Barcode",
 		"Item Barcode",
-		"Rangsutra Sales Invoice Print Format",
+		"Domestic Sales Invoice",
 		"Rangsutra Packing Slip",
 		"Rangsutra POS Invoice Print Format",
 		"Rangsutra Delivery Note Print Format",
@@ -255,13 +268,13 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Rangsutra Goods Return Challan Print Format",
 		"Rangsutra Debit Note Print Format",
 		"Rangsutra Credit Note Print Format",
-		"Rangsutra B2B Export Sales Invoice Print Format",
+		"Export Sales Invoice",
 		"Rangsutra Delivery Note Return Print Format",
-		"Rangsutra Credit Note B2B Export Print Format",
+		"Export Credit Note",
 		"Rangsutra Packing Slip Print Format",
 		"Rangsutra Stock Entry Print Format",
-		"Project Sales Invoice Print Format",
-		"Rangsutra Shopify Sales Invoice Print Format"
+		"Project Sales Invoice",
+		"Shopify Sales Invoice"
 		]
 	]
 ]
@@ -308,6 +321,9 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		]
 }
 ]
+doctype_js = {
+	"Stock Entry" : "rangsutra/doctype/stock_entry/stock_entry.js"
+}
 override_doctype_dashboards = {
 	"Purchase Order": "rangsutra.rangsutra.doctype.purchase_order.purchase_order_dashboard.get_dashboard_data",
 	"Work Order": "rangsutra.rangsutra.doctype.work_order.work_order_dashboard.get_dashboard_data"
