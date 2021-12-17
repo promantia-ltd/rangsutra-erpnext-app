@@ -195,7 +195,7 @@ def get_item_list(data, doc):
         if total_inclusicve_rate > 0:
             taxable_amt = (items.amount - ((items.amount * total_inclusicve_rate)/(100+total_inclusicve_rate)))
         else:
-            taxable_amt = row.amount
+            taxable_amt = items.amount
         item_data.taxableAmount = taxable_amt
     
         data.itemList.append(item_data)
