@@ -176,7 +176,11 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Production Plan-financial_year",
 		"Landed Cost Voucher-financial_year",
 		"Landed Cost Voucher-branch_abbr",
-		"Job Card-branch_abbr"
+		"Job Card-branch_abbr",
+		"Asset-financial_year",
+		"Asset-branch_abbr",
+		"Journal Entry-financial_year",
+		"Journal Entry-branch_abbr"
 		]
 	]
 ]
@@ -218,7 +222,9 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Production Plan-naming_series-options",
 		"Landed Cost Voucher-naming_series-options",
 		"Job Card-naming_series-options",
-		"Job Card-naming_series-default"
+		"Job Card-naming_series-default",
+		"Asset-naming_series-options",
+		"Journal Entry-naming_series-options"
 		]
 	]
 ]
