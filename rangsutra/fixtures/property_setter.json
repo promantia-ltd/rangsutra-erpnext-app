@@ -576,5 +576,39 @@
   "property_type": "Text",
   "row_name": null,
   "value": ""
+ },
+ {
+  "default_value": null,
+  "doc_type": "Asset",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "naming_series",
+  "modified": "2021-12-17 12:29:53.938333",
+  "name": "Asset-naming_series-options",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "property": "options",
+  "property_type": "Text",
+  "row_name": null,
+  "value": "RS/.financial_year./.branch_abbr.####\nACC-ASS-.YYYY.-"
+ },
+ {
+  "default_value": null,
+  "doc_type": "Journal Entry",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "naming_series",
+  "modified": "2021-12-17 13:14:44.849586",
+  "name": "Journal Entry-naming_series-options",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "property": "options",
+  "property_type": "Text",
+  "row_name": null,
+  "value": "JV/.financial_year./.branch_abbr.####\nACC-JV-.YYYY.-"
  }
 ]
