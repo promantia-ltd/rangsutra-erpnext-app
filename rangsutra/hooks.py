@@ -180,7 +180,9 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Asset-financial_year",
 		"Asset-branch_abbr",
 		"Journal Entry-financial_year",
-		"Journal Entry-branch_abbr"
+		"Journal Entry-branch_abbr",
+		"Purchase Order-project",
+		"Material Request-project"
 		]
 	]
 ]
@@ -254,7 +256,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Style Details-List",
 		"Launch Details-List",
 		"Collection Details-Form",
-		"Quality Inspection-Form"
+		"Quality Inspection-Form",
+		"Project-Form"
 		]
 	]
 ]
