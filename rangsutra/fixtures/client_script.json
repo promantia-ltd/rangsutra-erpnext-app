@@ -56,7 +56,7 @@
   "doctype": "Client Script",
   "dt": "Delivery Note",
   "enabled": 1,
-  "modified": "2021-07-26 14:58:59.515690",
+  "modified": "2021-12-23 19:19:04.855839",
   "name": "Delivery Note-Form",
   "parent": null,
   "parentfield": null,
@@ -173,12 +173,12 @@
   "doctype": "Client Script",
   "dt": "Purchase Order",
   "enabled": 1,
-  "modified": "2021-07-26 14:27:45.304838",
+  "modified": "2021-12-23 20:09:29.069270",
   "name": "Purchase Order-Form",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
-  "script": "frappe.ui.form.on('Purchase Order', {\n\trefresh(frm) {\n\t    if(frm.doc.__islocal){\n    \t\tfrappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frm.doc.transaction_date],\"year_end_date\":[\">=\",frm.doc.transaction_date]},\"year\",(y)=>{\n    \t\t        frm.set_value(\"financial_year\",y.year)\n    \t\t})\n\t\t}\n\t}\n})",
+  "script": "frappe.ui.form.on('Purchase Order', {\n\trefresh(frm) {\n\t    if(frm.doc.__islocal){\n    \t\tfrappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frm.doc.transaction_date],\"year_end_date\":[\">=\",frm.doc.transaction_date]},\"year\",(y)=>{\n    \t\t        frm.set_value(\"financial_year\",y.year)\n    \t\t})\n\t\t}\n\t},\n\tproject:function(frm,cdt,cdn){\n\t    if(frm.doc.project!=null && frm.doc.project != undefined){\n\t        $.each(frm.doc.items, function(idx, item){\n\t            item.project = frm.doc.project;\n\t        });\n\t    }\n\t    refresh_field(\"items\");\n\t}\n})",
   "view": "Form"
  },
  {
@@ -257,6 +257,19 @@
   "parentfield": null,
   "parenttype": null,
   "script": "frappe.ui.form.on('Collection Details', {\n\tbefore_save(frm) {\n    \tvar collection = frm.doc.collection_code;\n       if(/^[a-zA-Z]+$/.test(collection)){}\n        else{\n            frappe.validate=false;\n        \tfrappe.throw(__(\"The Collection Code should not be numeric or alphanumeric.\"))\n        }\n\t}\n})",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Project",
+  "enabled": 1,
+  "modified": "2021-12-24 10:55:44.579294",
+  "name": "Project-Form",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "script": "frappe.ui.form.on('Project', {\n    setup(frm) {\n\t\tfrm.make_methods = {\n\t\t\t'Timesheet': () => {\n\t\t\t\topen_form(frm, \"Timesheet\", \"Timesheet Detail\", \"time_logs\");\n\t\t\t},\n\t\t\t'Purchase Order': () => {\n\t\t\t\topen_form(frm, \"Purchase Order\", \"Purchase Order Item\", \"items\");\n\t\t\t},\n\t\t\t'Purchase Receipt': () => {\n\t\t\t\topen_form(frm, \"Purchase Receipt\", \"Purchase Receipt Item\", \"items\");\n\t\t\t},\n\t\t\t'Purchase Invoice': () => {\n\t\t\t\topen_form(frm, \"Purchase Invoice\", \"Purchase Invoice Item\", \"items\");\n\t\t\t},\n\t\t\t'Material Request': () => {\n\t\t\t\topen_form(frm, \"Material Request\", \"Material Request Item\", \"items\");\n\t\t\t},\n\t\t};\n\t},\n\trefresh(frm) {\n\t}\n})\n\nfunction open_form(frm, doctype, child_doctype, parentfield) {\n\tfrappe.model.with_doctype(doctype, () => {\n\t\tlet new_doc = frappe.model.get_new_doc(doctype);\n        new_doc.project=frm.doc.name;\n\t\t// add a new row and set the project\n\t\tlet new_child_doc = frappe.model.get_new_doc(child_doctype);\n\t\tnew_child_doc.project = frm.doc.name;\n\t\tnew_child_doc.parent = new_doc.name;\n\t\tnew_child_doc.parentfield = parentfield;\n\t\tnew_child_doc.parenttype = doctype;\n\t\tnew_doc[parentfield] = [new_child_doc];\n\n\t\tfrappe.ui.form.make_quick_entry(doctype, null, null, new_doc);\n\t});\n\n}",
   "view": "Form"
  }
 ]
