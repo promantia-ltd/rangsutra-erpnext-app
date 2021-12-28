@@ -4,7 +4,7 @@
   "doctype": "Workflow",
   "document_type": "Purchase Order",
   "is_active": 1,
-  "modified": "2021-12-10 12:27:14.007094",
+  "modified": "2021-12-28 14:26:06.896166",
   "name": "Purchase Order Workflow",
   "override_status": 0,
   "parent": "Purchase Order",
