@@ -182,7 +182,11 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Journal Entry-financial_year",
 		"Journal Entry-branch_abbr",
 		"Purchase Order-project",
-		"Material Request-project"
+		"Material Request-project",
+		"Sales Invoice-notif_party_one_address",
+		"Sales Invoice-notif_party_one_contact",
+		"Sales Invoice-notif_party_two_address",
+		"Sales Invoice-notif_party_two_contact"
 		]
 	]
 ]
@@ -367,6 +371,16 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		]
 		]
 		]
+},
+{
+    "dt":"Workspace",
+    "filters":[
+        [
+        "name","in",[
+		"Manufacturing"
+        ]
+    ]
+]
 }
 ]
 doctype_js = {
