@@ -82,12 +82,12 @@
   "doctype": "Client Script",
   "dt": "Sales Invoice",
   "enabled": 1,
-  "modified": "2021-07-26 09:28:57.226096",
+  "modified": "2021-12-31 07:00:22.508416",
   "name": "Sales Invoice-Form",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
-  "script": "frappe.ui.form.on('Sales Invoice', {\n\trefresh(frm) {\n\t   if(frm.doc.__islocal){\n    \t\tfrappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frm.doc.posting_date],\"year_end_date\":[\">=\",frm.doc.posting_date]},\"year\",(y)=>{\n    \t\t        frm.set_value(\"financial_year\",y.year)\n    \t\t})\n\t\t}\n\t    if(frm.doc.delivery_note == undefined)\n\t\t$.each(frm.doc.items,function(idx, item){\n            if(item.delivery_note != undefined){\n                frm.set_value(\"delivery_note\",item.delivery_note)\n            }\n\t\t});\n\t}\n})",
+  "script": "frappe.ui.form.on('Sales Invoice', {\n    address_query: function(frm, link_doctype, link_name) {\n\t\treturn {\n\t\t\tquery: 'frappe.contacts.doctype.address.address.address_query',\n\t\t\tfilters: {\n\t\t\t\tlink_doctype: link_doctype,\n\t\t\t\tlink_name: link_name\n\t\t\t}\n\t\t};\n\t},\n\tcontact_query: function(frm, link_doctype, link_name) {\n\t\treturn {\n\t\t\tquery: 'frappe.contacts.doctype.contact.contact.contact_query',\n\t\t\tfilters: {\n\t\t\t\tlink_doctype: link_doctype,\n\t\t\t\tlink_name: link_name\n\t\t\t}\n\t\t};\n\t},\n\trefresh(frm) {\n\t    if(frm.doc.customer != undefined && frm.doc.customer != null){\n\t    frm.set_query(\"notif_party_one_address\", () => {\n\t\t\treturn frm.events.address_query(frm, 'Customer', frm.doc.customer);\n\t\t});\n\t\tfrm.set_query(\"notif_party_two_address\", () => {\n\t\t\treturn frm.events.address_query(frm, 'Customer', frm.doc.customer);\n\t\t});\n\t\tfrm.set_query(\"notif_party_one_contact\", () => {\n\t\t\treturn frm.events.contact_query(frm, 'Customer', frm.doc.customer);\n\t\t});\n\t\tfrm.set_query(\"notif_party_two_contact\", () => {\n\t\t\treturn frm.events.contact_query(frm, 'Customer', frm.doc.customer);\n\t\t});\n\t    }\n\t   if(frm.doc.__islocal){\n    \t\tfrappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frm.doc.posting_date],\"year_end_date\":[\">=\",frm.doc.posting_date]},\"year\",(y)=>{\n    \t\t        frm.set_value(\"financial_year\",y.year)\n    \t\t})\n\t\t}\n\t    if(frm.doc.delivery_note == undefined)\n\t\t$.each(frm.doc.items,function(idx, item){\n            if(item.delivery_note != undefined){\n                frm.set_value(\"delivery_note\",item.delivery_note)\n            }\n\t\t});\n\t}\n})",
   "view": "Form"
  },
  {
