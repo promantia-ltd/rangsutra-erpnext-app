@@ -137,9 +137,6 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Quality Inspection-accepted_qty",
 		"Quality Inspection-rejected_qty",
 		"Item-no_of_yarns",
-		"Packing Slip Item-box_no",
-		"Packing Slip Item-box_measurement",
-		"Packing Slip Item-gross_weight",
 		"Sales Invoice Item-package_no",
 		"Sales Invoice Item-dbk_no",
 		"Packing Slip-sales_invoice",
@@ -200,7 +197,6 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Sales Invoice-naming_series-options",
 		"Packing Slip-to_case_no-hidden",
 		"Packing Slip-from_case_no-hidden",
-		"Packing Slip Item-item_name-fetch_from",
 		"Sales Order-naming_series-options",
 		"POS Invoice-naming_series-options",
 		"Stock Reconciliation-naming_series-options",
@@ -299,7 +295,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Launch Details-List",
 		"Collection Details-Form",
 		"Quality Inspection-Form",
-		"Project-Form"
+		"Project-Form",
+		"Material Request-Form"
 		]
 	]
 ]
