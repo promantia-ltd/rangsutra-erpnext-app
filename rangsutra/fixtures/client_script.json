@@ -2,6 +2,19 @@
  {
   "docstatus": 0,
   "doctype": "Client Script",
+  "dt": "Material Request",
+  "enabled": 1,
+  "modified": "2021-12-24 09:59:48.364853",
+  "name": "Material Request-Form",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "script": "frappe.ui.form.on('Material Request', {\n\trefresh(frm) {\n\t    if(frm.doc.__islocal){\n    \t\tfrappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frm.doc.transaction_date],\"year_end_date\":[\">=\",frm.doc.transaction_date]},\"year\",(y)=>{\n    \t\t        frm.set_value(\"financial_year\",y.year)\n    \t\t})\n\t\t}\t    \n\t},\n\tblanket_order:function(frm,cdt,cdn){\n\t    if(frm.doc.blanket_order != null && frm.doc.blanket_order != undefined){\n            $.each(frm.doc.items, function(idx, item){\n                \n        \t\titem.blanket_order = frm.doc.blanket_order;\n            })\n            refresh_field(\"items\");\n\t    }\n\t},\n\tproject:function(frm,cdt,cdn){\n\t    if(frm.doc.project!=null && frm.doc.project != undefined){\n\t        $.each(frm.doc.items, function(idx, item){\n\t            item.project = frm.doc.project;\n\t        });\n\t    }\n\t    refresh_field(\"items\");\n\t}\n})\n\nfrappe.ui.form.on('Material Request Item', {\n\titems_add:function(frm,cdt,cdn){\n\t    if(frm.doc.blanket_order != null && frm.doc.blanket_order != undefined){\n            $.each(frm.doc.items, function(idx, item){\n                \n        \t\titem.blanket_order = frm.doc.blanket_order;\n            })\n            refresh_field(\"items\");\n\t    }\n\t}\n})",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
   "dt": "Quality Inspection",
   "enabled": 1,
   "modified": "2021-12-17 16:32:36.544925",
@@ -69,12 +82,12 @@
   "doctype": "Client Script",
   "dt": "Packing Slip",
   "enabled": 1,
-  "modified": "2021-10-22 13:40:26.055233",
+  "modified": "2022-01-06 17:14:26.487581",
   "name": "Packing Slip-Form",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
-  "script": "frappe.ui.form.on('Packing Slip', {\n\trefresh(frm) {\n\t    if(frm.doc.__islocal){\n    \t\tfrappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frappe.utils.nowdate],\"year_end_date\":[\">=\",frappe.utils.nowdate]},\"year\",(y)=>{\n    \t\t        frm.set_value(\"financial_year\",y.year)\n    \t\t})\n\t\t}\n\n\t\tif( frm.doc.delivery_note != undefined){\n            apply_filter(frm)\n\t    }\n\t    \n\n\t},\n\tdelivery_note(frm){\n\t    if( frm.doc.delivery_note != undefined){\n            apply_filter(frm)\n\t    }\n\t},\n\tbox_no(frm) {\n    \tif(frm.doc.items != undefined){\n    \t\t\tfor(var i =0;i<cur_frm.doc.items.length;i++){\n    \t\t\t\tcur_frm.doc.items[i].box_no=cur_frm.doc.box_no\n    \t\t\t}\n    \t\t}\n    \t}\n})\nfunction apply_filter(frm){\n\tvar si = []\n\n    frappe.call({\n\ttype:\"POST\",\n\targs:{\n\t\t\t'delivery_note': frm.doc.delivery_note\n\t\t},\n\tasync:false,\n\turl: \"/api/method/get_sales_invoice\",\n\tcallback: function(r){\n            for(var i=0;i<r.message.length;i++){\n\t\t\t\tsi.push(r.message[i].parent);\n\t\t\t}\n\t\t}\n\t})\n\t\n    frm.set_query(\"sales_invoice\",function(){\n\t\treturn{\n\t\t\tfilters: {\n\t\t\t\"name\":[\"in\",si]\n\t\t\t}\n\t\t};\n\t});\n}",
+  "script": "frappe.ui.form.on('Packing Slip', {\n\trefresh(frm) {\n\t    if(frm.doc.__islocal){\n    \t\tfrappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frappe.utils.nowdate],\"year_end_date\":[\">=\",frappe.utils.nowdate]},\"year\",(y)=>{\n    \t\t        frm.set_value(\"financial_year\",y.year)\n    \t\t})\n\t\t}\n\n\t\tif( frm.doc.delivery_note != undefined){\n            apply_filter(frm)\n\t    }\n\t    \n\n\t},\n\tdelivery_note(frm){\n\t    if( frm.doc.delivery_note != undefined){\n            apply_filter(frm)\n\t    }\n\t},\n\tbox_no(frm) {\n    \tif(frm.doc.items != undefined){\n    \t\t\tfor(var i =0;i<cur_frm.doc.items.length;i++){\n    \t\t\t\t//cur_frm.doc.items[i].box_no=cur_frm.doc.box_no\n    \t\t\t}\n    \t\t}\n    \t}\n})\nfunction apply_filter(frm){\n\tvar si = []\n\n    frappe.call({\n\ttype:\"POST\",\n\targs:{\n\t\t\t'delivery_note': frm.doc.delivery_note\n\t\t},\n\tasync:false,\n\turl: \"/api/method/get_sales_invoice\",\n\tcallback: function(r){\n            for(var i=0;i<r.message.length;i++){\n\t\t\t\tsi.push(r.message[i].parent);\n\t\t\t}\n\t\t}\n\t})\n\t\n    frm.set_query(\"sales_invoice\",function(){\n\t\treturn{\n\t\t\tfilters: {\n\t\t\t\"name\":[\"in\",si]\n\t\t\t}\n\t\t};\n\t});\n}",
   "view": "Form"
  },
  {
@@ -173,12 +186,12 @@
   "doctype": "Client Script",
   "dt": "Purchase Order",
   "enabled": 1,
-  "modified": "2021-12-23 20:09:29.069270",
+  "modified": "2022-01-04 07:04:34.008549",
   "name": "Purchase Order-Form",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
-  "script": "frappe.ui.form.on('Purchase Order', {\n\trefresh(frm) {\n\t    if(frm.doc.__islocal){\n    \t\tfrappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frm.doc.transaction_date],\"year_end_date\":[\">=\",frm.doc.transaction_date]},\"year\",(y)=>{\n    \t\t        frm.set_value(\"financial_year\",y.year)\n    \t\t})\n\t\t}\n\t},\n\tproject:function(frm,cdt,cdn){\n\t    if(frm.doc.project!=null && frm.doc.project != undefined){\n\t        $.each(frm.doc.items, function(idx, item){\n\t            item.project = frm.doc.project;\n\t        });\n\t    }\n\t    refresh_field(\"items\");\n\t}\n})",
+  "script": "frappe.ui.form.on('Purchase Order', {\n\trefresh(frm) {\n\t    if(frm.doc.__islocal){\n    \t\tfrappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frm.doc.transaction_date],\"year_end_date\":[\">=\",frm.doc.transaction_date]},\"year\",(y)=>{\n    \t\t        frm.set_value(\"financial_year\",y.year)\n    \t\t})\n\t\t}\n\t},\n\tproject:function(frm,cdt,cdn){\n\t    if(frm.doc.project!=null && frm.doc.project != undefined){\n\t        $.each(frm.doc.items, function(idx, item){\n\t            item.project = frm.doc.project;\n\t        });\n\t    }\n\t    refresh_field(\"items\");\n\t},\n\tschedule_date(frm){\n\t    if(frm.doc.schedule_date != undefined && frm.doc.schedule_date != null){\n\t        $.each(frm.doc.items, function(idx, item){\n\t            item.schedule_date = frm.doc.schedule_date;\n\t        });\n\t    }\n\t}\n})",
   "view": "Form"
  },
  {
