@@ -267,7 +267,20 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Sales Invoice Item-item_code-columns",
 		"Sales Invoice Item-warehouse-in_list_view",
 		"Sales Invoice Item-batch_no-in_list_view",
-		"Sales Invoice Item-serial_no-in_list_view"
+		"Sales Invoice Item-serial_no-in_list_view",
+		"Journal Entry Account-reference_type-in_list_view",
+		"Journal Entry Account-debit_in_account_currency-columns",
+		"Journal Entry Account-credit_in_account_currency-columns",
+		"Journal Entry Account-party_type-columns",
+		"Purchase Invoice Item-expense_account-in_list_view",
+		"Purchase Invoice Item-item_code-columns",
+		"Purchase Invoice Item-qty-columns",
+		"Purchase Invoice Item-expense_account-columns",
+		"Journal Entry Account-reference_type-columns",
+		"Journal Entry Account-reference_name-columns",
+		"Asset Finance Book-rate_of_depreciation-in_list_view",
+		"Asset Finance Book-rate_of_depreciation-columns",
+		"Asset Finance Book-total_number_of_depreciations-columns"
 		]
 	]
 ]
