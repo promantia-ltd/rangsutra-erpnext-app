@@ -186,7 +186,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Sales Invoice-notif_party_one_address",
 		"Sales Invoice-notif_party_one_contact",
 		"Sales Invoice-notif_party_two_address",
-		"Sales Invoice-notif_party_two_contact"
+		"Sales Invoice-notif_party_two_contact",
+		"Sales Invoice-bank_account"
 		]
 	]
 ]
@@ -401,7 +402,8 @@ doctype_js = {
 }
 override_doctype_dashboards = {
 	"Purchase Order": "rangsutra.rangsutra.doctype.purchase_order.purchase_order_dashboard.get_dashboard_data",
-	"Work Order": "rangsutra.rangsutra.doctype.work_order.work_order_dashboard.get_dashboard_data"
+	"Work Order": "rangsutra.rangsutra.doctype.work_order.work_order_dashboard.get_dashboard_data",
+	"Project": "rangsutra.rangsutra.doctype.project.project_dashboard.get_dashboard_data"
 }
 
 
