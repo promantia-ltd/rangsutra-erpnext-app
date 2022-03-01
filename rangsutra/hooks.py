@@ -281,7 +281,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Journal Entry Account-reference_name-columns",
 		"Asset Finance Book-rate_of_depreciation-in_list_view",
 		"Asset Finance Book-rate_of_depreciation-columns",
-		"Asset Finance Book-total_number_of_depreciations-columns"
+		"Asset Finance Book-total_number_of_depreciations-columns",
+		"Production Plan-sub_assembly_items-allow_bulk_edit"
 		]
 	]
 ]

@@ -1460,5 +1460,22 @@
   "property_type": "Int",
   "row_name": null,
   "value": "1"
+ },
+ {
+  "default_value": null,
+  "doc_type": "Production Plan",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "sub_assembly_items",
+  "modified": "2022-02-28 14:31:54.280237",
+  "name": "Production Plan-sub_assembly_items-allow_bulk_edit",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "property": "allow_bulk_edit",
+  "property_type": "Check",
+  "row_name": null,
+  "value": "1"
  }
 ]
