@@ -341,7 +341,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Rangsutra Packing Slip Print Format",
 		"Rangsutra Stock Entry Print Format",
 		"Project Sales Invoice",
-		"Shopify Sales Invoice"
+		"Shopify Sales Invoice",
+		"Retail (Other) Sales Invoice"
 		]
 	]
 ]
