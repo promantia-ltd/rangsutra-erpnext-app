@@ -196,6 +196,7 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"filters": [
          [
              "name", "in", [
+		"Purchase Order-shipping_address-label",
 		"Item-brand-mandatory_depends_on",
 		"Item-brand-read_only_depends_on",
 		"Sales Invoice-naming_series-options",
