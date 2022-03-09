@@ -381,13 +381,13 @@
   "doctype": "Server Script",
   "doctype_event": "Before Insert",
   "event_frequency": null,
-  "modified": "2021-11-10 11:32:07.316735",
+  "modified": "2022-03-09 16:55:04.728994",
   "name": "add_financial_year_to_sales_invoice",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
   "reference_doctype": "Sales Invoice",
-  "script": "doc.financial_year = frappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frappe.utils.getdate()],\"year_end_date\":[\">=\",frappe.utils.getdate()]},\"year\")\ndoc.branch_abbr = frappe.db.get_value(\"Branch\",{\"name\":doc.branch},\"abbr\")\nif doc.is_consolidated and doc.is_return:\n    doc.naming_series = \"SIR/.financial_year./DL.####\"",
+  "script": "doc.financial_year = frappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frappe.utils.getdate()],\"year_end_date\":[\">=\",frappe.utils.getdate()]},\"year\")\ndoc.branch_abbr = frappe.db.get_value(\"Branch\",{\"name\":doc.branch},\"abbr\")\nif doc.is_consolidated and doc.is_return:\n    doc.naming_series = \"SIR/.financial_year./DL.####\"\n    \nif doc.is_return == 1 and doc.delivery_note:\n    doc.naming_series = \"SIR/.financial_year./.branch_abbr.####\"",
   "script_type": "DocType Event"
  },
  {
