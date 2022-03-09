@@ -1477,5 +1477,22 @@
   "property_type": "Check",
   "row_name": null,
   "value": "1"
+ },
+ {
+  "default_value": null,
+  "doc_type": "Purchase Order",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "shipping_address",
+  "modified": "2022-03-09 16:10:11.812265",
+  "name": "Purchase Order-shipping_address-label",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "property": "label",
+  "property_type": "Data",
+  "row_name": null,
+  "value": "Shipping Address"
  }
 ]
