@@ -41,13 +41,13 @@
  {
   "docstatus": 0,
   "doctype": "Email Template",
-  "modified": "2021-11-03 13:37:51.057559",
+  "modified": "2022-03-24 12:53:03.640527",
   "name": "Blanket Order Template",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
   "response": null,
-  "response_html": "Dear {{user_name}},<br>\nA new Blanket Order {{name}} has been submitted by {{submitted_by}} for customer {{customer_name}}, of total quantity {%set qt = [0]%}\n{%set amt = [0]%}\n{%for row in items%}\n{% set _ = qt.append( qt.pop() + row.qty) %}\n{% set _ = amt.append( amt.pop() + row.rate*row.qty) %}\n{%endfor%}\n{{qt[0]}} pcs worth INR {{amt[0]}}. <br>\nThe ordered Items are:\n<table width=100% border= 1px solid black;>\n\n<tr align=\"center\">\n\n<th>SNO</th>\n\n<th>Item Code</th>\n\n<th>Item</th>\n\n<th>Qty</th>\n\n<th>Rate</th>\n\n</tr>\n\n{% for item in items %}\n\n<tr align=\"center\">\n\n<td>{{ item.idx }}</td>\n\n<td>{{ item.item_code }}</td>\n\n<td>{{ item.item_name }}</td>\n\n<td>{{ item.qty }}</td>\n\n<td>{{ item.rate }}</td>\n\n</tr>\n\n{% endfor %}\n\n</table>",
+  "response_html": "Dear {{user_name}},<br>\nA new Blanket Order {{name}} has been submitted by {{submitted_by}} for customer {{customer_name}}, of total quantity {%set qt = [0]%}\n{%set amt = [0]%}\n{%for row in items%}\n{% set _ = qt.append( qt.pop() + row.qty) %}\n{% set _ = amt.append( amt.pop() + row.rate*row.qty) %}\n{%endfor%}\n{{qt[0]}} pcs worth INR {{amt[0] | round(2, 'ceil')}}. <br>\nThe ordered Items are:\n<table width=100% border= 1px solid black;>\n\n<tr align=\"center\">\n\n<th>SNO</th>\n\n<th>Item Code</th>\n\n<th>Item</th>\n\n<th>Qty</th>\n\n<th>Rate</th>\n\n</tr>\n\n{% for item in items %}\n\n<tr align=\"center\">\n\n<td>{{ item.idx }}</td>\n\n<td>{{ item.item_code }}</td>\n\n<td>{{ item.item_name }}</td>\n\n<td>{{ item.qty }}</td>\n\n<td>{{ item.rate }}</td>\n\n</tr>\n\n{% endfor %}\n\n</table>",
   "subject": "Blanket Order has been submitted.",
   "use_html": 1
  },

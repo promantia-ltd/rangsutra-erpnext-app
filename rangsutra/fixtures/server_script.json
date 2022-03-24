@@ -160,13 +160,13 @@
   "doctype": "Server Script",
   "doctype_event": "Before Insert",
   "event_frequency": null,
-  "modified": "2021-07-28 05:37:06.976150",
+  "modified": "2022-03-24 12:57:40.816603",
   "name": "add_financial_year_to_purchase_order",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
   "reference_doctype": "Purchase Order",
-  "script": "doc.financial_year = frappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frappe.utils.getdate()],\"year_end_date\":[\">=\",frappe.utils.getdate()]},\"year\")\ndoc.branch_abbr = frappe.db.get_value(\"Branch\",{\"name\":doc.branch},\"abbr\")",
+  "script": "doc.financial_year = frappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frappe.utils.getdate()],\"year_end_date\":[\">=\",frappe.utils.getdate()]},\"year\")\ndoc.branch_abbr = frappe.db.get_value(\"Branch\",{\"name\":doc.branch},\"abbr\")\n\nproject = ''\nfor row in doc.items:\n    if row.production_plan:\n        project = frappe.db.get_value(\"Production Plan\",{\"name\":row.production_plan},\"project\")\n        row.project = project\n        doc.project = project",
   "script_type": "DocType Event"
  },
  {
@@ -602,13 +602,13 @@
   "doctype": "Server Script",
   "doctype_event": "Before Insert",
   "event_frequency": "All",
-  "modified": "2022-02-28 06:10:40.120765",
+  "modified": "2022-03-24 05:07:09.262946",
   "name": "Add bank account to sales invoice",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
   "reference_doctype": "Sales Invoice",
-  "script": "if doc.is_pos ==1 and doc.branch:\n    bank_account = frappe.db.get_value(\"Bank Account\",{\"is_company_account\" : 1, \"branch\":doc.branch},\"name\")\n    doc.bank_account = bank_account",
+  "script": "if doc.is_pos ==1 and doc.branch:\n    default_bank_account = frappe.db.get_value(\"Bank Account\",{\"is_company_account\" : 1, \"branch\":doc.branch,\"is_default\":1},\"name\")\n    doc.bank_account = default_bank_account\n    if not default_bank_account:\n        bank_account = frappe.db.get_value(\"Bank Account\",{\"is_company_account\" : 1, \"branch\":doc.branch},\"name\")\n        doc.bank_account = bank_account",
   "script_type": "DocType Event"
  },
  {
