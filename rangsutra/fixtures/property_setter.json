@@ -1,6 +1,23 @@
 [
  {
   "default_value": null,
+  "doc_type": "Production Plan",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "project",
+  "modified": "2022-03-14 06:52:26.423439",
+  "name": "Production Plan-project-depends_on",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "property": "depends_on",
+  "property_type": "Data",
+  "row_name": null,
+  "value": ""
+ },
+ {
+  "default_value": null,
   "doc_type": "Packing Slip Item",
   "docstatus": 0,
   "doctype": "Property Setter",
