@@ -284,5 +284,18 @@
   "parenttype": null,
   "script": "frappe.ui.form.on('Project', {\n    setup(frm) {\n\t\tfrm.make_methods = {\n\t\t\t'Timesheet': () => {\n\t\t\t\topen_form(frm, \"Timesheet\", \"Timesheet Detail\", \"time_logs\");\n\t\t\t},\n\t\t\t'Purchase Order': () => {\n\t\t\t\topen_form(frm, \"Purchase Order\", \"Purchase Order Item\", \"items\");\n\t\t\t},\n\t\t\t'Purchase Receipt': () => {\n\t\t\t\topen_form(frm, \"Purchase Receipt\", \"Purchase Receipt Item\", \"items\");\n\t\t\t},\n\t\t\t'Purchase Invoice': () => {\n\t\t\t\topen_form(frm, \"Purchase Invoice\", \"Purchase Invoice Item\", \"items\");\n\t\t\t},\n\t\t\t'Material Request': () => {\n\t\t\t\topen_form(frm, \"Material Request\", \"Material Request Item\", \"items\");\n\t\t\t},\n\t\t\t'Timesheet': () => {\n\t\t\t\topen_form(frm, \"Timesheet\", \"Timesheet Detail\", \"time_logs\");\n\t\t\t},\n\t\t\t'Delivery Note': () => {\n\t\t\t\topen_form(frm, \"Delivery Note\", \"Delivery Note Item\", \"items\");\n\t\t\t},\n\t\t\t'Sales Invoice': () => {\n\t\t\t\topen_form(frm, \"Sales Invoice\", \"Sales Invoice Item\", \"items\");\n\t\t\t},\n\t\t};\n\t},\n\trefresh(frm) {\n\t}\n})\n\nfunction open_form(frm, doctype, child_doctype, parentfield) {\n\tfrappe.model.with_doctype(doctype, () => {\n\t    let new_doc = frappe.model.get_new_doc(doctype);\n\t    if ( doctype == 'Timesheet'){\n            new_doc.parent_project=frm.doc.name;\n\t    }else{\n        new_doc.project=frm.doc.name;\n\t    }\n\t\t// add a new row and set the project\n\t\tlet new_child_doc = frappe.model.get_new_doc(child_doctype);\n\t\tnew_child_doc.project = frm.doc.name;\n\t\tnew_child_doc.parent = new_doc.name;\n\t\tnew_child_doc.parentfield = parentfield;\n\t\tnew_child_doc.parenttype = doctype;\n\t\tnew_doc[parentfield] = [new_child_doc];\n\n\t\tfrappe.ui.form.make_quick_entry(doctype, null, null, new_doc);\n\t});\n\n}",
   "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Production Plan",
+  "enabled": 1,
+  "modified": "2022-04-11 13:59:57.961982",
+  "name": "Production Plan-Form",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "script": "frappe.ui.form.on('Production Plan', {\n\tbefore_save(frm) {\n\t\t$.each(frm.doc.sub_assembly_items,function(idx, item){\n\t\t var value = item.schedule_date.split(' ')[0]\n\t\t    if(item.schedule_date && !frappe.datetime.validate(value)) {\n    \t\t\tlet sysdefaults = frappe.sys_defaults;\n    \t\t\tlet date_format = sysdefaults && sysdefaults.date_format\n    \t\t\t\t? sysdefaults.date_format : 'yyyy-mm-dd';\n    \t\t\tfrappe.validate=false;\n    \t\t\tfrappe.throw(__(\"Sub Assembly Item <br> Row:{0} Schedule Date {1} must be in format: {2}\", [idx+1, item.schedule_date, date_format]));\n\t\t    }\n\t\t});\n\t}\n})",
+  "view": "Form"
  }
 ]
