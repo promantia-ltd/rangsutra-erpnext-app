@@ -290,12 +290,12 @@
   "doctype": "Client Script",
   "dt": "Production Plan",
   "enabled": 1,
-  "modified": "2022-04-10 12:33:06.935577",
+  "modified": "2022-04-11 13:59:57.961982",
   "name": "Production Plan-Form",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
-  "script": "frappe.ui.form.on('Production Plan', {\n\tbefore_save(frm) {\n\t\t$.each(frm.doc.sub_assembly_items,function(idx, item){\n\t\t    if(item.schedule_date && !frappe.datetime.validate(item.schedule_date)) {\n    \t\t\tlet sysdefaults = frappe.sys_defaults;\n    \t\t\tlet date_format = sysdefaults && sysdefaults.date_format\n    \t\t\t\t? sysdefaults.date_format : 'yyyy-mm-dd';\n    \t\t\tfrappe.validate=false;\n    \t\t\tfrappe.throw(__(\"Sub Assembly Item <br> Row:{0} Schedule Date {1} must be in format: {2}\", [idx+1, item.schedule_date, date_format]));\n\t\t    }\n\t\t});\n\t}\n})",
+  "script": "frappe.ui.form.on('Production Plan', {\n\tbefore_save(frm) {\n\t\t$.each(frm.doc.sub_assembly_items,function(idx, item){\n\t\t var value = item.schedule_date.split(' ')[0]\n\t\t    if(item.schedule_date && !frappe.datetime.validate(value)) {\n    \t\t\tlet sysdefaults = frappe.sys_defaults;\n    \t\t\tlet date_format = sysdefaults && sysdefaults.date_format\n    \t\t\t\t? sysdefaults.date_format : 'yyyy-mm-dd';\n    \t\t\tfrappe.validate=false;\n    \t\t\tfrappe.throw(__(\"Sub Assembly Item <br> Row:{0} Schedule Date {1} must be in format: {2}\", [idx+1, item.schedule_date, date_format]));\n\t\t    }\n\t\t});\n\t}\n})",
   "view": "Form"
  }
 ]
