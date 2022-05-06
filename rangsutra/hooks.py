@@ -187,7 +187,9 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Sales Invoice-notif_party_one_contact",
 		"Sales Invoice-notif_party_two_address",
 		"Sales Invoice-notif_party_two_contact",
-		"Sales Invoice-bank_account"
+		"Sales Invoice-bank_account",
+		"Sales Invoice-gst_state_name",
+		"Purchase Invoice-gst_state_name"
 		]
 	]
 ]
