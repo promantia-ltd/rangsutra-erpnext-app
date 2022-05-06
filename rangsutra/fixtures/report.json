@@ -11,7 +11,7 @@
   "javascript": null,
   "json": null,
   "letter_head": null,
-  "modified": "2021-06-03 11:03:32.638937",
+  "modified": "2021-06-21 17:36:45.645760",
   "module": "Stock",
   "name": "New Collections Sell Through Report",
   "parent": null,
@@ -87,7 +87,7 @@
   "javascript": null,
   "json": null,
   "letter_head": null,
-  "modified": "2021-05-27 15:28:49.598000",
+  "modified": "2021-06-21 17:36:51.757598",
   "module": "Selling",
   "name": "Sales Order Item-wise Stock Report",
   "parent": null,
@@ -130,6 +130,378 @@
     "parentfield": "roles",
     "parenttype": "Report",
     "role": "Stock User"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "columns": [],
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "filters": [],
+  "is_standard": "No",
+  "javascript": null,
+  "json": "{\"columns\":[{\"label\":\"Invoice\",\"fieldname\":\"invoice\",\"fieldtype\":\"Link\",\"options\":\"Sales Invoice\",\"width\":120,\"id\":\"invoice\",\"name\":\"Invoice\",\"editable\":false,\"compareValue\":null},{\"label\":\"Posting Date\",\"fieldname\":\"posting_date\",\"fieldtype\":\"Date\",\"width\":80,\"id\":\"posting_date\",\"name\":\"Posting Date\",\"editable\":false},{\"label\":\"Customer\",\"fieldname\":\"customer\",\"fieldtype\":\"Link\",\"options\":\"Customer\",\"width\":120,\"id\":\"customer\",\"name\":\"Customer\",\"editable\":false,\"compareValue\":null},{\"label\":\"Customer Name\",\"fieldname\":\"customer_name\",\"fieldtype\":\"Data\",\"width\":120,\"id\":\"customer_name\",\"name\":\"Customer Name\",\"editable\":false,\"compareValue\":null},{\"fieldtype\":\"Data\",\"label\":\"Customer GSTIN\",\"fieldname\":\"customer_gstin\",\"width\":120,\"id\":\"customer_gstin\",\"name\":\"Customer GSTIN\",\"editable\":false,\"compareValue\":null},{\"fieldtype\":\"Data\",\"label\":\"Billing Address GSTIN\",\"fieldname\":\"billing_address_gstin\",\"width\":140,\"id\":\"billing_address_gstin\",\"name\":\"Billing Address GSTIN\",\"editable\":false,\"compareValue\":null},{\"fieldtype\":\"Data\",\"label\":\"Company GSTIN\",\"fieldname\":\"company_gstin\",\"width\":120,\"id\":\"company_gstin\",\"name\":\"Company GSTIN\",\"editable\":false,\"compareValue\":null},{\"fieldtype\":\"Data\",\"label\":\"Place of Supply\",\"fieldname\":\"place_of_supply\",\"width\":120,\"id\":\"place_of_supply\",\"name\":\"Place of Supply\",\"editable\":false,\"compareValue\":null},{\"fieldtype\":\"Data\",\"label\":\"Reverse Charge\",\"fieldname\":\"reverse_charge\",\"width\":120,\"id\":\"reverse_charge\",\"name\":\"Reverse Charge\",\"editable\":false,\"compareValue\":null},{\"fieldtype\":\"Data\",\"label\":\"GST Category\",\"fieldname\":\"gst_category\",\"width\":120,\"id\":\"gst_category\",\"name\":\"GST Category\",\"editable\":false,\"compareValue\":null},{\"fieldtype\":\"Data\",\"label\":\"Export Type\",\"fieldname\":\"export_type\",\"width\":120,\"id\":\"export_type\",\"name\":\"Export Type\",\"editable\":false,\"compareValue\":null},{\"fieldtype\":\"Data\",\"label\":\"E-Commerce GSTIN\",\"fieldname\":\"ecommerce_gstin\",\"width\":130,\"id\":\"ecommerce_gstin\",\"name\":\"E-Commerce GSTIN\",\"editable\":false,\"compareValue\":null},{\"label\":\"Customer Group\",\"fieldname\":\"customer_group\",\"fieldtype\":\"Link\",\"options\":\"Customer Group\",\"width\":120,\"id\":\"customer_group\",\"name\":\"Customer Group\",\"editable\":false,\"compareValue\":null},{\"label\":\"Territory\",\"fieldname\":\"territory\",\"fieldtype\":\"Link\",\"options\":\"Territory\",\"width\":80,\"id\":\"territory\",\"name\":\"Territory\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"gst_state_name\",\"field\":\"gst_state_name\",\"fieldtype\":\"Data\",\"label\":\"GST State Name\",\"insert_after_index\":13,\"link_field\":\"invoice\",\"doctype\":\"Sales Invoice\",\"width\":100,\"id\":\"gst_state_name\",\"name\":\"GST State Name\",\"editable\":false,\"compareValue\":null},{\"label\":\"Tax Id\",\"fieldname\":\"tax_id\",\"fieldtype\":\"Data\",\"width\":120,\"id\":\"tax_id\",\"name\":\"Tax Id\",\"editable\":false,\"compareValue\":null},{\"label\":\"Receivable Account\",\"fieldname\":\"receivable_account\",\"fieldtype\":\"Link\",\"options\":\"Account\",\"width\":80,\"id\":\"receivable_account\",\"name\":\"Receivable Account\",\"editable\":false,\"compareValue\":null},{\"label\":\"Mode Of Payment\",\"fieldname\":\"mode_of_payment\",\"fieldtype\":\"Data\",\"width\":120,\"id\":\"mode_of_payment\",\"name\":\"Mode Of Payment\",\"editable\":false,\"compareValue\":null},{\"label\":\"Project\",\"fieldname\":\"project\",\"fieldtype\":\"Link\",\"options\":\"Project\",\"width\":80,\"id\":\"project\",\"name\":\"Project\",\"editable\":false,\"compareValue\":null},{\"label\":\"Owner\",\"fieldname\":\"owner\",\"fieldtype\":\"Data\",\"width\":150,\"id\":\"owner\",\"name\":\"Owner\",\"editable\":false,\"compareValue\":null},{\"label\":\"Remarks\",\"fieldname\":\"remarks\",\"fieldtype\":\"Data\",\"width\":150,\"id\":\"remarks\",\"name\":\"Remarks\",\"editable\":false,\"compareValue\":null},{\"label\":\"Sales Order\",\"fieldname\":\"sales_order\",\"fieldtype\":\"Link\",\"options\":\"Sales Order\",\"width\":100,\"id\":\"sales_order\",\"name\":\"Sales Order\",\"editable\":false,\"compareValue\":null},{\"label\":\"Delivery Note\",\"fieldname\":\"delivery_note\",\"fieldtype\":\"Link\",\"options\":\"Delivery Note\",\"width\":100,\"id\":\"delivery_note\",\"name\":\"Delivery Note\",\"editable\":false,\"compareValue\":null},{\"label\":\"Cost Center\",\"fieldname\":\"cost_center\",\"fieldtype\":\"Link\",\"options\":\"Cost Center\",\"width\":100,\"id\":\"cost_center\",\"name\":\"Cost Center\",\"editable\":false,\"compareValue\":null},{\"label\":\"Warehouse\",\"fieldname\":\"warehouse\",\"fieldtype\":\"Link\",\"options\":\"Warehouse\",\"width\":100,\"id\":\"warehouse\",\"name\":\"Warehouse\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"currency\",\"label\":\"Currency\",\"fieldtype\":\"Data\",\"width\":80,\"id\":\"currency\",\"name\":\"Currency\",\"editable\":false,\"compareValue\":null},{\"label\":\"Domestic Sales - RCIL\",\"fieldname\":\"domestic_sales___rcil\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":120,\"id\":\"domestic_sales___rcil\",\"name\":\"Domestic Sales - RCIL\",\"editable\":false,\"compareValue\":null},{\"label\":\"Net Total\",\"fieldname\":\"net_total\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":120,\"id\":\"net_total\",\"name\":\"Net Total\",\"editable\":false,\"compareValue\":null},{\"label\":\"Tax Total\",\"fieldname\":\"tax_total\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":120,\"id\":\"tax_total\",\"name\":\"Tax Total\",\"editable\":false,\"compareValue\":null},{\"label\":\"Grand Total\",\"fieldname\":\"grand_total\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":120,\"id\":\"grand_total\",\"name\":\"Grand Total\",\"editable\":false,\"compareValue\":null},{\"label\":\"Rounded Total\",\"fieldname\":\"rounded_total\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":120,\"id\":\"rounded_total\",\"name\":\"Rounded Total\",\"editable\":false,\"compareValue\":null},{\"label\":\"Outstanding Amount\",\"fieldname\":\"outstanding_amount\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":120,\"id\":\"outstanding_amount\",\"name\":\"Outstanding Amount\",\"editable\":false,\"compareValue\":null}]}",
+  "letter_head": null,
+  "modified": "2022-05-06 11:38:48.407870",
+  "module": "Accounts",
+  "name": "GST Sales Invoice Register",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": null,
+  "ref_doctype": "Sales Invoice",
+  "reference_report": "GST Sales Register",
+  "report_name": "GST Sales Invoice Register",
+  "report_script": null,
+  "report_type": "Custom Report",
+  "roles": [
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Employee Self Service"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Retail Merchandiser"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Retail Merchandiser"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Employee Self Service"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Store Manager"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sales Master Manager"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sales User"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Employee Self Service"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Retail Merchandiser"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Retail Merchandiser"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Employee Self Service"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Store Manager"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sales Master Manager"
+   },
+   {
+    "parent": "GST Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sales User"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "columns": [],
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "filters": [],
+  "is_standard": "No",
+  "javascript": null,
+  "json": "{\"columns\":[{\"label\":\"Item Code\",\"fieldname\":\"item_code\",\"fieldtype\":\"Link\",\"options\":\"Item\",\"width\":120,\"id\":\"item_code\",\"name\":\"Item Code\",\"editable\":false,\"compareValue\":null},{\"label\":\"Item Name\",\"fieldname\":\"item_name\",\"fieldtype\":\"Data\",\"width\":120,\"id\":\"item_name\",\"name\":\"Item Name\",\"editable\":false,\"compareValue\":null},{\"label\":\"Item Group\",\"fieldname\":\"item_group\",\"fieldtype\":\"Link\",\"options\":\"Item Group\",\"width\":120,\"id\":\"item_group\",\"name\":\"Item Group\",\"editable\":false,\"compareValue\":null},{\"label\":\"Description\",\"fieldname\":\"description\",\"fieldtype\":\"Data\",\"width\":150,\"id\":\"description\",\"name\":\"Description\",\"editable\":false,\"compareValue\":null},{\"label\":\"Invoice\",\"fieldname\":\"invoice\",\"fieldtype\":\"Link\",\"options\":\"Sales Invoice\",\"width\":120,\"id\":\"invoice\",\"name\":\"Invoice\",\"editable\":false,\"compareValue\":null},{\"label\":\"Posting Date\",\"fieldname\":\"posting_date\",\"fieldtype\":\"Date\",\"width\":120,\"id\":\"posting_date\",\"name\":\"Posting Date\",\"editable\":false},{\"label\":\"Customer Group\",\"fieldname\":\"customer_group\",\"fieldtype\":\"Link\",\"options\":\"Customer Group\",\"width\":120,\"id\":\"customer_group\",\"name\":\"Customer Group\",\"editable\":false,\"compareValue\":null},{\"label\":\"Customer\",\"fieldname\":\"customer\",\"fieldtype\":\"Link\",\"options\":\"Customer\",\"width\":120,\"id\":\"customer\",\"name\":\"Customer\",\"editable\":false,\"compareValue\":null},{\"label\":\"Customer Name\",\"fieldname\":\"customer_name\",\"fieldtype\":\"Data\",\"width\":120,\"id\":\"customer_name\",\"name\":\"Customer Name\",\"editable\":false,\"compareValue\":null},{\"label\":\"Receivable Account\",\"fieldname\":\"debit_to\",\"fieldtype\":\"Link\",\"options\":\"Account\",\"width\":80,\"id\":\"debit_to\",\"name\":\"Receivable Account\",\"editable\":false,\"compareValue\":null},{\"label\":\"Mode Of Payment\",\"fieldname\":\"mode_of_payment\",\"fieldtype\":\"Data\",\"width\":120,\"id\":\"mode_of_payment\",\"name\":\"Mode Of Payment\",\"editable\":false,\"compareValue\":null},{\"label\":\"Territory\",\"fieldname\":\"territory\",\"fieldtype\":\"Link\",\"options\":\"Territory\",\"width\":80,\"id\":\"territory\",\"name\":\"Territory\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"gst_state_name\",\"field\":\"gst_state_name\",\"fieldtype\":\"Data\",\"label\":\"GST State Name\",\"insert_after_index\":11,\"link_field\":\"invoice\",\"doctype\":\"Sales Invoice\",\"width\":100,\"id\":\"gst_state_name\",\"name\":\"GST State Name\",\"editable\":false,\"compareValue\":null},{\"label\":\"Project\",\"fieldname\":\"project\",\"fieldtype\":\"Link\",\"options\":\"Project\",\"width\":80,\"id\":\"project\",\"name\":\"Project\",\"editable\":false,\"compareValue\":null},{\"label\":\"Company\",\"fieldname\":\"company\",\"fieldtype\":\"Link\",\"options\":\"Company\",\"width\":80,\"id\":\"company\",\"name\":\"Company\",\"editable\":false,\"compareValue\":null},{\"label\":\"Sales Order\",\"fieldname\":\"sales_order\",\"fieldtype\":\"Link\",\"options\":\"Sales Order\",\"width\":100,\"id\":\"sales_order\",\"name\":\"Sales Order\",\"editable\":false,\"compareValue\":null},{\"label\":\"Delivery Note\",\"fieldname\":\"delivery_note\",\"fieldtype\":\"Link\",\"options\":\"Delivery Note\",\"width\":100,\"id\":\"delivery_note\",\"name\":\"Delivery Note\",\"editable\":false,\"compareValue\":null},{\"label\":\"Income Account\",\"fieldname\":\"income_account\",\"fieldtype\":\"Link\",\"options\":\"Account\",\"width\":100,\"id\":\"income_account\",\"name\":\"Income Account\",\"editable\":false,\"compareValue\":null},{\"label\":\"Cost Center\",\"fieldname\":\"cost_center\",\"fieldtype\":\"Link\",\"options\":\"Cost Center\",\"width\":100,\"id\":\"cost_center\",\"name\":\"Cost Center\",\"editable\":false,\"compareValue\":null},{\"label\":\"Stock Qty\",\"fieldname\":\"stock_qty\",\"fieldtype\":\"Float\",\"width\":100,\"id\":\"stock_qty\",\"name\":\"Stock Qty\",\"editable\":false,\"compareValue\":null},{\"label\":\"Stock UOM\",\"fieldname\":\"stock_uom\",\"fieldtype\":\"Link\",\"options\":\"UOM\",\"width\":100,\"id\":\"stock_uom\",\"name\":\"Stock UOM\",\"editable\":false,\"compareValue\":null},{\"label\":\"Rate\",\"fieldname\":\"rate\",\"fieldtype\":\"Float\",\"options\":\"currency\",\"width\":100,\"id\":\"rate\",\"name\":\"Rate\",\"editable\":false,\"compareValue\":null},{\"label\":\"Amount\",\"fieldname\":\"amount\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":100,\"id\":\"amount\",\"name\":\"Amount\",\"editable\":false,\"compareValue\":null},{\"label\":\"Total Tax\",\"fieldname\":\"total_tax\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":100,\"id\":\"total_tax\",\"name\":\"Total Tax\",\"editable\":false,\"compareValue\":null},{\"label\":\"Total\",\"fieldname\":\"total\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":100,\"id\":\"total\",\"name\":\"Total\",\"editable\":false,\"compareValue\":null}]}",
+  "letter_head": null,
+  "modified": "2022-05-06 11:47:12.818878",
+  "module": "Accounts",
+  "name": "Item-wise Sales Invoice Register",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": null,
+  "ref_doctype": "Sales Invoice",
+  "reference_report": "Item-wise Sales Register",
+  "report_name": "Item-wise Sales Invoice Register",
+  "report_script": null,
+  "report_type": "Custom Report",
+  "roles": [
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Employee Self Service"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Retail Merchandiser"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Retail Merchandiser"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Employee Self Service"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Store Manager"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sales Master Manager"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sales User"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Employee Self Service"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Retail Merchandiser"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Retail Merchandiser"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Employee Self Service"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Store Manager"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sales Master Manager"
+   },
+   {
+    "parent": "Item-wise Sales Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sales User"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "columns": [],
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "filters": [],
+  "is_standard": "No",
+  "javascript": null,
+  "json": "{\"columns\":[{\"label\":\"Item Code\",\"fieldname\":\"item_code\",\"fieldtype\":\"Link\",\"options\":\"Item\",\"width\":120,\"id\":\"item_code\",\"name\":\"Item Code\",\"editable\":false,\"compareValue\":null},{\"label\":\"Item Name\",\"fieldname\":\"item_name\",\"fieldtype\":\"Data\",\"width\":120,\"id\":\"item_name\",\"name\":\"Item Name\",\"editable\":false,\"compareValue\":null},{\"label\":\"Item Group\",\"fieldname\":\"item_group\",\"fieldtype\":\"Link\",\"options\":\"Item Group\",\"width\":120,\"id\":\"item_group\",\"name\":\"Item Group\",\"editable\":false,\"compareValue\":null},{\"label\":\"Description\",\"fieldname\":\"description\",\"fieldtype\":\"Data\",\"width\":150,\"id\":\"description\",\"name\":\"Description\",\"editable\":false,\"compareValue\":null},{\"label\":\"Invoice\",\"fieldname\":\"invoice\",\"fieldtype\":\"Link\",\"options\":\"Purchase Invoice\",\"width\":120,\"id\":\"invoice\",\"name\":\"Invoice\",\"editable\":false,\"compareValue\":null},{\"label\":\"Posting Date\",\"fieldname\":\"posting_date\",\"fieldtype\":\"Date\",\"width\":120,\"id\":\"posting_date\",\"name\":\"Posting Date\",\"editable\":false},{\"label\":\"Supplier\",\"fieldname\":\"supplier\",\"fieldtype\":\"Link\",\"options\":\"Supplier\",\"width\":120,\"id\":\"supplier\",\"name\":\"Supplier\",\"editable\":false,\"compareValue\":null},{\"label\":\"Supplier Name\",\"fieldname\":\"supplier_name\",\"fieldtype\":\"Data\",\"width\":120,\"id\":\"supplier_name\",\"name\":\"Supplier Name\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"gst_state_name\",\"field\":\"gst_state_name\",\"fieldtype\":\"Data\",\"label\":\"GST State Name\",\"insert_after_index\":7,\"link_field\":\"invoice\",\"doctype\":\"Purchase Invoice\",\"width\":100,\"id\":\"gst_state_name\",\"name\":\"GST State Name\",\"editable\":false,\"compareValue\":null},{\"label\":\"Payable Account\",\"fieldname\":\"credit_to\",\"fieldtype\":\"Link\",\"options\":\"Account\",\"width\":80,\"id\":\"credit_to\",\"name\":\"Payable Account\",\"editable\":false,\"compareValue\":null},{\"label\":\"Mode Of Payment\",\"fieldname\":\"mode_of_payment\",\"fieldtype\":\"Link\",\"options\":\"Mode of Payment\",\"width\":120,\"id\":\"mode_of_payment\",\"name\":\"Mode Of Payment\",\"editable\":false,\"compareValue\":null},{\"label\":\"Project\",\"fieldname\":\"project\",\"fieldtype\":\"Link\",\"options\":\"Project\",\"width\":80,\"id\":\"project\",\"name\":\"Project\",\"editable\":false,\"compareValue\":null},{\"label\":\"Company\",\"fieldname\":\"company\",\"fieldtype\":\"Link\",\"options\":\"Company\",\"width\":80,\"id\":\"company\",\"name\":\"Company\",\"editable\":false,\"compareValue\":null},{\"label\":\"Purchase Order\",\"fieldname\":\"purchase_order\",\"fieldtype\":\"Link\",\"options\":\"Purchase Order\",\"width\":100,\"id\":\"purchase_order\",\"name\":\"Purchase Order\",\"editable\":false,\"compareValue\":null},{\"label\":\"Purchase Receipt\",\"fieldname\":\"Purchase Receipt\",\"fieldtype\":\"Link\",\"options\":\"Purchase Receipt\",\"width\":100,\"id\":\"Purchase Receipt\",\"name\":\"Purchase Receipt\",\"editable\":false,\"compareValue\":null},{\"label\":\"Expense Account\",\"fieldname\":\"expense_account\",\"fieldtype\":\"Link\",\"options\":\"Account\",\"width\":100,\"id\":\"expense_account\",\"name\":\"Expense Account\",\"editable\":false,\"compareValue\":null},{\"label\":\"Stock Qty\",\"fieldname\":\"stock_qty\",\"fieldtype\":\"Float\",\"width\":100,\"id\":\"stock_qty\",\"name\":\"Stock Qty\",\"editable\":false,\"compareValue\":null},{\"label\":\"Stock UOM\",\"fieldname\":\"stock_uom\",\"fieldtype\":\"Link\",\"options\":\"UOM\",\"width\":100,\"id\":\"stock_uom\",\"name\":\"Stock UOM\",\"editable\":false,\"compareValue\":null},{\"label\":\"Rate\",\"fieldname\":\"rate\",\"fieldtype\":\"Float\",\"options\":\"currency\",\"width\":100,\"id\":\"rate\",\"name\":\"Rate\",\"editable\":false,\"compareValue\":null},{\"label\":\"Amount\",\"fieldname\":\"amount\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":100,\"id\":\"amount\",\"name\":\"Amount\",\"editable\":false,\"compareValue\":null},{\"label\":\"Total Tax\",\"fieldname\":\"total_tax\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":100,\"id\":\"total_tax\",\"name\":\"Total Tax\",\"editable\":false,\"compareValue\":null},{\"label\":\"Total\",\"fieldname\":\"total\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":100,\"id\":\"total\",\"name\":\"Total\",\"editable\":false,\"compareValue\":null}]}",
+  "letter_head": null,
+  "modified": "2022-05-06 11:48:27.601786",
+  "module": "Accounts",
+  "name": "Item-wise Purchase Invoice Register",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": null,
+  "ref_doctype": "Purchase Invoice",
+  "reference_report": "Item-wise Purchase Register",
+  "report_name": "Item-wise Purchase Invoice Register",
+  "report_script": null,
+  "report_type": "Custom Report",
+  "roles": [
+   {
+    "parent": "Item-wise Purchase Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Auditor"
+   },
+   {
+    "parent": "Item-wise Purchase Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Item-wise Purchase Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "Item-wise Purchase Invoice Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
    }
   ]
  }
