@@ -362,12 +362,9 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
              "name", "in", [
 		"Sales Order Item-wise Stock Report",
 		"New Collections Sell Through Report",
-		"GST Sales Invoice Register",
-		"Item-wise Sales Invoice Register",
-		"Item-wise Purchase Invoice Register",
 		"Item-wise Sales Register With GST State Name",
-		"GST Sales Register With GST State Name",
-		"Item-wise Purchase Register With GST State Name"
+		"Item-wise Purchase Register With GST State Name",
+		"Sales Register With GST State Name"
 		]
 	]
 ]
