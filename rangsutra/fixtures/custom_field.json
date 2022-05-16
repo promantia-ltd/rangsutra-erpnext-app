@@ -807,7 +807,7 @@
   "docstatus": 0,
   "doctype": "Custom Field",
   "dt": "Purchase Invoice",
-  "fetch_from": "billing_address.gst_state",
+  "fetch_from": "supplier_address.gst_state",
   "fetch_if_empty": 0,
   "fieldname": "gst_state_name",
   "fieldtype": "Data",
