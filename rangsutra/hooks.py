@@ -192,6 +192,7 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Purchase Invoice-gst_state_name",
 		"Employee-section_break_110",
 		"Employee-comments",
+		"Employee-line_manager",
 		"Employee-aadhar_card"
 		]
 	]
@@ -537,9 +538,10 @@ override_doctype_dashboards = {
 # Overriding Methods
 # ------------------------------
 #
-# override_whitelisted_methods = {
+#override_whitelisted_methods = {
 # 	"frappe.desk.doctype.event.event.get_events": "rangsutra.event.get_events"
-# }
+#	"frappe.contacts.doctype.address.address.get_default_address": "rangsutra.rangsutra.contacts.doctype.address.address.get_default_address"
+#}
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
