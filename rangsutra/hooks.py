@@ -193,7 +193,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Employee-section_break_110",
 		"Employee-comments",
 		"Employee-line_manager",
-		"Employee-aadhar_card"
+		"Employee-aadhar_card",
+		"Purchase Taxes and Charges Template-is_rcm"
 		]
 	]
 ]
