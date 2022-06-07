@@ -1,6 +1,23 @@
 [
  {
   "allow_guest": 0,
+  "api_method": "set_company_branch_address",
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "Before Insert",
+  "event_frequency": "All",
+  "modified": "2022-06-07 06:13:48.322599",
+  "name": "set_company_branch_address",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "reference_doctype": null,
+  "script": "link_doctype = frappe.form_dict.get('link_doctype')\nlink_name = frappe.form_dict.get('link_name')\ncity=frappe.form_dict.get(\"city\")\n\nif city:\n    res = frappe.db.sql(\"\"\"\n                select a.name from `tabAddress` a\n                join `tabDynamic Link` dl \n                on dl.parent = a.name\n                where dl.parenttype = 'Address' and\n                dl.link_doctype = %s and\n                dl.link_name = %s and\n                a.city = %s and\n    \t\tifnull(a.disabled, 0) = 0 limit 1\n        \"\"\", (link_doctype,link_name,city),as_list=True)\n        \n    frappe.response['message'] = res\nelse:\n    res = frappe.db.sql(\"\"\"\n                select a.name from `tabAddress` a\n                join `tabDynamic Link` dl \n                on dl.parent = a.name\n                where dl.parenttype = 'Address' and\n                dl.link_doctype = %s and\n                dl.link_name = %s and\n    \t\tifnull(a.disabled, 0) = 0 limit 1\n        \"\"\", (link_doctype,link_name),as_list=True)\n        \n    frappe.response['message'] = res",
+  "script_type": "API"
+ },
+ {
+  "allow_guest": 0,
   "api_method": null,
   "disabled": 0,
   "docstatus": 0,
