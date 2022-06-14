@@ -245,13 +245,13 @@
   "doctype": "Server Script",
   "doctype_event": "Before Insert",
   "event_frequency": null,
-  "modified": "2022-01-11 18:01:50.714296",
+  "modified": "2022-06-14 12:19:34.764772",
   "name": "add_financial_year_to_material_request",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
   "reference_doctype": "Material Request",
-  "script": "doc.financial_year = frappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frappe.utils.getdate()],\"year_end_date\":[\">=\",frappe.utils.getdate()]},\"year\")\ndoc.branch_abbr = frappe.db.get_value(\"Branch\",{\"name\":doc.branch},\"abbr\")",
+  "script": "doc.financial_year = frappe.db.get_value(\"Fiscal Year\",{\"disabled\":0,\"year_start_date\":[\"<=\",frappe.utils.getdate()],\"year_end_date\":[\">=\",frappe.utils.getdate()]},\"year\")\ndoc.branch_abbr = frappe.db.get_value(\"Branch\",{\"name\":doc.branch},\"abbr\")\n\nfor row in doc.items:\n    if row.production_plan:\n        row.project = frappe.db.get_value(\"Production Plan\",{'name':row.production_plan},'project')\n        doc.project = row.project",
   "script_type": "DocType Event"
  },
  {
