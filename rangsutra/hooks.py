@@ -196,7 +196,6 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Employee-aadhar_card",
 		"Production Plan-production_plan_name",
 		"Purchase Taxes and Charges Template-is_rcm"
-
 		]
 	]
 ]
@@ -293,7 +292,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Asset Finance Book-rate_of_depreciation-columns",
 		"Asset Finance Book-total_number_of_depreciations-columns",
 		"Production Plan-sub_assembly_items-allow_bulk_edit",
-		"Production Plan-project-depends_on"
+		"Production Plan-project-depends_on",
+		"Purchase Receipt Item Supplied-consumed_qty-read_only_depends_on"
 		]
 	]
 ]
