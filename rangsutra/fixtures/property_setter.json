@@ -1511,5 +1511,22 @@
   "property_type": "Data",
   "row_name": null,
   "value": "Shipping Address"
+ },
+ {
+  "default_value": null,
+  "doc_type": "Purchase Receipt Item Supplied",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "consumed_qty",
+  "modified": "2022-06-27 17:42:22.937023",
+  "name": "Purchase Receipt Item Supplied-consumed_qty-read_only_depends_on",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "property": "read_only_depends_on",
+  "property_type": "Data",
+  "row_name": null,
+  "value": "eval:doc.docstatus != 0"
  }
 ]
