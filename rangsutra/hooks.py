@@ -195,7 +195,10 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Employee-line_manager",
 		"Employee-aadhar_card",
 		"Production Plan-production_plan_name",
-		"Purchase Taxes and Charges Template-is_rcm"
+		"Purchase Taxes and Charges Template-is_rcm",
+		"Stock Entry-suppliers_name",
+		"Stock Entry-suppliers_address",
+		"Stock Entry-suppliers_address_details"		
 		]
 	]
 ]
