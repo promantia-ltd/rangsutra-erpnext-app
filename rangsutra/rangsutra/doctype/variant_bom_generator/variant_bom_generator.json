@@ -1,0 +1,100 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "VBOM-.finished_good_item.-.####",
+ "creation": "2022-07-04 14:15:31.867787",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "finished_good_item",
+  "finished_good_item_name",
+  "associated_intermediate_item",
+  "associated_intermediate_item_name",
+  "routing",
+  "section_break_6",
+  "raw_materials",
+  "generate_bom"
+ ],
+ "fields": [
+  {
+   "fieldname": "finished_good_item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Finished Good Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "associated_intermediate_item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Associated Intermediate Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "routing",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Routing",
+   "options": "Routing",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "finished_good_item.item_name",
+   "fieldname": "finished_good_item_name",
+   "fieldtype": "Data",
+   "label": "Finished Good Item Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "associated_intermediate_item.item_name",
+   "fieldname": "associated_intermediate_item_name",
+   "fieldtype": "Data",
+   "label": "Associated Intermediate Item Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break",
+   "label": "Raw Materials"
+  },
+  {
+   "fieldname": "raw_materials",
+   "fieldtype": "Table",
+   "label": "Raw Materials",
+   "options": "Variant BOM Raw Materials"
+  },
+  {
+   "depends_on": "eval:doc.__islocal != 1",
+   "fieldname": "generate_bom",
+   "fieldtype": "Button",
+   "label": "Generate BOM"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-07-04 16:59:14.533256",
+ "modified_by": "Administrator",
+ "module": "Rangsutra",
+ "name": "Variant BOM Generator",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
