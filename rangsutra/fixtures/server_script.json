@@ -644,5 +644,39 @@
   "reference_doctype": "Purchase Order Item",
   "script": "link_doctype = frappe.form_dict.get('link_doctype')\nlink_name = frappe.form_dict.get('link_name')\ncity=frappe.form_dict.get(\"city\")\n\nif city:\n    res = frappe.db.sql(\"\"\"\n                select a.name from `tabAddress` a\n                join `tabDynamic Link` dl \n                on dl.parent = a.name\n                where dl.parenttype = 'Address' and\n                dl.link_doctype = %s and\n                dl.link_name = %s and\n                a.city = %s and\n    \t\tifnull(a.disabled, 0) = 0 limit 1\n        \"\"\", (link_doctype,link_name,city),as_list=True)\n        \n    frappe.response['message'] = res\nelse:\n    res = frappe.db.sql(\"\"\"\n                select a.name from `tabAddress` a\n                join `tabDynamic Link` dl \n                on dl.parent = a.name\n                where dl.parenttype = 'Address' and\n                dl.link_doctype = %s and\n                dl.link_name = %s and\n    \t\tifnull(a.disabled, 0) = 0 limit 1\n        \"\"\", (link_doctype,link_name),as_list=True)\n        \n    frappe.response['message'] = res",
   "script_type": "API"
+ },
+ {
+  "allow_guest": 0,
+  "api_method": null,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "After Save",
+  "event_frequency": "All",
+  "modified": "2022-07-11 11:04:56.792704",
+  "name": "update bom_qty",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "reference_doctype": "Purchase Order",
+  "script": "if doc.is_subcontracted == \"Yes\":\n    for row in doc.items:\n        if row.bom:\n            items=frappe.db.get_list(\"BOM Item\",filters={'parent':row.bom},fields={'item_code','qty'})\n            for val in doc.supplied_items:\n               for item in items:\n                   if val.rm_item_code==item.item_code:\n                        child_doc=frappe.get_doc('Purchase Order Item Supplied',val.name)\n                        total_qty=val.required_qty*item.qty\n                        child_doc.db_set('total_qty',total_qty)",
+  "script_type": "DocType Event"
+ },
+ {
+  "allow_guest": 0,
+  "api_method": null,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "Before Insert",
+  "event_frequency": "All",
+  "modified": "2022-07-11 11:17:10.707152",
+  "name": "update total_qty in stock entry",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "reference_doctype": "Stock Entry",
+  "script": "if doc.purpose==\"Send to Subcontractor\":\n    for row in doc.items:\n        total_qty=frappe.db.get_value('Purchase Order Item Supplied',{'parent':doc.purchase_order,'rm_item_code':row.item_code,'main_item_code':row.subcontracted_item},'total_qty')\n        row.total_qty=total_qty",
+  "script_type": "DocType Event"
  }
 ]
