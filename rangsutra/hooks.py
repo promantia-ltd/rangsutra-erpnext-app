@@ -198,7 +198,9 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Purchase Taxes and Charges Template-is_rcm",
 		"Stock Entry-suppliers_name",
 		"Stock Entry-suppliers_address",
-		"Stock Entry-suppliers_address_details"		
+		"Stock Entry-suppliers_address_details",
+		"Stock Entry Detail-total_qty",
+		"Purchase Order Item Supplied-total_qty"	
 		]
 	]
 ]
