@@ -14,7 +14,9 @@
   "routing",
   "section_break_6",
   "raw_materials",
-  "generate_bom"
+  "generate_bom",
+  "section_break_9",
+  "error_details"
  ],
  "fields": [
   {
@@ -71,11 +73,20 @@
    "fieldname": "generate_bom",
    "fieldtype": "Button",
    "label": "Generate BOM"
+  },
+  {
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "error_details",
+   "fieldtype": "Long Text",
+   "label": "Error Details"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-04 16:59:14.533256",
+ "modified": "2022-07-12 14:29:19.331413",
  "modified_by": "Administrator",
  "module": "Rangsutra",
  "name": "Variant BOM Generator",

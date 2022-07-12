@@ -87,17 +87,13 @@ frappe.ui.form.on('Variant BOM Generator', {
                                 args: {
                                     doc: frm.doc,
                                     items: data
-                                        //company: frm.doc.company,
-                                        //sales_order: frm.docname,
-                                        //project: frm.project
                                 },
                                 freeze: true,
                                 callback: function(r) {
-                                    console.log(r);
+                                    frm.reload_doc();
                                     d.hide();
                                 }
                             });
-                            //d.hide();
                         },
                         primary_action_label: __('Create')
                     });
