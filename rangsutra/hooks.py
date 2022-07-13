@@ -331,7 +331,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Quality Inspection-Form",
 		"Project-Form",
 		"Material Request-Form",
-		"Production Plan-Form"
+		"Production Plan-Form",
+		"Routing-Form"
 		]
 	]
 ]

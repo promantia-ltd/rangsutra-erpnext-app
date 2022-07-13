@@ -27,14 +27,14 @@ class VariantBOMGenerator(Document):
 			))
 		return operations
 
-@frappe.whitelist()
-def get_item_filter(doctype, txt, searchfield, start, page_len, filters):
-	return frappe.db.sql("""select item_code from `tabItem` where variant_of IS NULL """)
+	@frappe.whitelist()
+	def get_item_filter(self):
+		return frappe.db.sql("""select item_code from `tabItem` where variant_of IS NULL """,as_dict = True)
 
 
 @frappe.whitelist()
 def generate_variant_template_bom(doc,items):
-	error_log = None
+	error_log = ''
 	doc = json.loads(doc)
 	items = json.loads(items).get('items')
 	for row_item in items:
@@ -71,7 +71,7 @@ def generate_variant_template_bom(doc,items):
 						if row['operation'] == ope.operation:
 							count = count + 1
 					if count < 1:
-						frappe.throw(_("There is no raw materials for the operation {0}".format(ope.operation)))
+						error_log = error_log+"There is no raw materials for the operation {0}<br>".format(ope.operation)
 
 				if not frappe.db.get_value("BOM",{"item":intermediate_item, "docstatus":1,"is_default":1,"is_active":1},"name"):
 					create_bom(doc,color_attribute,color,size_attribute,size, intermediate_item, intermediate_item_name, ope.sequence_id, ope.operation, previous_bom_item, previous_bom_item_name, with_operation = 1)
