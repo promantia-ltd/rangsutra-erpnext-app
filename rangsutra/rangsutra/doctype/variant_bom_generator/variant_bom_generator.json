@@ -14,9 +14,9 @@
   "routing",
   "section_break_6",
   "raw_materials",
-  "generate_bom",
   "section_break_9",
-  "error_details"
+  "error_details",
+  "amended_from"
  ],
  "fields": [
   {
@@ -65,28 +65,34 @@
   {
    "fieldname": "raw_materials",
    "fieldtype": "Table",
-   "label": "Raw Materials",
+   "label": "Items",
    "options": "Variant BOM Raw Materials"
-  },
-  {
-   "depends_on": "eval:doc.__islocal != 1",
-   "fieldname": "generate_bom",
-   "fieldtype": "Button",
-   "label": "Generate BOM"
   },
   {
    "fieldname": "section_break_9",
    "fieldtype": "Section Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "error_details",
    "fieldtype": "Long Text",
-   "label": "Error Details"
+   "label": "Error Details",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Variant BOM Generator",
+   "print_hide": 1,
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2022-07-12 14:29:19.331413",
+ "modified": "2022-07-13 07:35:57.853906",
  "modified_by": "Administrator",
  "module": "Rangsutra",
  "name": "Variant BOM Generator",
