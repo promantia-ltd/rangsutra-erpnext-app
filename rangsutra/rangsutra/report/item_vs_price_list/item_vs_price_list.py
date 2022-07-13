@@ -20,8 +20,8 @@ def execute(filters=None):
 
 def get_columns(price_list):
     columns = [
-        _("Item Name") + ":Link.Item:180",
-        _("Item Code") + ":Link.Item:180",
+        _("Item Name") + "::180",
+        _("Item Code") + ":Link/Item:180",
     ]
 
     for k,v in price_list.items():
