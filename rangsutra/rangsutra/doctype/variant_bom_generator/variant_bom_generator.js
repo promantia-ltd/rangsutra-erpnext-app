@@ -17,7 +17,7 @@ frappe.ui.form.on('Variant BOM Generator', {
             method: "get_item_filter",
             callback: function(r) {
                 for (var i = 0; i < r.message.length; i++) {
-                    rm_items.push(r.message[i][0]);
+                    rm_items.push(r.message[i]['item_code']);
                 }
             }
         })
@@ -53,7 +53,7 @@ frappe.ui.form.on('Variant BOM Generator', {
                 }
             };
         });
-        if (frm.doc.docstatus == 2) {
+        if (frm.doc.docstatus == 1) {
             frm.add_custom_button(__('Generate BOM'), function() { generate_bom(frm); }).addClass('btn-primary')
         }
     }
