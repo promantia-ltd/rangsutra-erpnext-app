@@ -36,28 +36,36 @@ frappe.ui.form.on('Variant BOM Generator', {
                 }
             };
         });
-        var operations = [];
-        frm.call({
-            'doc': frm.doc,
-            method: "get_operations",
-            callback: function(r) {
-                for (var i = 0; i < r.message.length; i++) {
-                    operations.push(r.message[i].operation);
-                }
-            }
-        })
-        frm.set_query("operation", "raw_materials", function() {
-            return {
-                filters: {
-                    "name": ["in", operations]
-                }
-            };
-        });
+        operations_filter(frm);
+
         if (frm.doc.docstatus == 1) {
             frm.add_custom_button(__('Generate BOM'), function() { generate_bom(frm); }).addClass('btn-primary')
         }
+    },
+    routing: function(frm) {
+        operations_filter(frm);
     }
 });
+
+function operations_filter(frm) {
+    var operations = [];
+    frm.call({
+        'doc': frm.doc,
+        method: "get_operations",
+        callback: function(r) {
+            for (var i = 0; i < r.message.length; i++) {
+                operations.push(r.message[i].operation);
+            }
+        }
+    })
+    frm.set_query("operation", "raw_materials", function() {
+        return {
+            filters: {
+                "name": ["in", operations]
+            }
+        };
+    });
+}
 
 function generate_bom(frm) {
     frm.call({
@@ -106,7 +114,11 @@ function generate_bom(frm) {
                             },
                             freeze: true,
                             callback: function(r) {
-                                frm.reload_doc();
+                                if (r.message == "Success") {
+                                    frappe.msgprint(__('BOM has been created successfully'));
+                                } else {
+                                    frm.reload_doc();
+                                }
                                 d.hide();
                             }
                         });

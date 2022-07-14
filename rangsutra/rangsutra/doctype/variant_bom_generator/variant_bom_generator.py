@@ -1,12 +1,22 @@
 # Copyright (c) 2022, rangsutra_app and contributors
 # For license information, please see license.txt
 
+from itertools import count
+from multiprocessing.sharedctypes import Value
 import frappe
 from frappe import _
 from frappe.model.document import Document
 import json
 
 class VariantBOMGenerator(Document):
+	def validate(self):
+		for row in self.raw_materials:
+			if row.qty == 0 or row.qty == None:
+				frappe.throw(_("Raw Materials quantity cannot be 0."))
+
+			if row.operation == None:
+				frappe.throw(_("Operations cannot be null."))
+
 	@frappe.whitelist()
 	def get_variant_items(self):
 		items = []
@@ -29,7 +39,7 @@ class VariantBOMGenerator(Document):
 
 	@frappe.whitelist()
 	def get_item_filter(self):
-		return frappe.db.sql("""select item_code from `tabItem` where variant_of IS NULL """,as_dict = True)
+		return frappe.db.sql("""select item_code from `tabItem` where variant_of IS NULL AND is_finished_product != 1 AND intermediate_product != 1 """,as_dict = True)
 
 
 @frappe.whitelist()
@@ -73,8 +83,7 @@ def generate_variant_template_bom(doc,items):
 					if count < 1:
 						error_log = error_log+"There is no raw materials for the operation {0}<br>".format(ope.operation)
 
-				if not frappe.db.get_value("BOM",{"item":intermediate_item, "docstatus":1,"is_default":1,"is_active":1},"name"):
-					create_bom(doc,color_attribute,color,size_attribute,size, intermediate_item, intermediate_item_name, ope.sequence_id, ope.operation, previous_bom_item, previous_bom_item_name, with_operation = 1)
+				create_bom(doc,color_attribute,color,size_attribute,size, intermediate_item, intermediate_item_name, ope.sequence_id, ope.operation, previous_bom_item, previous_bom_item_name, with_operation = 1)
 				previous_bom_item = intermediate_item
 				previous_bom_item_name = intermediate_item_name
 			else:
@@ -82,11 +91,13 @@ def generate_variant_template_bom(doc,items):
 				break
 
 		if intermediate_item:	
-			if not frappe.db.get_value("BOM",{"item":row_item['item_code'], "docstatus":1,"is_default":1,"is_active":1},"name"):
-				create_bom(doc,color_attribute,color,size_attribute,size, row_item['item_code'], row_item['item_name'], sequence_id = 2, operation = None, previous_bom_item = previous_bom_item, previous_bom_item_name = previous_bom_item_name, with_operation = 0)
+			create_bom(doc,color_attribute,color,size_attribute,size, row_item['item_code'], row_item['item_name'], sequence_id = 2, operation = None, previous_bom_item = previous_bom_item, previous_bom_item_name = previous_bom_item_name, with_operation = 0)
 	frappe.db.set_value('Variant BOM Generator', doc['name'], 'error_details', error_log)
 
-	return "success"
+	if error_log:
+		return "Failed"
+	else:
+		return "success"
 	
 
 def get_intermediate_item(doc, color_attribute,color,size_attribute,size,operation):
@@ -122,38 +133,56 @@ def get_intermediate_item(doc, color_attribute,color,size_attribute,size,operati
 
 
 def create_bom(doc,color_attribute,color,size_attribute,size, bom_item, bom_item_name, sequence_id, operation = None, previous_bom_item = None, previous_bom_item_name = None, with_operation = None):
-	bom_doc=frappe.get_doc(dict(doctype = 'BOM',
-		item = bom_item,
-		item_name = bom_item_name,
-		is_active = 1,
-		is_default = 1,
-		quantity = 1,
-		with_operations = with_operation,
-		transfer_material_against = 'Work Order',
-		routing = operation
-	))
-	if sequence_id > 1:
-		bom_doc.append('items', {
-			"item_code":previous_bom_item,
-			"item_name":previous_bom_item_name,
-			"qty":1
-		})
-	for val in doc['raw_materials']:
-		if val['operation'] == operation:
-			if val['has_variants'] != 1:
-				item_code = val['item_code']
-				item_name = val['item_name']
-			else:
-				item_code,item_name=get_raw_materials(val['item_code'],color_attribute,color,size_attribute,size)
-				if not item_code:
-					continue
+	count = 0
+	old_bom_name = frappe.db.get_value("BOM",{"item":bom_item, "docstatus":1,"is_default":1,"is_active":1},"name")
+	if old_bom_name:
+		old_bom_item = frappe.db.get_list("BOM Item",{"parenttype":"BOM","parent":old_bom_name},"item_code")
+		old_bom_items = [value for elem in old_bom_item for value in elem.values()]
+		for val in doc['raw_materials']:
+			if val['operation'] == operation:
+				if val['has_variants'] != 1:
+					if val['item_code'] not in old_bom_items:
+						count = count+1
+				else:
+					i_code,i_name=get_raw_materials(val['item_code'],color_attribute,color,size_attribute,size)
+					if i_code not in old_bom_items:
+						count = count+1
+	else:	 
+		count = count+1
+
+	if count > 0:
+		bom_doc=frappe.get_doc(dict(doctype = 'BOM',
+			item = bom_item,
+			item_name = bom_item_name,
+			is_active = 1,
+			is_default = 1,
+			quantity = 1,
+			with_operations = with_operation,
+			transfer_material_against = 'Work Order',
+			routing = operation
+		))
+		if sequence_id > 1:
 			bom_doc.append('items', {
-				"item_code":item_code,
-				"item_name":item_name,
-				"qty":val['qty'],
-				"uom":val['uom']
+				"item_code":previous_bom_item,
+				"item_name":previous_bom_item_name,
+				"qty":1
 			})
-	bom_doc.submit()
+		for val in doc['raw_materials']:
+			if val['operation'] == operation:
+				if val['has_variants'] != 1:
+					item_code = val['item_code']
+					item_name = val['item_name']
+				else:
+					item_code,item_name=get_raw_materials(val['item_code'],color_attribute,color,size_attribute,size)
+					if not item_code:
+						continue
+				bom_doc.append('items', {
+					"item_code":item_code,
+					"item_name":item_name,
+					"qty":val['qty'],
+					"uom":val['uom']
+				})
+		bom_doc.submit()
 
 
 def get_raw_materials(template_item_code,color_attribute,color,size_attribute,size):
