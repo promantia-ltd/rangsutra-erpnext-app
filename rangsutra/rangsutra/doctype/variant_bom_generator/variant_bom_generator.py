@@ -39,7 +39,7 @@ class VariantBOMGenerator(Document):
 
 	@frappe.whitelist()
 	def get_item_filter(self):
-		return frappe.db.sql("""select item_code from `tabItem` where variant_of IS NULL AND is_finished_product != 1 AND intermediate_product != 1 """,as_dict = True)
+		return frappe.db.sql("""select item_code from `tabItem` where variant_of IS NULL AND is_finished_product != 1 AND intermediate_product != 1 AND is_fixed_asset != 1""",as_dict = True)
 
 
 @frappe.whitelist()
@@ -157,6 +157,7 @@ def create_bom(doc,color_attribute,color,size_attribute,size, bom_item, bom_item
 			is_active = 1,
 			is_default = 1,
 			quantity = 1,
+			project = doc['project'],
 			with_operations = with_operation,
 			transfer_material_against = 'Work Order',
 			routing = operation
@@ -176,13 +177,16 @@ def create_bom(doc,color_attribute,color,size_attribute,size, bom_item, bom_item
 					item_code,item_name=get_raw_materials(val['item_code'],color_attribute,color,size_attribute,size)
 					if not item_code:
 						continue
+				if sequence_id == 1:
+					if not item_code:
+						frappe.throw(_("Raw Materials not available to create BOM for operation {0}").format(operation))
 				bom_doc.append('items', {
 					"item_code":item_code,
 					"item_name":item_name,
 					"qty":val['qty'],
 					"uom":val['uom']
 				})
-		bom_doc.submit()
+		bom_doc.save()
 
 
 def get_raw_materials(template_item_code,color_attribute,color,size_attribute,size):
