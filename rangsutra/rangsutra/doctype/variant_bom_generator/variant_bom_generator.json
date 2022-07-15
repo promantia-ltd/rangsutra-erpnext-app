@@ -12,6 +12,7 @@
   "associated_intermediate_item",
   "associated_intermediate_item_name",
   "routing",
+  "project",
   "section_break_6",
   "raw_materials",
   "section_break_9",
@@ -66,7 +67,8 @@
    "fieldname": "raw_materials",
    "fieldtype": "Table",
    "label": "Items",
-   "options": "Variant BOM Raw Materials"
+   "options": "Variant BOM Raw Materials",
+   "reqd": 1
   },
   {
    "fieldname": "section_break_9",
@@ -77,6 +79,7 @@
    "fieldname": "error_details",
    "fieldtype": "Long Text",
    "label": "Error Details",
+   "no_copy": 1,
    "read_only": 1
   },
   {
@@ -87,12 +90,18 @@
    "options": "Variant BOM Generator",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-07-13 07:35:57.853906",
+ "modified": "2022-07-15 11:46:46.654186",
  "modified_by": "Administrator",
  "module": "Rangsutra",
  "name": "Variant BOM Generator",
