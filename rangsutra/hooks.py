@@ -200,7 +200,11 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Stock Entry-suppliers_address",
 		"Stock Entry-suppliers_address_details",
 		"Stock Entry Detail-total_qty",
-		"Purchase Order Item Supplied-total_qty"	
+		"Purchase Order Item Supplied-total_qty",
+		"Location-address",
+		"Location-address_display",
+		"Supplier-location_list",
+		"Supplier-location_details"
 		]
 	]
 ]
@@ -332,7 +336,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Project-Form",
 		"Material Request-Form",
 		"Production Plan-Form",
-		"Routing-Form"
+		"Routing-Form",
+		"Location-Form"
 		]
 	]
 ]
