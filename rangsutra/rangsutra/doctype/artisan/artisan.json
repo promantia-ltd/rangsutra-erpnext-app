@@ -195,11 +195,11 @@
    "search_index": 1
   },
   {
-   "depends_on": "eval:doc.designation == 'Artisan'",
+   "depends_on": "eval:doc.designation == 'Craft Manager'",
    "fieldname": "reports_to",
    "fieldtype": "Link",
    "label": "Reports To",
-   "mandatory_depends_on": "eval:doc.designation == 'Artisan'",
+   "mandatory_depends_on": "eval:doc.designation == 'Craft Manager'",
    "options": "Artisan"
   },
   {
@@ -298,7 +298,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-07-19 11:39:08.013112",
+ "modified": "2022-07-19 12:34:05.958339",
  "modified_by": "Administrator",
  "module": "Rangsutra",
  "name": "Artisan",
