@@ -1,0 +1,323 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2022-07-18 13:24:20.561576",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "column_break_2",
+  "name1",
+  "is_craft_manager",
+  "personal_details_section",
+  "marital_status",
+  "relationship",
+  "sp_name",
+  "aadhar_card_no",
+  "gender",
+  "date_of_birth",
+  "age",
+  "column_break_11",
+  "last_assessment_date",
+  "education",
+  "artisan_type",
+  "supplier",
+  "company",
+  "cell_number",
+  "practising_craft",
+  "years_of_practice",
+  "department_and_location_section",
+  "skill_level",
+  "location",
+  "district",
+  "state",
+  "designation",
+  "reports_to",
+  "account_details_section",
+  "bank_acc_no",
+  "ifsc_code",
+  "bank_name",
+  "branch_name",
+  "pan_card",
+  "demat_no",
+  "column_break_34",
+  "shareholder_status",
+  "folio_number",
+  "number_of_shares",
+  "has_health_insurance",
+  "insurance_policy_no",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "AD-.YYYY.-"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "personal_details_section",
+   "fieldtype": "Section Break",
+   "label": "Personal Details"
+  },
+  {
+   "fieldname": "marital_status",
+   "fieldtype": "Select",
+   "label": "Marital Status",
+   "options": "\nSingle\nMarried\nDivorced\nSeparated"
+  },
+  {
+   "fieldname": "relationship",
+   "fieldtype": "Select",
+   "label": "Relationship",
+   "options": "\nHusband\nFather\nMother"
+  },
+  {
+   "fieldname": "sp_name",
+   "fieldtype": "Data",
+   "label": "Name of Spouse/ Parent"
+  },
+  {
+   "fieldname": "aadhar_card_no",
+   "fieldtype": "Data",
+   "label": "Aadhar Card No",
+   "length": 12,
+   "non_negative": 1,
+   "options": "Phone",
+   "unique": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Gender",
+   "options": "Gender"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date Of Birth"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Read Only",
+   "label": "Age"
+  },
+  {
+   "fieldname": "last_assessment_date",
+   "fieldtype": "Date",
+   "label": "Last Assessment Date"
+  },
+  {
+   "fieldname": "education",
+   "fieldtype": "Select",
+   "label": "Education",
+   "options": "\nIlliterate\nCan Sign\n5th Pass\n8th Pass\n10th Pass\n12th Pass\nGraduate"
+  },
+  {
+   "fieldname": "artisan_type",
+   "fieldtype": "Select",
+   "label": "Artisan Type",
+   "options": "\nDirect\nIndirect"
+  },
+  {
+   "depends_on": "eval:doc.artisan_type == 'Indirect'",
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "depends_on": "eval:doc.artisan_type == 'Direct'",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "cell_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "practising_craft",
+   "fieldtype": "Select",
+   "label": "Practising Craft",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "years_of_practice",
+   "fieldtype": "Int",
+   "label": "Years of Practice"
+  },
+  {
+   "fieldname": "department_and_location_section",
+   "fieldtype": "Section Break",
+   "label": "Department and Location"
+  },
+  {
+   "fieldname": "skill_level",
+   "fieldtype": "Select",
+   "label": "Skill Level",
+   "options": "\nA\nB\nc"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Location"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Data",
+   "label": "District"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Designation",
+   "options": "Designation",
+   "search_index": 1
+  },
+  {
+   "depends_on": "eval:doc.designation == 'Craft Manager'",
+   "fieldname": "reports_to",
+   "fieldtype": "Link",
+   "label": "Reports To",
+   "mandatory_depends_on": "eval:doc.designation == 'Craft Manager'",
+   "options": "Artisan"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "account_details_section",
+   "fieldtype": "Section Break",
+   "label": "Account Details"
+  },
+  {
+   "fieldname": "bank_acc_no",
+   "fieldtype": "Int",
+   "label": "Bank A/C No"
+  },
+  {
+   "fieldname": "ifsc_code",
+   "fieldtype": "Data",
+   "label": "IFSC code"
+  },
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Data",
+   "label": "Bank Name"
+  },
+  {
+   "fieldname": "branch_name",
+   "fieldtype": "Data",
+   "label": "Branch Name"
+  },
+  {
+   "fieldname": "pan_card",
+   "fieldtype": "Data",
+   "label": "PAN Card"
+  },
+  {
+   "fieldname": "demat_no",
+   "fieldtype": "Int",
+   "label": "DeMAT A/C No"
+  },
+  {
+   "fieldname": "shareholder_status",
+   "fieldtype": "Select",
+   "label": "Shareholder Status",
+   "options": "\nYes\nNo"
+  },
+  {
+   "depends_on": "eval:doc.shareholder_status == 'Yes'",
+   "fieldname": "folio_number",
+   "fieldtype": "Data",
+   "label": "Folio Number"
+  },
+  {
+   "depends_on": "eval:doc.shareholder_status == 'No'",
+   "fieldname": "number_of_shares",
+   "fieldtype": "Int",
+   "label": "Number Of Shares"
+  },
+  {
+   "fieldname": "has_health_insurance",
+   "fieldtype": "Select",
+   "label": "Has Health Insurance",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "insurance_policy_no",
+   "fieldtype": "Int",
+   "label": "Insurance Policy No"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_34",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Artisan",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_craft_manager",
+   "fieldtype": "Check",
+   "label": "Is Craft Manager"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-07-19 12:34:05.958339",
+ "modified_by": "Administrator",
+ "module": "Rangsutra",
+ "name": "Artisan",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "name1",
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
