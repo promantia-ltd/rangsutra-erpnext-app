@@ -22,5 +22,8 @@ frappe.ui.form.on('Artisan', {
 		{
 			frm.set_value('designation', 'Craft Manager');
 		}
+		else{
+			frm.set_value('designation', '');
+		}
 	}
 });

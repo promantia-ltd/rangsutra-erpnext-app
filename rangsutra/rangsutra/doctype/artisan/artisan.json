@@ -195,11 +195,11 @@
    "search_index": 1
   },
   {
-   "depends_on": "eval:doc.designation == 'Craft Manager'",
+   "depends_on": "eval:doc.designation == 'Artisan'",
    "fieldname": "reports_to",
    "fieldtype": "Link",
    "label": "Reports To",
-   "mandatory_depends_on": "eval:doc.designation == 'Craft Manager'",
+   "mandatory_depends_on": "eval:doc.designation == 'Artisan'",
    "options": "Artisan"
   },
   {
@@ -251,7 +251,7 @@
    "label": "Folio Number"
   },
   {
-   "depends_on": "eval:doc.shareholder_status == 'No'",
+   "depends_on": "eval:doc.shareholder_status == 'Yes'",
    "fieldname": "number_of_shares",
    "fieldtype": "Int",
    "label": "Number Of Shares"
@@ -298,7 +298,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-07-19 12:34:05.958339",
+ "modified": "2022-07-22 17:18:40.092530",
  "modified_by": "Administrator",
  "module": "Rangsutra",
  "name": "Artisan",
