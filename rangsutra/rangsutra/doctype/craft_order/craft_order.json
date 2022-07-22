@@ -1,0 +1,132 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2022-07-19 12:54:21.147413",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "craft_manager",
+  "craft_manager_name",
+  "column_break_4",
+  "transaction_date",
+  "location",
+  "receive_items_section",
+  "items",
+  "raw_materials_issued_section",
+  "raw_materials_issued",
+  "more_information_section",
+  "purchase_order",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Series",
+   "options": "CO-ORD-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "craft_manager",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Craft Manager",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "craft_manager.supplier_name",
+   "fieldname": "craft_manager_name",
+   "fieldtype": "Data",
+   "label": "Craft Manager Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "transaction_date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Location"
+  },
+  {
+   "fieldname": "receive_items_section",
+   "fieldtype": "Section Break",
+   "label": "Receive Items"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Craft Order Items"
+  },
+  {
+   "fieldname": "raw_materials_issued_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "raw_materials_issued",
+   "fieldtype": "Table",
+   "label": "Raw Materials Issued",
+   "options": "Craft Order Raw Materials Issued"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "more_information_section",
+   "fieldtype": "Section Break",
+   "label": "More Information"
+  },
+  {
+   "fieldname": "purchase_order",
+   "fieldtype": "Link",
+   "label": "Purchase Order",
+   "options": "Purchase Order"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Craft Order",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-07-22 11:53:28.980169",
+ "modified_by": "Administrator",
+ "module": "Rangsutra",
+ "name": "Craft Order",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

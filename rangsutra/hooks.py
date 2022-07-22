@@ -200,7 +200,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Stock Entry-suppliers_address",
 		"Stock Entry-suppliers_address_details",
 		"Stock Entry Detail-total_qty",
-		"Purchase Order Item Supplied-total_qty"	
+		"Purchase Order Item Supplied-total_qty",
+		"Purchase Order Item Supplied-issued_qty"	
 		]
 	]
 ]

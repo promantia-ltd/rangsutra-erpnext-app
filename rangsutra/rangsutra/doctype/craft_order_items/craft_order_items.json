@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-07-19 15:11:56.883287",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "subcontracted_item_code",
+  "subcontracted_item_name",
+  "total_qty",
+  "receive_qty",
+  "delivered_qty",
+  "shipped_qty",
+  "balance_qty"
+ ],
+ "fields": [
+  {
+   "fieldname": "subcontracted_item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Subcontracted Item Code",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "subcontracted_item_code.item_name",
+   "fieldname": "subcontracted_item_name",
+   "fieldtype": "Data",
+   "label": "Subcontracted Item Name"
+  },
+  {
+   "fieldname": "total_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Total Qty",
+   "reqd": 1
+  },
+  {
+   "fieldname": "receive_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Receive Qty"
+  },
+  {
+   "fieldname": "delivered_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Delivered Qty"
+  },
+  {
+   "fieldname": "shipped_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Shipped Qty"
+  },
+  {
+   "fieldname": "balance_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Balance Qty"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-07-19 15:41:01.928384",
+ "modified_by": "Administrator",
+ "module": "Rangsutra",
+ "name": "Craft Order Items",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

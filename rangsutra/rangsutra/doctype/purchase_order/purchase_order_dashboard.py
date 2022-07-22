@@ -19,7 +19,7 @@ def get_dashboard_data(data):
 		'transactions': [
 			{
 				'label': _('Related'),
-				'items': ['Purchase Receipt', 'Purchase Invoice']
+				'items': ['Purchase Receipt', 'Purchase Invoice','Craft Order']
 			},
 			{
 				'label': _('Payment'),
