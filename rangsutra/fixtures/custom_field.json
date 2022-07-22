@@ -241,7 +241,7 @@
   "insert_after": "is_artisan_training",
   "label": "Artisan",
   "length": 0,
-  "mandatory_depends_on": null,
+  "mandatory_depends_on": "eval:doc.is_artisan_training == 1",
   "modified": "2022-07-20 17:40:50.570418",
   "name": "Training Feedback-artisan",
   "no_copy": 0,
