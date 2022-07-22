@@ -1,0 +1,74 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-07-19 15:54:07.244274",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "subcontracted_item_code",
+  "subcontracted_item_name",
+  "raw_materials_issue_item_code",
+  "raw_materials_issue_item_name",
+  "total_issue_qty",
+  "issued_qty",
+  "reject_qty"
+ ],
+ "fields": [
+  {
+   "fieldname": "subcontracted_item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Subcontracted Item code",
+   "options": "Item"
+  },
+  {
+   "fieldname": "subcontracted_item_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Subcontracted Item Name"
+  },
+  {
+   "fieldname": "raw_materials_issue_item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Raw Materials Issue Item Code",
+   "options": "Item"
+  },
+  {
+   "fieldname": "raw_materials_issue_item_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Raw Materials Issue Item Name"
+  },
+  {
+   "fieldname": "total_issue_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Total Issue Qty"
+  },
+  {
+   "fieldname": "issued_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Issued Qty"
+  },
+  {
+   "fieldname": "reject_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Reject Qty"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-07-21 12:37:53.716727",
+ "modified_by": "Administrator",
+ "module": "Rangsutra",
+ "name": "Craft Order Raw Materials Issued",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
