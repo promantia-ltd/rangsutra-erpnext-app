@@ -201,7 +201,14 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Stock Entry-suppliers_address_details",
 		"Stock Entry Detail-total_qty",
 		"Purchase Order Item Supplied-total_qty",
-		"Purchase Order Item Supplied-issued_qty"	
+		"Purchase Order Item Supplied-issued_qty",
+		"Training Event-is_artisan_training",	
+		"Training Event-artisans",	
+		"Training Feedback-is_artisan_training",	
+		"Training Feedback-artisan",	
+		"Training Feedback-artisan_name",	
+		"Training Result-is_artisan_training",	
+		"Training Result-artisans"
 		]
 	]
 ]
@@ -299,7 +306,9 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Asset Finance Book-total_number_of_depreciations-columns",
 		"Production Plan-sub_assembly_items-allow_bulk_edit",
 		"Production Plan-project-depends_on",
-		"Purchase Receipt Item Supplied-consumed_qty-read_only_depends_on"
+		"Purchase Receipt Item Supplied-consumed_qty-read_only_depends_on",
+		"Training Result-employees-depends_on",	
+		"Training Event-employees-depends_on"	
 		]
 	]
 ]
@@ -333,7 +342,9 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Project-Form",
 		"Material Request-Form",
 		"Production Plan-Form",
-		"Routing-Form"
+		"Routing-Form",
+		"Training Feedback-Form",
+		"Training Result-Form"
 		]
 	]
 ]
@@ -503,9 +514,9 @@ override_doctype_dashboards = {
 # ---------------
 # Override standard doctype classes
 
-# override_doctype_class = {
-# 	"ToDo": "custom_app.overrides.CustomToDo"
-# }
+override_doctype_class = {	
+	"Training Feedback": "rangsutra.rangsutra.doctype.training_feedback.training_feedback.CustomTrainingFeedback"	
+}
 
 # Document Events
 # ---------------
