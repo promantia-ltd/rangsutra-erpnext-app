@@ -1562,5 +1562,39 @@
   "property_type": "Data",
   "row_name": null,
   "value": "eval:doc.is_artisan_training == 0"
+ },
+ {
+  "default_value": null,
+  "doc_type": "Training Feedback",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "employee",
+  "modified": "2022-07-22 18:44:04.581747",
+  "name": "Training Feedback-employee-reqd",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "property": "reqd",
+  "property_type": "Check",
+  "row_name": null,
+  "value": "0"
+ },
+ {
+  "default_value": null,
+  "doc_type": "Training Feedback",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "employee",
+  "modified": "2022-07-22 18:52:55.969908",
+  "name": "Training Feedback-employee-mandatory_depends_on",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "property": "mandatory_depends_on",
+  "property_type": "Data",
+  "row_name": null,
+  "value": "eval:doc.is_artisan_training == 0"
  }
 ]
