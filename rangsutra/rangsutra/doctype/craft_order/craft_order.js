@@ -22,5 +22,14 @@ frappe.ui.form.on('Craft Order', {
                 });
             });
         }
+    },
+    refresh: function(frm) {
+        frm.set_query("craft_manager", function() {
+            return {
+                filters: {
+                    "is_craft_manager": 1
+                }
+            };
+        });
     }
 });
