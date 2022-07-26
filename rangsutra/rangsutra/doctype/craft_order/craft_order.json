@@ -68,6 +68,7 @@
    "label": "Receive Items"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "items",
    "fieldtype": "Table",
    "label": "Items",
@@ -108,7 +109,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-07-25 08:43:57.010610",
+ "modified": "2022-07-25 17:12:07.609578",
  "modified_by": "Administrator",
  "module": "Rangsutra",
  "name": "Craft Order",
@@ -124,6 +125,7 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],
