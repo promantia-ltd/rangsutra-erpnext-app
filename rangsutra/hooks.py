@@ -312,7 +312,9 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Production Plan-project-depends_on",
 		"Purchase Receipt Item Supplied-consumed_qty-read_only_depends_on",
 		"Training Result-employees-depends_on",	
-		"Training Event-employees-depends_on"	
+		"Training Event-employees-depends_on",
+		"Training Feedback-employee-reqd",
+		"Training Feedback-employee-mandatory_depends_on"
 		]
 	]
 ]

@@ -6,7 +6,8 @@ frappe.ui.form.on('Artisan', {
         frm.set_query("reports_to", function() {
             return {
                 filters: {
-                    "is_craft_manager": 1
+                    "is_craft_manager": 1,
+                    "disabled": 0
                 }
             };
         });

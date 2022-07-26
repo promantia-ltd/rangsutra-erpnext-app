@@ -7,6 +7,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "disabled",
   "naming_series",
   "column_break_2",
   "name1",
@@ -293,12 +294,17 @@
    "fieldname": "is_craft_manager",
    "fieldtype": "Check",
    "label": "Is Craft Manager"
+  },
+  {
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled"
   }
  ],
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2022-07-22 17:18:40.092530",
+ "modified": "2022-07-26 11:24:15.537238",
  "modified_by": "Administrator",
  "module": "Rangsutra",
  "name": "Artisan",
