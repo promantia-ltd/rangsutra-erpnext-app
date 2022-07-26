@@ -212,9 +212,6 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Location-address",
 		"Location-address_display",
 		"Supplier-location_list",
-		"Supplier-location_details",
-		"Location-address",
-		"Location-address_display",
 		"Supplier-location_details"
 		]
 	]
@@ -352,7 +349,8 @@ fixtures = ["Server Script","Item Variant Settings","Workflow","Workflow State",
 		"Routing-Form",
 		"Training Feedback-Form",
 		"Training Result-Form",
-		"Location-Form"
+		"Location-Form",
+		"Artisan-Form"
 		]
 	]
 ]
