@@ -312,7 +312,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-29 12:18:34.052258",
+ "modified": "2022-07-29 13:15:44.657008",
  "modified_by": "Administrator",
  "module": "Rangsutra",
  "name": "Artisan",
@@ -331,7 +331,7 @@
    "write": 1
   }
  ],
- "search_fields": "name1,reports_to",
+ "search_fields": "name1",
  "sort_field": "modified",
  "sort_order": "DESC"
 }
